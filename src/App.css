@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Protest+Guerrilla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Protest+Guerrilla&family=Silkscreen:wght@400;700&display=swap');
+@font-face {
+  font-family: 'AppleNeoB';
+  src: url(../public/AppleSDGothicNeoB.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'AppleNeoEB';
+  src: url(../public/AppleSDGothicNeoEB.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'AppleNeoH';
+  src: url(../public/AppleSDGothicNeoH.ttf)  format('opentype');
+}
+@font-face {
+  font-family: 'AppleNeoL';
+  src: url(../public/AppleSDGothicNeoL.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'AppleNeoM';
+  src: url(../public/AppleSDGothicNeoM.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'AppleNeoR';
+  src: url(../public/AppleSDGothicNeoR.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'AppleNeoSB';
+  src: url(../public/AppleSDGothicNeoSB.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'AppleNeoT';
+  src: url(../public/AppleSDGothicNeoT.ttf) format('opentype');
+}
+@font-face {
+  font-family: 'AppleNeoUL';
+  src: url(../public/AppleSDGothicNeoUL.ttf) format('opentype');
+
+}
+
+.App{
+  width: 100%;
+  height: auto;
+  }
+

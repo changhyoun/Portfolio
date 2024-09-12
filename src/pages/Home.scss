@@ -1,0 +1,128 @@
+#Home {
+  width: 100%;
+  height: 100%;
+
+  #main {
+    width: 100%;
+    max-width: 1920px;
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    video {
+      width: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      height: 100%;
+    }
+
+    > div:nth-of-type(1) {
+      width: 42%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      h2 {
+        font-size: 6.5em;
+        color: transparent;
+        background: linear-gradient(90deg, #fff 0%, #919191 100%);
+        background-clip: text;
+        -webkit-background-clip: text; /* Safari를 위한 추가 */
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+        font-family: "Protest Guerrilla", sans-serif;
+        text-align: center;
+        transform: rotate(20deg); /* 초기 회전값 설정 */
+        transition: transform 0.3s ease; /* 회전 애니메이션을 부드럽게 전환 */
+      }
+
+      .main_large_cir,
+      .main_middle_cir,
+      .main_small_cir {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        overflow: hidden;
+        
+        background: linear-gradient(90deg, #1313139f 0%, #2c2c2c 100%);
+        border: 1px solid #4d4d4d;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+        box-sizing: border-box;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+          transition: transform 0.3s ease; /* 회전 애니메이션을 부드럽게 전환 */
+        }
+      }
+
+      .main_large_cir {
+        width: 75%;
+        h2 {
+          transform: rotate(-20deg); /* 초기 회전값 설정 */
+        }
+      }
+
+      .main_middle_cir {
+        width: 60%;
+        h2 {
+          transform: rotate(20deg); /* 초기 회전값 설정 */
+        }
+      }
+
+      .main_small_cir {
+        width: 45%;
+        h2 {
+          transform: rotate(-20deg); /* 초기 회전값 설정 */
+        }
+      }
+    }
+      .scrollDown{
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        right: 5%;
+        background-color: white;
+        display: none;
+       
+      }
+
+  }
+
+
+  #page2 {
+    width: 100%;
+    max-width: 1920px;
+    height: 200vh;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #page3 {
+    width: 100%;
+    max-width: 1920px;
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7a7a7a;
+  }
+}
