@@ -90,7 +90,9 @@ const Home = () => {
     <div id="Home">
       <Header />
       <main id="main" ref={mainRef}>
-        <video src={Home_main_back} autoPlay muted playsInline loop></video>
+        <video src={Home_main_back} 
+        autoPlay muted playsInline loop
+        ></video>
         <div className="main_warp" ref={mainWarpRef}>
           <h2 ref={(el) => (h2Refs.current[0] = el)}>For the web,<br /> for the people.</h2>
           <div className="main_large_cir">

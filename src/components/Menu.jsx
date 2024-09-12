@@ -19,7 +19,7 @@ const Menu = () => {
             <li>
               <Link to="/img">
               <span className="material-symbols-rounded">
-                contact_support
+                contact_support 
               </span>
               </Link>
             </li>

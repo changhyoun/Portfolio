@@ -1,22 +1,38 @@
 #Header{
    position: fixed;
-   top: 0;
-   left: 0;
-   max-height: 100vh;
-   width: 60px;
-   height: 100%;
+   top: 2%;
+   max-width: 1920px;
+   width: 100%;
+   height: 45px;
    display: flex;
    align-items: center;
    justify-content: center;
    z-index: 10;
    > div{
-    width: 100%;
-    height: 80%;
+    width: 80%;
+    height: 100%;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: space-between;
     img.logo{
-        width: 70%;
+        height: 80%;
+    }
+    .input_box{
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(90deg, rgba(214, 218, 217, 0.171) 0%, rgba(79, 84, 83, 0.212) 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        span{
+            color: transparent;
+            background: linear-gradient(90deg, #fff 0%, #999 100%);
+            background-clip: text;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+            font-size: 1.2em;
+        }
     }
    }
   }
