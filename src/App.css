@@ -36,8 +36,12 @@
 @font-face {
   font-family: 'AppleNeoUL';
   src: url(../public/AppleSDGothicNeoUL.ttf) format('opentype');
-
 }
+@font-face {
+  font-family: 'Parabole';
+  src: url(../public/Parabole.ttf.ttf) format('opentype');
+}
+
 
 .App{
   width: 100%;
