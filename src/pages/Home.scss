@@ -4,7 +4,7 @@
 
   .scrollDown{
     position: fixed;
-    bottom: 2%;
+    bottom: 5%;
     right: 10%;
     z-index: 100;
     display: flex;
@@ -62,8 +62,6 @@
       --offset: 2px;
       position: relative;
       top: 50%;
-      left: 100%;
-      transform: translate(-50%,-50%);
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -232,6 +230,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .main_tx_box {
+      position: absolute;
+      bottom: 5%;
+      left: 10%;
+      color: #f5f5f5;
+      height: auto; /* 높이 자동 조정 */
+      width: auto;
+
+      h2 {
+        font-family: 'Parabole';
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem; /* 아래 여백 추가 */
+        color: #ffffff; /* 텍스트 색상 유지 */
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+    
+      p {
+        font-family: 'AppleNeoEB';
+        font-size: 0.8rem;
+        color: #cecece; /* 텍스트 색상 조정 */
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+    }
+    
     
 
     video {
@@ -242,7 +265,11 @@
       left: 0;
       z-index: -1;
       height: 100%;
+      &:nth-of-type(2){
+        opacity: 0.1;
+      }
     }
+    
 
     > div:nth-of-type(1) {
       width: 42%;
@@ -325,6 +352,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
 
   #page3 {
@@ -336,6 +364,50 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #7a7a7a;
+    
+    background-color: #1A1A1A;
+    > div{
+      width: 80%;
+      height: 80%;
+      -webkit-mask-image: linear-gradient(to right, #0000, #000 12.5%, #000 87.5%, #0000);
+      mask-image: linear-gradient(to right, #0000, #000 12.5%, #000 87.5%, #0000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .page3_warp p {
+        display: block; /* p 요소는 블록 요소로 유지 */
+        text-align: left; /* 텍스트 왼쪽 정렬 */
+        white-space: normal; /* 줄 바꿈을 허용 */
+      }
+      span {
+        color: #f5f5f5;
+        text-align: center;
+        display: inline-block; /* span 요소를 인라인 블록으로 설정 */
+        white-space: pre-wrap; /* 줄 바꿈이 정상적으로 표시되도록 설정 */
+        position: relative; /* 애니메이션을 위해 상대 위치 지정 */
+        font-family: 'AppleNeoEB';
+        font-size: 1.2em;
+      }
+      .page3_warp_profile{
+        width: 0; /* 초기 너비 */
+        height: 0; /* 초기 높이 */
+        opacity: 0; /* 초기 투명도 */
+        object-fit: cover;
+        border-radius: 30px;
+        margin: 1% 0;
+        transition: all 0.5s ease; /* 애니메이션 부드럽게 전환 */
+      }
+    }
+  }
+  #page4{
+    width: 100%;
+    height: 150vh;
+    background-color: darkblue;
+  }
+  #page5{
+    width: 100%;
+    height: 100vh;
+    background-color: darkcyan;
   }
 }

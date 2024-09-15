@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { Home_main_back } from '../components/Image';
+import { Home_main_back, Home_main_back2, github_ic, se } from '../components/Image';
 import Header from '../components/Header';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin'; // ScrollToPlugin 추가
-import { TextPlugin } from 'gsap/TextPlugin'; // GSAP 텍스트 플러그인 추가
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { TextPlugin } from 'gsap/TextPlugin';
 import './Home.scss';
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin); // ScrollToPlugin 등록
+gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
 
 const Home = () => {
   const mainRef = useRef(null);
@@ -16,7 +16,11 @@ const Home = () => {
   const svgRef = useRef(null);
   const scrollDownRef = useRef(null);
   const downBoxRef = useRef(null);
-  const buttonRef = useRef(null); // button 참조 추가
+  const buttonRef = useRef(null);
+  const videoRef2 = useRef(null);
+  const textBoxRef = useRef(null);
+  const page3Ref = useRef(null);
+  const page3TextRef = useRef(null);
 
   useEffect(() => {
     initializeScrollTrigger();
@@ -25,6 +29,12 @@ const Home = () => {
     animateScrollDownSVG();
     handleScrollEffects();
     animateDownBoxText();
+    splitTextAndAnimate();
+    splitTextIntoSpans(); // 텍스트 단어별로 나누기 및 애니메이션 추가
+
+    if (videoRef2.current) {
+      videoRef2.current.playbackRate = 0.5;
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -32,6 +42,7 @@ const Home = () => {
   }, []);
 
   const initializeScrollTrigger = () => {
+    // Section 1 fixed scrolling
     ScrollTrigger.create({
       trigger: mainRef.current,
       start: 'top+=1 top',
@@ -44,6 +55,61 @@ const Home = () => {
       onEnterBack: () => gsap.set(mainRef.current, { position: 'fixed', top: 0 }),
       onLeaveBack: () => gsap.set(mainRef.current, { position: 'relative', clearProps: 'top' }),
     });
+
+    // Section 3 fixed scrolling
+    ScrollTrigger.create({
+      trigger: '#page3',
+      start: 'top top',
+      endTrigger: '#page4',
+      end: '50% center',
+      pin: '#page3',
+      pinSpacing: false,
+      onEnter: () => gsap.set('#page3', { position: 'fixed', top: 0 }),
+      onLeave: () => gsap.set('#page3', { position: 'relative' }),
+      onEnterBack: () => gsap.set('#page3', { position: 'fixed', top: 0 }),
+      onLeaveBack: () => gsap.set('#page3', { position: 'relative' }),
+    });
+
+    // Text animation for returning to position
+    gsap.fromTo(
+      page3TextRef.current.querySelectorAll('span'),
+      { x: 'random(-200, 200)', y: 'random(-100, 100)', opacity: 0 },
+      {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#page3',
+          start: 'top top',
+          end: 'bottom center',
+          scrub: true,
+        },
+      }
+    );
+    gsap.fromTo(
+      page3Ref.current.querySelector('.page3_warp_profile'),
+      { 
+        width: 0, 
+        height: 0, 
+        opacity: 0 
+      },
+      {
+        width: '30%', // 목표 크기
+        height: '300px', // 목표 크기
+        opacity: 1,
+        duration: 0.5, // 애니메이션 지속 시간
+        
+        scrollTrigger: {
+          trigger: '#page3', // 섹션 3이 스크롤될 때 애니메이션 시작
+          start: '50% center', // 섹션 3의 75% 지점에서 시작
+          endTrigger: '#page4', // 섹션 4의 시작 부분
+          end: '10% center', // 섹션 4의 1/3 지점에서 끝
+          scrub: true, // 스크롤에 따라 애니메이션이 동기화됨
+        },
+      }
+    );
   };
 
   const animateHeaders = () => {
@@ -86,49 +152,36 @@ const Home = () => {
       });
     });
   };
+
   const animateScrollDownSVG = () => {
-    let rotationY = 0; // 초기 회전 각도
-  
-    // SVG 요소에 3D 회전을 활성화하도록 스타일 설정
+    let rotationY = 0;
+
     if (svgRef.current) {
       gsap.set(svgRef.current, {
-        transformPerspective: 1000, // 3D 회전의 깊이 설정
-        transformStyle: 'preserve-3d', // 3D 스타일 유지
+        transformPerspective: 1000,
+        transformStyle: 'preserve-3d',
       });
     } else {
       console.warn('SVG element not found');
-      return; // SVG 요소가 없으면 함수 종료
+      return;
     }
-  
-    console.log('SVG 3D transformation settings applied.');
-  
+
     ScrollTrigger.create({
-      trigger: '#Home', // 페이지 전체를 트리거로 설정
-      start: 'top top', // 스크롤 시작 위치
-      end: 'bottom bottom', // 스크롤 끝 위치
-      scrub: true, // 스크롤에 따라 애니메이션 동기화
-      refreshPriority: 1, // 업데이트 우선순위 설정
+      trigger: '#Home',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: true,
+      refreshPriority: 1,
       onUpdate: (self) => {
-        console.log('onUpdate called.'); // onUpdate가 호출되는지 확인
-  
-        // 스크롤 변화에 따라 회전 각도 계산
         if (self.direction > 0) {
-          rotationY += 10; // 스크롤 다운 시 10도 증가
+          rotationY += 10;
         } else {
-          rotationY -= 10; // 스크롤 업 시 10도 감소
+          rotationY -= 10;
         }
-  
-        // 콘솔에 현재 회전 각도 출력
-        console.log(`Current rotationY: ${rotationY} degrees`);
-  
-        // SVG 요소의 회전 적용
         gsap.set(svgRef.current, { rotationY });
       },
     });
-  
-    console.log('ScrollTrigger created.');
   };
-  
 
   const handleScrollEffects = () => {
     window.addEventListener('scroll', () => {
@@ -139,7 +192,7 @@ const Home = () => {
           opacity: 1,
           display: 'flex',
           duration: 0.5,
-          onComplete: animateDownBoxText, // 애니메이션이 완료된 후 텍스트 애니메이션 실행
+          onComplete: animateDownBoxText,
         });
       } else {
         gsap.to(buttonRef.current, { opacity: 1, display: 'flex', duration: 0.5 });
@@ -149,14 +202,12 @@ const Home = () => {
   };
 
   const animateDownBoxText = () => {
-    const alienText = "ʞɐʍʞʍʎ"; // 외계어처럼 보이는 텍스트
-
-    // 텍스트 애니메이션 설정
+    const alienText = "ʞɐʍʞʍʎ";
     gsap.fromTo(
       downBoxRef.current.querySelector('p'),
-      { text: alienText }, // 외계어로 시작
+      { text: alienText },
       {
-        text: 'scroll down', // 타자치는 효과로 텍스트 전환
+        text: 'scroll down',
         duration: 1.5,
         ease: 'power2.out',
         delay: 0.3,
@@ -165,17 +216,91 @@ const Home = () => {
   };
 
   const handleDownBoxClick = () => {
-    const mainElement = mainRef.current; // #main 요소 참조
-    const targetScrollPosition = mainElement.offsetTop + mainElement.offsetHeight / 3; // #main 높이의 1/3 위치 계산
-  
-    gsap.to(window, { scrollTo: { y: targetScrollPosition }, duration: 0.6, ease: 'power2.out' }); // 부드럽게 스크롤
+    const mainElement = mainRef.current;
+    const targetScrollPosition = mainElement.offsetTop + mainElement.offsetHeight / 3;
+    gsap.to(window, { scrollTo: { y: targetScrollPosition }, duration: 0.6, ease: 'power2.out' });
   };
 
+  const splitTextAndAnimate = () => {
+    const textBox = textBoxRef.current;
+    const h2 = textBox.querySelector('h2');
+    const p = textBox.querySelector('p');
+  
+    const splitText = (element) => {
+      const text = element.innerText;
+      element.innerHTML = '';
+      text.split('').forEach((char) => {
+        const span = document.createElement('span');
+        span.textContent = char === '\n' ? '' : char;
+        element.appendChild(span);
+        if (char === '\n') {
+          element.appendChild(document.createElement('br'));
+        }
+      });
+    };
+  
+    splitText(h2);
+    splitText(p);
+  
+    gsap.from(textBox.querySelectorAll('span'), {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.02,
+      ease: 'power3.out',
+    });
+  };
+
+  const splitTextIntoSpans = () => {
+    const paragraphs = page3TextRef.current.querySelectorAll('p');
+  
+    paragraphs.forEach((p) => {
+      const lines = p.innerText.split('\n');
+      p.innerHTML = ''; // 기존 p의 내용을 비움
+      
+      lines.forEach((line) => {
+        const lineSpan = document.createElement('span');
+        lineSpan.style.display = 'block'; // 줄 단위로 블록 설정
+        line.split(' ').forEach((word) => {
+          const wordSpan = document.createElement('span');
+          wordSpan.textContent = word + ' ';
+          lineSpan.appendChild(wordSpan);
+        });
+        p.appendChild(lineSpan);
+      });
+    });
+  
+    // 애니메이션 설정
+    gsap.fromTo(
+      page3TextRef.current.querySelectorAll('span span'),
+      {
+        x: () => Math.random() * 500 - 250, // 무작위 x 위치 설정
+        y: () => Math.random() * 200 - 100, // 무작위 y 위치 설정
+        opacity: 0, // 초기 투명도
+        rotation: () => Math.random() * 360 - 180, // 무작위 회전 설정
+      },
+      {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        rotation: 0,
+        duration: 1.5,
+        ease: 'power1.out',
+        stagger: 0.05, // 각 단어별로 약간의 지연을 줌
+        scrollTrigger: {
+          trigger: '#page3',
+          start: 'top top',
+          end: 'bottom center',
+          scrub: true,
+        },
+      }
+    );
+  };
   return (
     <div id="Home">
       <Header />
       <div className="scrollDown" ref={scrollDownRef}>
-        <button className="button" ref={buttonRef}  style={{ display: 'none' }}>
+        <button className="button" ref={buttonRef} style={{ display: 'none' }}>
           <div className="dots_border"></div>
           <svg
             ref={svgRef}
@@ -211,41 +336,80 @@ const Home = () => {
           </svg>
         </button>
         <div className="down_box" ref={downBoxRef} onClick={handleDownBoxClick}>
-           <p>scroll down</p>
-           <div>
-             <span
-               className="material-symbols-rounded arrow"
-             >
-              south_east
-            </span>
-            <span
-               className="material-symbols-rounded arrow"
-             >
-              south_east
-            </span>
-           </div>
-         </div>
+          <p>scroll down</p>
+          <div>
+            <span className="material-symbols-rounded arrow">south_east</span>
+            <span className="material-symbols-rounded arrow">south_east</span>
+          </div>
+        </div>
       </div>
 
       <main id="main" ref={mainRef}>
         <video src={Home_main_back}
-            // autoPlay muted playsInline loop
-        ></video>
+        autoPlay muted playsInline loop
+        >
+        </video>
+        <video src={Home_main_back2}
+        autoPlay muted playsInline loop
+        ref={videoRef2}>
+
+        </video>
         <div className="main_warp" ref={mainWarpRef}>
-          <h2 ref={(el) => (h2Refs.current[0] = el)}>For the web,<br /> for the people.</h2>
+          <h2 ref={(el) => (h2Refs.current[0] = el)}>
+            For the web,
+            <br /> for the people.
+          </h2>
           <div className="main_large_cir">
-            <h2 ref={(el) => (h2Refs.current[1] = el)}>For the web,<br /> for the people.</h2>
+            <h2 ref={(el) => (h2Refs.current[1] = el)}>
+              For the web,
+              <br /> for the people.
+            </h2>
           </div>
           <div className="main_middle_cir">
-            <h2 ref={(el) => (h2Refs.current[2] = el)}>For the web,<br /> for the people.</h2>
+            <h2 ref={(el) => (h2Refs.current[2] = el)}>
+              For the web,
+              <br /> for the people.
+            </h2>
           </div>
           <div className="main_small_cir">
-            <h2 ref={(el) => (h2Refs.current[3] = el)}>For the web,<br /> for the people.</h2>
+            <h2 ref={(el) => (h2Refs.current[3] = el)}>
+              For the web,
+              <br /> for the people.
+            </h2>
           </div>
+        </div>
+        <div className="main_tx_box" ref={textBoxRef}>
+          <h2>
+            Welcome to a space where
+            <br />
+            sophisticated code and
+            <br />
+            sensuous design come together.
+          </h2>
+          <p>( 정교한 코드와 감각적인 디자인이 어우러진 공간에 오신 것을 환영합니다. )</p>
         </div>
       </main>
       <section id="page2"></section>
-      <section id="page3"></section>
+      <section id="page3" ref={page3Ref}>
+        <div className="page3_warp" ref={page3TextRef}>
+          
+            <p>안녕하세요, 프론트엔드 개발자이자 웹 디자이너 김창현입니다.</p>
+            <img src={se} className="page3_warp_profile" alt="se" />
+            <p>산업 설비와 운동 전공에서 웹 디자인과 퍼블리싱으로 전향하여,<br />
+            Adobe 툴과 HTML, CSS, JavaScript, React를 익히며<br />
+            사용자 친화적인 웹 경험을 디자인하고 개발하는 데 주력하고 있습니다.<br />
+            최신 기술을 활용해 반응형 웹 디자인과 인터랙티브한 요소를<br />
+            구현하는 것을 즐기며, 지속적인 학습을 통해 성장하고 있습니다.<br />
+            혁신적인 웹 경험을 제공하기 위해 항상 도전하며 발전해 나가고자 합니다.
+          </p>
+        </div>
+      </section>
+      <div id="page4">
+
+      </div>
+      <div id="page5">
+
+      </div>
     </div>
   );
 };
