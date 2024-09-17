@@ -364,9 +364,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
     background-color: #1A1A1A;
-    > div{
+    >img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    > div:nth-of-type(1){
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      canvas{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    > div:nth-of-type(2){
       width: 80%;
       height: 80%;
       -webkit-mask-image: linear-gradient(to right, #0000, #000 12.5%, #000 87.5%, #0000);
@@ -375,28 +394,202 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      .page3_warp p {
-        display: block; /* p 요소는 블록 요소로 유지 */
-        text-align: left; /* 텍스트 왼쪽 정렬 */
-        white-space: normal; /* 줄 바꿈을 허용 */
+      position: relative;
+      .page3_tx{
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        p {
+          display: block; /* p 요소는 블록 요소로 유지 */
+          text-align: left; /* 텍스트 왼쪽 정렬 */
+          white-space: normal; /* 줄 바꿈을 허용 */         
+        }
+        span {
+          color: #f5f5f5;
+          text-align: left;
+          display: inline-block; /* span 요소를 인라인 블록으로 설정 */
+          white-space: pre-wrap; /* 줄 바꿈이 정상적으로 표시되도록 설정 */
+          position: relative; /* 애니메이션을 위해 상대 위치 지정 */
+
+          font-size: 1em;
+          z-index: 10;
+          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+        }
+        p:nth-of-type(1){
+          span{
+            font-size: 1.5em;
+            font-family: 'Parabole';
+            
+          }
+   
+        }
+        p:nth-of-type(2){
+          margin-top: 3%;
+          span{
+            color: #cecece;
+            font-size: 1.2em;
+            font-family: 'AppleNeoM';
+            span{
+              &:nth-of-type(3){
+                background-color: #4444C7;
+                color: #f5f5f5;
+                padding: 0.5% 1%;
+                margin: 0.5% 1%;
+                border-radius: 10px;
+              }
+            }
+          }
+        }
       }
-      span {
-        color: #f5f5f5;
-        text-align: center;
-        display: inline-block; /* span 요소를 인라인 블록으로 설정 */
-        white-space: pre-wrap; /* 줄 바꿈이 정상적으로 표시되도록 설정 */
-        position: relative; /* 애니메이션을 위해 상대 위치 지정 */
-        font-family: 'AppleNeoEB';
-        font-size: 1.2em;
-      }
+      
+
+    
       .page3_warp_profile{
+        background: url(../assets/se.jpg);
         width: 0; /* 초기 너비 */
         height: 0; /* 초기 높이 */
         opacity: 0; /* 초기 투명도 */
+        transform-origin: center center;
         object-fit: cover;
         border-radius: 30px;
         margin: 1% 0;
+        filter: grayscale(0.5);
         transition: all 0.5s ease; /* 애니메이션 부드럽게 전환 */
+        position: relative;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        &::before{
+          transition: 0.3s ease all;
+          
+        }
+        &:hover{
+
+          &::before{
+            opacity: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            background-color: rgba(0, 0, 0, 0.411);
+            z-index: 10;
+          }
+        }
+        
+        .image__element {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-position: center;
+          border-radius: 30px;
+          transition: transform 0.25s ease, opacity 0.25s ease; // 애니메이션 전환
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+          
+        }
+      }
+      .page3_swiper_tx_box{
+        color: white;
+        position: absolute;
+        bottom: 2%;
+        left: 10%;
+        font-family: "Bangers", system-ui;
+        font-weight: normal;
+        font-size: 1.5rem;
+        width: auto;
+        height: auto;
+        white-space: nowrap;
+        box-sizing: border-box;
+        color: #929592;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+        height: 10%;
+        display: flex;
+        
+        
+        width: calc(auto + 6%);
+        width: 40%;
+        overflow: hidden;
+     
+        h2{
+          display: flex;
+          align-items: center;
+        }
+        span:not(.page3_swiper_btn span) {
+          box-sizing: border-box;
+          border: 2px solid #f5f5f5;
+          width: auto;
+          border-radius: 40px;
+          color: white;
+          height: 100%;
+          padding: 0 6%;
+          margin: 0 3%;
+          display: flex;
+          
+          .swiper-container{
+            
+            .swiper-notification{
+              display: none;
+            }
+            
+              .swiper-slide{
+                width: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              
+          }
+        }
+        .page3_swiper_btn{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 3%;
+          button{
+            border: none;
+            outline: none;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #292979;
+            border-radius: 40px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 200ms;
+            display: grid;    
+            span {
+              color: white;
+              font-size: 2.5em;
+              position: absolute;
+              transform: translate(25%,0%) !important;
+              &:nth-of-type(1) {              
+                transform: translate(-100%, 0%) !important;
+              }
+            }
+          
+          }
+        }
+      &:hover{
+        .page3_swiper_btn button{
+          span:nth-of-type(1) {
+            transition: transform 0.3s ease-in-out;
+            transform: translate(25%, 0) !important;
+          }
+    
+          span:nth-of-type(2) {
+            transition: transform 0.3s ease-in-out 0.1s;
+            transform: translate(200%, 0%) !important;
+          }
+        }
+      }  
       }
     }
   }

@@ -17,6 +17,14 @@
     img.logo{
         height: 80%;
     }
+    .Header_rt{
+        display: flex;
+        position: relative;
+        height: 100%;
+        width: 30%;
+        align-items: center;
+        justify-content: end;
+    }
     .input_box{
         width: auto;
         height: 100%;
@@ -25,9 +33,52 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        position: relative;
+        margin-right: 5%;
+        /* 툴팁 삼각형 스타일 */
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: -13px; /* 툴팁 텍스트 바로 아래에 위치 */
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #333 transparent; /* 위쪽만 삼각형 색상 */
+            opacity: 0; /* 기본적으로 숨김 */
+            visibility: hidden; /* 기본적으로 숨김 */
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            pointer-events: none;
+            z-index: 9; /* 툴팁 텍스트 아래에 삼각형 표시 */
+          }
+           /* 툴팁 텍스트 스타일 */
+           &::after {
+            content: "검색"; /* 툴팁 텍스트 */
+            position: absolute;
+            bottom: -40px; /* li 요소 아래에 위치 */
+            left: 50%;
+            transform: translateX(-50%);
+            color: #C9C9C9;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.75em;
+            white-space: nowrap;
+            opacity: 0; /* 기본적으로 숨김 */
+            visibility: hidden; /* 기본적으로 숨김 */
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            pointer-events: none; /* 툴팁은 클릭되지 않도록 설정 */
+            z-index: 10; /* 삼각형 위에 툴팁 표시 */
+            background: linear-gradient(90deg, rgba(214, 218, 217, 0.171) 0%, rgba(79, 84, 83, 0.212) 100%);
+          }
+          &:hover::after,
+          &:hover::before {
+            opacity: 1;
+            visibility: visible;
+          }
         span{
             margin-right: 5%;
-            
             border-radius: 50%;
             box-sizing: border-box;
             height: 100%;
@@ -78,6 +129,92 @@
                 border-radius: 10px;
             }
         }
+   
     }
+    .hambuger{
+        width: auto;
+        height: 100%;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+        span{
+            margin-right: 5%;    
+            border-radius: 50%;
+            box-sizing: border-box;
+            height: 100%;
+            aspect-ratio: 1;
+            width:  auto;
+            color: transparent;
+            background: linear-gradient(90deg, #fff 0%, #999 100%);
+            background-clip: text;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+            font-size: 1.2em;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &::before{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #2a2a29;
+                border-radius: 50%;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        /* 툴팁 삼각형 스타일 */
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: -13px; /* 툴팁 텍스트 바로 아래에 위치 */
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #333 transparent; /* 위쪽만 삼각형 색상 */
+            opacity: 0; /* 기본적으로 숨김 */
+            visibility: hidden; /* 기본적으로 숨김 */
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            pointer-events: none;
+            z-index: 9; /* 툴팁 텍스트 아래에 삼각형 표시 */
+          }
+           /* 툴팁 텍스트 스타일 */
+           &::after {
+            content: "메뉴"; /* 툴팁 텍스트 */
+            position: absolute;
+            bottom: -40px; /* li 요소 아래에 위치 */
+            left: 50%;
+            transform: translateX(-50%);
+            color: #C9C9C9;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.75em;
+            white-space: nowrap;
+            opacity: 0; /* 기본적으로 숨김 */
+            visibility: hidden; /* 기본적으로 숨김 */
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            pointer-events: none; /* 툴팁은 클릭되지 않도록 설정 */
+            z-index: 10; /* 삼각형 위에 툴팁 표시 */
+            background: linear-gradient(90deg, rgba(214, 218, 217, 0.171) 0%, rgba(79, 84, 83, 0.212) 100%);
+          }
+      
+          /* a 또는 img에 마우스 호버 시 툴팁 및 삼각형 표시 */
+          &:hover::after,
+          &:hover::before {
+            opacity: 1;
+            visibility: visible;
+          }
+    }
+     
    }
   }

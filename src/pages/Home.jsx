@@ -21,8 +21,23 @@ const Home = () => {
   const textBoxRef = useRef(null);
   const page3Ref = useRef(null);
   const page3TextRef = useRef(null);
+  const canvasRef = useRef(null);
+  const profileRef = useRef(null); // page3_warp_profile 요소의 참조
 
   useEffect(() => {
+
+     // Swiper 초기화
+     if (window.Swiper) {
+      new window.Swiper('.swiper-container', {
+        direction: 'vertical',
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: true,
+        },
+      });
+    }
+
     initializeScrollTrigger();
     animateHeaders();
     animateMainWarp();
@@ -30,16 +45,101 @@ const Home = () => {
     handleScrollEffects();
     animateDownBoxText();
     splitTextAndAnimate();
-    splitTextIntoSpans(); // 텍스트 단어별로 나누기 및 애니메이션 추가
+    splitTextIntoSpans();
+    createProfileHoverAnimation(); // 프로필 이미지 호버 애니메이션 생성
+    
 
+    // Canvas를 사용하여 이미지 렌더링
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    const image = new Image();
+    image.src = 'https://images.unsplash.com/photo-1631879742101-cfbb083e6402?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; // 이미지 URL
+
+    const setCanvasSize = () => {
+      const dpr = window.devicePixelRatio || 1; // 디스플레이의 픽셀 비율
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr); // 고해상도로 스케일 조정
+
+      // 이미지 스무딩 설정
+      ctx.imageSmoothingEnabled = true;
+    };
+
+    image.onload = () => {
+      setCanvasSize(); // 캔버스 크기 설정
+    
+      const { width, height } = canvas;
+    
+      // 스크롤에 따라 이미지 픽셀화 조정
+      const pixelData = { pixelSize: 30 }; // 초기 픽셀 크기
+    
+      ScrollTrigger.create({
+        trigger: page3Ref.current,
+        start: 'top top',
+        end: 'top 60%',
+        scrub: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const targetPixelSize = Math.max(1, 30 * (1 - progress)); // 목표 픽셀 크기
+    
+          // gsap 애니메이션을 사용하여 픽셀 크기를 양방향으로 조정
+          gsap.to(pixelData, {
+            pixelSize: targetPixelSize,
+            duration: 1.5, // 애니메이션 지속 시간
+            ease: 'power2.out',
+            overwrite: 'auto', // 양방향 애니메이션이 부드럽게 작동하도록 설정
+            onUpdate: () => {
+              ctx.clearRect(0, 0, width, height);
+              // 작은 사이즈로 이미지를 그린 후 확대
+              ctx.drawImage(image, 0, 0, width / pixelData.pixelSize, height / pixelData.pixelSize);
+              ctx.drawImage(canvas, 0, 0, width / pixelData.pixelSize, height / pixelData.pixelSize, 0, 0, width, height);
+            },
+          });
+        },
+      });
+    };
+    
     if (videoRef2.current) {
       videoRef2.current.playbackRate = 0.5;
     }
 
+    window.addEventListener('resize', setCanvasSize); // 창 크기 변경 시 캔버스 크기 재조정
+
     return () => {
+      window.removeEventListener('resize', setCanvasSize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+
+   // 프로필 이미지 호버 애니메이션 생성
+   const createProfileHoverAnimation = () => {
+    const profileElement = profileRef.current;
+    if (!profileElement) return;
+
+    const images = profileElement.querySelectorAll('.image__element'); // 여러 개의 이미지 요소 가져오기
+    let hoverTimeline = gsap.timeline({ paused: true });
+
+    // 초기 상태 설정: 이미지 크기와 밝기
+    hoverTimeline.set(images, { scale: 1, filter: 'brightness(1)', transformOrigin: 'center center' });
+
+    // 호버 시 애니메이션 설정
+    hoverTimeline.to(
+      images,
+      {
+        scale: (index) => 1 - index * 0.1, // 각 이미지가 순차적으로 작아지도록 설정
+        filter: (index) => `brightness(${0.5 + index * 0.1})`, // 각 이미지의 밝기를 순차적으로 감소
+
+        ease: 'power1.inOut',
+        duration: 0.25,
+        stagger: 0.1, // 각 이미지가 일정 시간 간격을 두고 작아지도록 설정
+      }
+    );
+
+    // 마우스 이벤트 추가
+    profileElement.addEventListener('mouseenter', () => hoverTimeline.play());
+    profileElement.addEventListener('mouseleave', () => hoverTimeline.reverse());
+  };
 
   const initializeScrollTrigger = () => {
     // Section 1 fixed scrolling
@@ -69,47 +169,6 @@ const Home = () => {
       onEnterBack: () => gsap.set('#page3', { position: 'fixed', top: 0 }),
       onLeaveBack: () => gsap.set('#page3', { position: 'relative' }),
     });
-
-    // Text animation for returning to position
-    gsap.fromTo(
-      page3TextRef.current.querySelectorAll('span'),
-      { x: 'random(-200, 200)', y: 'random(-100, 100)', opacity: 0 },
-      {
-        x: 0,
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '#page3',
-          start: 'top top',
-          end: 'bottom center',
-          scrub: true,
-        },
-      }
-    );
-    gsap.fromTo(
-      page3Ref.current.querySelector('.page3_warp_profile'),
-      { 
-        width: 0, 
-        height: 0, 
-        opacity: 0 
-      },
-      {
-        width: '30%', // 목표 크기
-        height: '300px', // 목표 크기
-        opacity: 1,
-        duration: 0.5, // 애니메이션 지속 시간
-        
-        scrollTrigger: {
-          trigger: '#page3', // 섹션 3이 스크롤될 때 애니메이션 시작
-          start: '50% center', // 섹션 3의 75% 지점에서 시작
-          endTrigger: '#page4', // 섹션 4의 시작 부분
-          end: '10% center', // 섹션 4의 1/3 지점에서 끝
-          scrub: true, // 스크롤에 따라 애니메이션이 동기화됨
-        },
-      }
-    );
   };
 
   const animateHeaders = () => {
@@ -225,7 +284,7 @@ const Home = () => {
     const textBox = textBoxRef.current;
     const h2 = textBox.querySelector('h2');
     const p = textBox.querySelector('p');
-  
+
     const splitText = (element) => {
       const text = element.innerText;
       element.innerHTML = '';
@@ -238,10 +297,10 @@ const Home = () => {
         }
       });
     };
-  
+
     splitText(h2);
     splitText(p);
-  
+
     gsap.from(textBox.querySelectorAll('span'), {
       y: 50,
       opacity: 0,
@@ -253,11 +312,11 @@ const Home = () => {
 
   const splitTextIntoSpans = () => {
     const paragraphs = page3TextRef.current.querySelectorAll('p');
-  
+
     paragraphs.forEach((p) => {
       const lines = p.innerText.split('\n');
       p.innerHTML = ''; // 기존 p의 내용을 비움
-      
+
       lines.forEach((line) => {
         const lineSpan = document.createElement('span');
         lineSpan.style.display = 'block'; // 줄 단위로 블록 설정
@@ -269,7 +328,7 @@ const Home = () => {
         p.appendChild(lineSpan);
       });
     });
-  
+
     // 애니메이션 설정
     gsap.fromTo(
       page3TextRef.current.querySelectorAll('span span'),
@@ -293,11 +352,47 @@ const Home = () => {
           end: 'bottom center',
           scrub: true,
         },
+        
+      }
+      
+    );
+    gsap.fromTo(
+      page3Ref.current.querySelector('.page3_warp_profile'),
+      {
+        width: 0,
+        height: 0,
+        opacity: 0,
+      },
+      {
+        width: '50%',
+        height: '70%',
+        opacity: 1,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#page3',
+          start: '50% center',
+          endTrigger: '#page4',
+          end: '10% center',
+          scrub: true,
+        },
       }
     );
+  
   };
+
+  
+
+
   return (
     <div id="Home">
+      {/* SVG 필터 추가 */}
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ display: 'none' }}>
+        <filter id="pixelate">
+          <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="5" />
+          <feDisplacementMap in="SourceGraphic" scale="40" />
+        </filter>
+      </svg>
+
       <Header />
       <div className="scrollDown" ref={scrollDownRef}>
         <button className="button" ref={buttonRef} style={{ display: 'none' }}>
@@ -344,16 +439,12 @@ const Home = () => {
         </div>
       </div>
 
-      <main id="main" ref={mainRef}>
-        <video src={Home_main_back}
-        autoPlay muted playsInline loop
-        >
-        </video>
-        <video src={Home_main_back2}
-        autoPlay muted playsInline loop
-        ref={videoRef2}>
 
-        </video>
+
+
+      <main id="main" ref={mainRef}>
+        <video src={Home_main_back} autoPlay muted playsInline loop></video>
+        <video src={Home_main_back2} autoPlay muted playsInline loop ref={videoRef2}></video>
         <div className="main_warp" ref={mainWarpRef}>
           <h2 ref={(el) => (h2Refs.current[0] = el)}>
             For the web,
@@ -389,27 +480,77 @@ const Home = () => {
           <p>( 정교한 코드와 감각적인 디자인이 어우러진 공간에 오신 것을 환영합니다. )</p>
         </div>
       </main>
+
       <section id="page2"></section>
       <section id="page3" ref={page3Ref}>
+        {/* Canvas Element for Image */}
+        <div className="canvas-wrap">
+          <canvas ref={canvasRef}/>
+        </div>
         <div className="page3_warp" ref={page3TextRef}>
           
-            <p>안녕하세요, 프론트엔드 개발자이자 웹 디자이너 김창현입니다.</p>
-            <img src={se} className="page3_warp_profile" alt="se" />
-            <p>산업 설비와 운동 전공에서 웹 디자인과 퍼블리싱으로 전향하여,<br />
-            Adobe 툴과 HTML, CSS, JavaScript, React를 익히며<br />
-            사용자 친화적인 웹 경험을 디자인하고 개발하는 데 주력하고 있습니다.<br />
-            최신 기술을 활용해 반응형 웹 디자인과 인터랙티브한 요소를<br />
-            구현하는 것을 즐기며, 지속적인 학습을 통해 성장하고 있습니다.<br />
-            혁신적인 웹 경험을 제공하기 위해 항상 도전하며 발전해 나가고자 합니다.
+        
+        <div className="page3_tx">
+          <p className='page3_tx_eng'>
+            <em>Hello,</em> I am Changhyun Kim, a front-end developer.
+            <br />
+            We develop user-centered web experiences<br />
+            using HTML, CSS, JavaScript, and React.
+            <br />
+            We focus on responsive design and  <br/>
+            implementing interactive elements.<br/>
+            We are always pursuing<br/>
+            innovation and growing.
+          </p>
+          <p className='page3_tx_kor'>
+          안녕하세요, 프론트엔드 개발자 김창현입니다.<br/>
+          HTML, CSS, JavaScript, React로 사용자 중심 웹 경험을 개발하며,
+            <br />
+            반응형 디자인과 인터랙티브 요소 구현에 주력하고 있습니다.
+            <br />
+            항상 혁신을 추구하며 성장하고 있습니다.
           </p>
         </div>
+          <div 
+            data-repetition-ease="power1.inOut"
+            data-repetition-duration="0.5"
+            data-repetition
+            data-repetition-elems="5"
+            data-repetition-initial-scale="1.05"
+            data-repetition-stagger="-0.15"
+            className="page3_warp_profile image image--style-1"
+            ref={profileRef}
+            alt="se"
+          >
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="image__element" style={{ backgroundImage: `url(${se})` }} />
+            ))}
+          </div>
+          <div className="page3_swiper_tx_box">
+      <h2>
+        I am{' '}
+        <span>
+          {/* Swiper 슬라이더 추가 */}
+          <div className="swiper-container">
+            <div className="swiper-wrapper">
+              <div className="swiper-slide">Front-end Developer</div>
+              <div className="swiper-slide">Publisher</div>
+              <div className="swiper-slide">Designer</div>
+            </div>
+          </div>
+          <div className="page3_swiper_btn">
+            <button>
+              <span className="material-symbols-rounded">east</span>
+              <span className="material-symbols-rounded">east</span>
+            </button>
+          </div>
+        </span>
+      </h2>
+    </div>
+        </div>
       </section>
-      <div id="page4">
-
-      </div>
-      <div id="page5">
-
-      </div>
+      <div id="page4"></div>
+      <div id="page5"></div>
     </div>
   );
 };

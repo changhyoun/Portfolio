@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import './Header.scss';
 import { logo } from './Image';
-import Menu from './Menu';
 
 const Header = () => {
   const [isInputVisible, setIsInputVisible] = useState(false);
@@ -58,23 +57,30 @@ const Header = () => {
       <div className='Header_inner'>
         <img className='logo' src={logo} alt='logo' />
 
-        <Menu />
-        <div className='input_box' ref={inputBoxRef}>
-          <span
-            className='material-symbols-rounded'
-            onClick={handleToggleInput}
-            ref={spanRef}
-          >
-            {isInputVisible ? 'East' : 'action_key'}
-          </span>
-          <input
-            type='text'
-            placeholder='프로젝트를 검색하세요. ex) 캠파인'
-            ref={searchInput}
-          
-            style={{ width: '0', display: 'none' }}
-          />
+        <div className="Header_rt">
+          <div className='input_box' ref={inputBoxRef}>
+            <span
+              className='material-symbols-rounded'
+              onClick={handleToggleInput}
+              ref={spanRef}
+            >
+              {isInputVisible ? 'East' : 'action_key'}
+            </span>
+            <input
+              type='text'
+              placeholder='프로젝트를 검색하세요. ex) 캠파인'
+              ref={searchInput}
+            
+              style={{ width: '0', display: 'none' }}
+            />
+          </div>
+          <div className="hambuger">
+            <span className="material-symbols-rounded">
+              menu
+            </span>
+          </div>
         </div>
+         
       </div>
     </div>
   );
