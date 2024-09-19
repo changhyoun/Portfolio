@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from 'react';
-import { Home_main_back, Home_main_back2, github_ic, se } from '../components/Image';
+import { Home_main_back, Home_main_back2, github_ic, se,insta_white_ic,notion_white_ic,github_white_ic,camfine_sum,move_sum,match_sum,samsung_sum,sandbox_sum,move_logo_white,cam_logo_white,sam_logo_white,match_logo_white,sandbox_logo_white,rotate_txt } from '../components/Image';
 import Header from '../components/Header';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { TextPlugin } from 'gsap/TextPlugin';
+import { Draggable } from 'gsap/Draggable';
 import './Home.scss';
+import { Link } from 'react-router-dom';
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin,Draggable);
 
 const Home = () => {
   const mainRef = useRef(null);
@@ -23,6 +25,13 @@ const Home = () => {
   const page3TextRef = useRef(null);
   const canvasRef = useRef(null);
   const profileRef = useRef(null); // page3_warp_profile 요소의 참조
+  const textBoxesRef = useRef([]);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    createFallingTextBoxes();
+  }, []);
+
 
   useEffect(() => {
 
@@ -377,12 +386,117 @@ const Home = () => {
         },
       }
     );
+
+    gsap.fromTo(
+      page3Ref.current.querySelector('.page3_warp_profile'),
+      {
+        right:0,
+        bottom : 0,
+      },
+      {
+        right:0,
+        bottom : '10%',
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#page3',
+          start: '70% center',
+          endTrigger: '#page4',
+          end: '10% center',
+          scrub: true,
+        },
+      }
+    );
   
   };
 
+  const createFallingTextBoxes = () => {
+    const container = containerRef.current;
+    const boxCount = 5; // 원하는 박스의 개수
+    const textBoxes = [];
   
-
-
+    for (let i = 0; i < boxCount; i++) {
+      const textBox = document.createElement('div');
+      textBox.classList.add('text-box');
+      textBox.innerText = `Box ${i + 1}`;
+      container.appendChild(textBox);
+      textBoxes.push(textBox);
+      textBoxesRef.current.push(textBox);
+  
+      // 떨어지는 애니메이션
+      gsap.fromTo(
+        textBox,
+        { y: -200, x: Math.random() * container.offsetWidth, opacity: 0 },
+        {
+          y: Math.random() * container.offsetHeight,
+          x: Math.random() * (container.offsetWidth - textBox.offsetWidth), // 부모 크기에 맞춰 x값 제한
+          opacity: 1,
+          duration: 2,
+          ease: 'bounce.out',
+          delay: i * 0.5,
+          onComplete: () => handleOverlap(textBox), // 떨어진 후 충돌 감지
+        }
+      );
+  
+      // Draggable 설정
+      Draggable.create(textBox, {
+        type: 'x,y',
+        bounds: {
+          minX: 0, // 부모의 왼쪽 경계
+          maxX: container.offsetWidth - textBox.offsetWidth, // 부모의 오른쪽 경계
+          minY: 0, // 부모의 상단 경계
+          maxY: container.offsetHeight - textBox.offsetHeight, // 부모의 하단 경계
+        },
+        onDragEnd: function () {
+          // 박스를 던질 때 회전 효과 추가
+          gsap.to(this.target, {
+            x: `+=${Math.random() * 200 - 100}`, // 박스를 던지면 랜덤 방향으로 이동
+            y: `+=${Math.random() * 200 - 100}`,
+            rotation: `+=${Math.random() * 180 - 90}`, // 랜덤 회전 추가
+            ease: 'power3.out',
+            duration: 1,
+            onComplete: () => handleOverlap(this.target), // 드래그 후 충돌 감지
+          });
+        },
+      });
+    }
+  
+    // 충돌 감지 및 굴러가는 효과로 처리
+    const handleOverlap = (movedBox) => {
+      textBoxes.forEach((box) => {
+        if (box !== movedBox && checkOverlap(movedBox, box)) {
+          // 박스가 겹쳤을 때 랜덤 방향으로 굴러가게 설정
+          const randomX = Math.random() * 100 - 50; // 랜덤한 x축 이동
+          const randomY = Math.random() * 100 - 50; // 랜덤한 y축 이동
+          const randomRotation = Math.random() * 360 - 180; // 랜덤 회전
+          gsap.to(movedBox, {
+            x: `+=${randomX}`, // x축 이동
+            y: `+=${randomY}`, // y축 이동
+            rotation: `+=${randomRotation}`, // 회전
+            ease: 'bounce.out',
+            duration: 0,
+            onComplete: () => handleOverlap(movedBox), // 이동 후 다시 충돌 확인
+          });
+        }
+      });
+    };
+  
+    // 두 박스의 충돌을 확인하는 함수
+    const checkOverlap = (box1, box2) => {
+      const rect1 = box1.getBoundingClientRect();
+      const rect2 = box2.getBoundingClientRect();
+  
+      return !(
+        rect1.right < rect2.left ||
+        rect1.left > rect2.right ||
+        rect1.bottom < rect2.top ||
+        rect1.top > rect2.bottom
+      );
+    };
+  };
+  
+  
+  
+  
   return (
     <div id="Home">
       {/* SVG 필터 추가 */}
@@ -504,11 +618,9 @@ const Home = () => {
           </p>
           <p className='page3_tx_kor'>
           안녕하세요, 프론트엔드 개발자 김창현입니다.<br/>
-          HTML, CSS, JavaScript, React로 사용자 중심 웹 경험을 개발하며,
-            <br />
-            반응형 디자인과 인터랙티브 요소 구현에 주력하고 있습니다.
-            <br />
-            항상 혁신을 추구하며 성장하고 있습니다.
+          Html, Scss, JavaScript, React를 활용하여<br/>사용자 중심의 웹 경험을 설계하고,
+          반응형 디자인과 인터랙티브 기능<br/>구현에 깊은 전문성을 보유하고 있습니다.<br/>
+          항상 혁신을 지향하며 지속적인 성장을 추구하고 있습니다.
           </p>
         </div>
           <div 
@@ -522,6 +634,17 @@ const Home = () => {
             ref={profileRef}
             alt="se"
           >
+            <div className="page3_warp_profile_ic_box">
+                <Link to={"https://github.com/changhyoun"} target='_blank'>
+                  <img src={github_white_ic} alt="github_white_ic" />
+                </Link>
+                <Link to={"https://www.instagram.com/chhy02_14?igsh=MWRxYThreTRxNG52bQ%3D%3D&utm_source=qr"} target='_blank'>
+                  <img src={insta_white_ic} alt="insta_white_ic" />
+                </Link>
+                <Link to={"https://www.notion.so/6681cf5058ad47d88a218527c6df4dc8"} target='_blank'>
+                  <img src={notion_white_ic} alt="notion_white_ic" />
+                </Link>
+            </div>
             {[...Array(5)].map((_, i) => (
               <div key={i} className="image__element" style={{ backgroundImage: `url(${se})` }} />
             ))}
@@ -550,7 +673,159 @@ const Home = () => {
         </div>
       </section>
       <div id="page4"></div>
-      <div id="page5"></div>
+      <div id="page5">
+        <div className="page5_inner">
+          <div className="page5_t">
+              <div className="page5_t_lt">
+                <div className="page5_t_lt_inner">
+                  <div className="box sam">
+                    <img className='section5_sum' src={samsung_sum} alt="samsung_sum" />
+                    <div className="dark_overlay"></div>
+                    <div className="box_inner sam_inner">
+                      <div className="lo_name">
+                        <img src={sam_logo_white} alt="sam_logo_white" />
+                        <h3>삼성전기.</h3>
+                      </div>
+                      <div className="cr_date">
+                        <h3>Created date</h3>
+                        <p>2024.02.11</p>
+                      </div>
+                        
+                    </div>
+                    <div className="rotate_tx_box">
+                      <img src={rotate_txt} alt="rotate_txt" />
+                      <span className="material-symbols-rounded">
+                        arrow_right_alt
+                      </span>
+                    </div>
+                  </div>
+                  <div className="box cam">
+                    <img className='section5_sum' src={camfine_sum} alt="camfine_sum" />
+                    <div className="dark_overlay"></div>
+                    <div className="box_inner sum_inner">
+                      <div className="lo_name">
+                        <img src={cam_logo_white} alt="cam_logo_white" />
+                        <h3>CamFine.</h3>
+                      </div>
+                      <div className="cr_date">
+                        <h3>Created date</h3>
+                        <p>2024.09.12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="page5_t_rt">
+                <div className="page5_t_rt_inner">
+                  <div className="box ani">
+                    <a className="box box--2">
+                      <svg className="box__background" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style={{ stopColor: "#292979", stopOpacity: 1 }} />
+                            <stop offset="100%" style={{ stopColor: "#232389", stopOpacity: 1 }} />
+                          </linearGradient>
+                        </defs>
+                        <path
+                          id="line1"
+                          d="M100 21.5L100 190.5C100 212.591 150 230.5 180 230.5L517.5 230.5C539.592 230.5 557.5 248.409 557.5 270.5L557.5 275.5C557.5 297.591 575.409 315.5 597.5 315.5L1200 315.5"
+                          stroke="url(#gradientStroke)"
+                          strokeWidth="60"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          id="line2"
+                          d="M0 451L226 451C248.091 451 266 468.909 266 491L266 530C266 552.091 283.908 570 306 570L800 570C822 570 840 587.909 840 610L840 1000"
+                          stroke="url(#gradientStroke)"
+                          strokeWidth="60"
+                          strokeLinecap="round"
+                        />
+                        <text fill="#111">
+                          <textPath startOffset="0%" textAnchor="middle" alignmentBaseline="central" xlinkHref="#line1">
+                            Changhyun Kim
+                            <animate attributeName="startOffset" from="0%" to="100%" begin="0s" dur="12s" repeatCount="indefinite" />
+                          </textPath>
+                        </text>
+                        <text fill="#111">
+                          <textPath startOffset="0%" textAnchor="middle" alignmentBaseline="central" xlinkHref="#line1">
+                          Front-End Developer
+                            <animate attributeName="startOffset" from="0%" to="100%" begin="6s" dur="12s" repeatCount="indefinite" />
+                          </textPath>
+                        </text>
+
+                        <text fill="#111">
+                          <textPath startOffset="0%" textAnchor="middle" alignmentBaseline="central" xlinkHref="#line2">
+                          Study TypeScript, ReactNative
+                            <animate attributeName="startOffset" from="0%" to="100%" begin="0s" dur="12s" repeatCount="indefinite" />
+                          </textPath>
+                        </text>
+                        <text fill="#111">
+                          <textPath startOffset="0%" textAnchor="middle" alignmentBaseline="central" xlinkHref="#line2">
+                            HTML,SCSS,JAVASCRIPT,REACT
+                            <animate attributeName="startOffset" from="0%" to="100%" begin="6s" dur="12s" repeatCount="indefinite" />
+                          </textPath>
+                        </text>
+                      </svg>
+                    </a>
+                  </div>
+                  <div className="box match">
+                    <img className='section5_sum' src={match_sum} alt="match_sum" />
+                    <div className="dark_overlay"></div>
+                    <div className="box_inner match_inner">
+                      <div className="lo_name">
+                        <img src={match_logo_white} alt="match_logo_white" />
+                        <h3>Match_point.</h3>
+                      </div>
+                      <div className="cr_date">
+                        <h3>Created date</h3>
+                        <p>2024.09.12</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div className="page5_bt"> 
+            <div className="page5_bt_lt" >
+                <div className="page5_bt_lt_inner" ref={containerRef} >
+                  
+                </div>
+            </div>
+            <div className="page5_bt_rt">
+              <div className="page5_bt_rt_inner">
+                <div className="box code">
+                  <img className='section5_sum' src={sandbox_sum} alt="sandbox_sum" />
+                  <div className="dark_overlay"></div>
+                  <div className="box_inner sandbox_inner">
+                      <div className="lo_name">
+                        <img src={sandbox_logo_white} alt="sandbox_logo_white" />
+                        <h3>코드 샌드박스.</h3>
+                      </div>
+                      <div className="cr_date">
+                        <h3>Created date</h3>
+                        <p>2024.09.12</p>
+                      </div>
+                  </div>
+                </div>
+                <div className="box move">
+                  <img className='section5_sum' src={move_sum} alt="camfine_sum" />
+                  <div className="dark_overlay"></div>
+                  <div className="box_inner camfine_inner">
+                      <div className="lo_name">
+                        <img src={move_logo_white} alt="move_logo_white" />
+                        <h3>무브.</h3>
+                      </div>
+                      <div className="cr_date">
+                        <h3>Created date</h3>
+                        <p>2024.09.12</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
