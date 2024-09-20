@@ -1,3 +1,6 @@
+* {
+  user-select: none;
+}
 #Home {
   width: 100%;
   height: 100%;
@@ -820,7 +823,7 @@
               border-radius: 10px;
               position: relative;
               overflow: hidden;
-              box-shadow: 0 0 20px #232389;
+              box-shadow: 0 0 10px #232389;
             &::before {
               content: '';
               position: absolute;
@@ -953,25 +956,81 @@
           justify-content: center;
           position: relative;
           > div{
-            width: calc(100% - 30px);
-            height: calc(100% - 30px);
+            width:100%;
+            height:100%;
             border-radius: 10px;
             position: relative;
             
-            .text-box {
-              position: absolute;
-              width: 20%;
-              height: 50px;
-              background-color: #ff6b6b;
-              color: white;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 1.2rem;
-        
-              cursor: grab;
-              border-radius: 10px;
+              
+            canvas{
+              width: 100%;
+              height: 100%;
             }
+            
+            .page5_bt_lt_txbox{
+              color: #333;
+              font-family: 'AppleNeoSB';
+              border-radius: 7px;
+              display: flex;
+              align-items: center;
+              padding: 6.5px;
+              text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+              cursor: grab;
+              svg{
+                margin-left: 3px;
+                font-size: 0.65em;
+              }
+              p{
+                margin-left: 3px;
+                font-size: 0.65em;
+              }
+            }
+            .react_box{
+              background-color: #5ed3f3;
+           }
+           .scss_box{
+             background-color: #c76494;
+             color: white;
+           }
+           .Powrpoint_box{
+             background-color: #cd4f2e;
+             color: white;
+           }
+           .Excel_box{
+             background-color: #1d6c41;
+             color: white;
+           }
+           .Figma_box{
+             background-color: #9d56f7;
+             color: white;
+           }
+           .Photoshop_box{
+             background-color: #03a4ec;
+             color: white;
+           }
+           .Illustrator_box{
+             background-color: #f79500;
+             
+           }
+           .Indesign_box{
+             background-color: #f73163;
+             color: white;
+           }
+           .Jquery_box{
+             background-color: #0865a7;
+             color: white;
+           }
+           .Javascript_box{
+             background-color: #efd81d;
+           }
+           .Html_box{
+             background-color: #dd4b25;
+             color: white;
+           }
+           .etc_box{
+             background-color: #505050;
+             color: white;
+           } 
           }
         }
         > div:nth-of-type(2){

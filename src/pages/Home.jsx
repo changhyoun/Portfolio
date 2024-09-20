@@ -1,15 +1,17 @@
 import React, { useEffect, useRef } from 'react';
-import { Home_main_back, Home_main_back2, github_ic, se,insta_white_ic,notion_white_ic,github_white_ic,camfine_sum,move_sum,match_sum,samsung_sum,sandbox_sum,move_logo_white,cam_logo_white,sam_logo_white,match_logo_white,sandbox_logo_white,rotate_txt } from '../components/Image';
+import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt } from '../components/Image';
 import Header from '../components/Header';
+import Page5_bt_lt_inner_tx from '../components/Page5_bt_lt_inner_tx';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { TextPlugin } from 'gsap/TextPlugin';
-import { Draggable } from 'gsap/Draggable';
 import './Home.scss';
 import { Link } from 'react-router-dom';
+import Matter from 'matter-js';
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin,Draggable);
+
+gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
 
 const Home = () => {
   const mainRef = useRef(null);
@@ -25,12 +27,7 @@ const Home = () => {
   const page3TextRef = useRef(null);
   const canvasRef = useRef(null);
   const profileRef = useRef(null); // page3_warp_profile 요소의 참조
-  const textBoxesRef = useRef([]);
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    createFallingTextBoxes();
-  }, []);
+  const textRef = useRef(null);
 
 
   useEffect(() => {
@@ -406,97 +403,123 @@ const Home = () => {
         },
       }
     );
+
+    // splitWords 함수
+  const splitWords = () => {
+    const textNode = textRef.current;
+    const text = textNode.textContent;
+    const newDomElements = text.split(" ").map((word, index) => {
+      const highlighted =
+        word.startsWith(`"30under30"`) ||
+        word.startsWith(`CTO`) ||
+        word.startsWith(`Mythrill`);
+      return (
+        <span key={index} className={`word ${highlighted ? "highlighted" : ""}`}>
+          {word}
+        </span>
+      );
+    });
+    textNode.innerHTML = ""; // 기존 내용을 지우고
+    textNode.append(...newDomElements.map(node => node)); // 새로운 노드를 추가
+  };
+
+
+  // renderCanvas 함수
+  const renderCanvas = () => {
+    const Engine = Matter.Engine;
+    const Render = Matter.Render;
+    const World = Matter.World;
+    const Bodies = Matter.Bodies;
+    const Runner = Matter.Runner;
+    const params = {
+      isStatic: true,
+      render: {
+        fillStyle: "transparent"
+      }
+    };
+    const canvasSize = {
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+    const engine = Engine.create({});
+
+    const render = Render.create({
+      element: document.body,
+      engine: engine,
+      options: {
+        ...canvasSize,
+        background: "transparent",
+        wireframes: false
+      }
+    });
+
+    const floor = Bodies.rectangle(canvasSize.width / 2, canvasSize.height, canvasSize.width, 50, params);
+    const wall1 = Bodies.rectangle(0, canvasSize.height / 2, 50, canvasSize.height, params);
+    const wall2 = Bodies.rectangle(canvasSize.width, canvasSize.height / 2, 50, canvasSize.height, params);
+    const top = Bodies.rectangle(canvasSize.width / 2, 0, canvasSize.width, 50, params);
+
+    const wordElements = document.querySelectorAll(".word");
+    const wordBodies = [...wordElements].map((elemRef) => {
+      const width = elemRef.offsetWidth;
+      const height = elemRef.offsetHeight;
+
+      return {
+        body: Matter.Bodies.rectangle(canvasSize.width / 2, 0, width, height, {
+          render: {
+            fillStyle: "transparent"
+          }
+        }),
+        elem: elemRef,
+        render() {
+          const { x, y } = this.body.position;
+          this.elem.style.top = `${y - 20}px`;
+          this.elem.style.left = `${x - width / 2}px`;
+          this.elem.style.transform = `rotate(${this.body.angle}rad)`;
+        }
+      };
+    });
+
+    const mouse = Matter.Mouse.create(document.body);
+    const mouseConstraint = Matter.MouseConstraint.create(engine, {
+      mouse,
+      constraint: {
+        stiffness: 0.2,
+        render: {
+          visible: false
+        }
+      }
+    });
+
+    mouse.element.removeEventListener("mousewheel", mouse.mousewheel);
+    mouse.element.removeEventListener("DOMMouseScroll", mouse.mousewheel);
+
+    World.add(engine.world, [
+      floor,
+      ...wordBodies.map((box) => box.body),
+      wall1,
+      wall2,
+      top,
+      mouseConstraint
+    ]);
+
+    render.mouse = mouse;
+    Runner.run(engine);
+    Render.run(render);
+
+    (function rerender() {
+      wordBodies.forEach((element) => {
+        element.render();
+      });
+      Matter.Engine.update(engine);
+      requestAnimationFrame(rerender);
+    })();
+  };
   
   };
 
-  const createFallingTextBoxes = () => {
-    const container = containerRef.current;
-    const boxCount = 5; // 원하는 박스의 개수
-    const textBoxes = [];
-  
-    for (let i = 0; i < boxCount; i++) {
-      const textBox = document.createElement('div');
-      textBox.classList.add('text-box');
-      textBox.innerText = `Box ${i + 1}`;
-      container.appendChild(textBox);
-      textBoxes.push(textBox);
-      textBoxesRef.current.push(textBox);
-  
-      // 떨어지는 애니메이션
-      gsap.fromTo(
-        textBox,
-        { y: -200, x: Math.random() * container.offsetWidth, opacity: 0 },
-        {
-          y: Math.random() * container.offsetHeight,
-          x: Math.random() * (container.offsetWidth - textBox.offsetWidth), // 부모 크기에 맞춰 x값 제한
-          opacity: 1,
-          duration: 2,
-          ease: 'bounce.out',
-          delay: i * 0.5,
-          onComplete: () => handleOverlap(textBox), // 떨어진 후 충돌 감지
-        }
-      );
-  
-      // Draggable 설정
-      Draggable.create(textBox, {
-        type: 'x,y',
-        bounds: {
-          minX: 0, // 부모의 왼쪽 경계
-          maxX: container.offsetWidth - textBox.offsetWidth, // 부모의 오른쪽 경계
-          minY: 0, // 부모의 상단 경계
-          maxY: container.offsetHeight - textBox.offsetHeight, // 부모의 하단 경계
-        },
-        onDragEnd: function () {
-          // 박스를 던질 때 회전 효과 추가
-          gsap.to(this.target, {
-            x: `+=${Math.random() * 200 - 100}`, // 박스를 던지면 랜덤 방향으로 이동
-            y: `+=${Math.random() * 200 - 100}`,
-            rotation: `+=${Math.random() * 180 - 90}`, // 랜덤 회전 추가
-            ease: 'power3.out',
-            duration: 1,
-            onComplete: () => handleOverlap(this.target), // 드래그 후 충돌 감지
-          });
-        },
-      });
-    }
-  
-    // 충돌 감지 및 굴러가는 효과로 처리
-    const handleOverlap = (movedBox) => {
-      textBoxes.forEach((box) => {
-        if (box !== movedBox && checkOverlap(movedBox, box)) {
-          // 박스가 겹쳤을 때 랜덤 방향으로 굴러가게 설정
-          const randomX = Math.random() * 100 - 50; // 랜덤한 x축 이동
-          const randomY = Math.random() * 100 - 50; // 랜덤한 y축 이동
-          const randomRotation = Math.random() * 360 - 180; // 랜덤 회전
-          gsap.to(movedBox, {
-            x: `+=${randomX}`, // x축 이동
-            y: `+=${randomY}`, // y축 이동
-            rotation: `+=${randomRotation}`, // 회전
-            ease: 'bounce.out',
-            duration: 0,
-            onComplete: () => handleOverlap(movedBox), // 이동 후 다시 충돌 확인
-          });
-        }
-      });
-    };
-  
-    // 두 박스의 충돌을 확인하는 함수
-    const checkOverlap = (box1, box2) => {
-      const rect1 = box1.getBoundingClientRect();
-      const rect2 = box2.getBoundingClientRect();
-  
-      return !(
-        rect1.right < rect2.left ||
-        rect1.left > rect2.right ||
-        rect1.bottom < rect2.top ||
-        rect1.top > rect2.bottom
-      );
-    };
-  };
-  
-  
-  
-  
+
+
+ 
   return (
     <div id="Home">
       {/* SVG 필터 추가 */}
@@ -786,11 +809,8 @@ const Home = () => {
               </div>
           </div>
           <div className="page5_bt"> 
-            <div className="page5_bt_lt" >
-                <div className="page5_bt_lt_inner" ref={containerRef} >
-                  
-                </div>
-            </div>
+              {/* page5_bt_lt_inner */}
+              <Page5_bt_lt_inner_tx/>
             <div className="page5_bt_rt">
               <div className="page5_bt_rt_inner">
                 <div className="box code">

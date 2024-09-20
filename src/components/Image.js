@@ -66,4 +66,3 @@ import rotate_txt from "../assets/rotate_txt.svg"
 export {rotate_txt}
 
 
-  
