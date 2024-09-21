@@ -1203,34 +1203,84 @@
         left: 0;
         width: 100%;
         height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         &:not(:nth-of-type(1)) {
           width: 0;
           height: 0;
           bottom: 0;
           left: 0;
         }
-        a{
+        & > a{
           width: 100%;
           height: 100%;
           display: inline-block;
           position: relative;
-          &:hover::before{
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &::before {
             content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0; 
+            height: 0;
             background-color: #00000059;
-            z-index: 30;
-            transition: all 0.3s ease;
+            z-index: 12;
           }
-          img{
+        
+          &:hover::before {
+            width: 100%;
+            height: 100%;
+          }
+          &:hover > div{
+            opacity: 1;
+            visibility: visible;
+          }
+          & > img{
             width: 100%;
             height: 100%;
             position: absolute;
             top: 0;
             left: 0;
+          }
+          & > div{
+            width: 60%;
+            height: 80%;
+            z-index: 13;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Parabole';
+            text-align: right;
+            flex-direction: column;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+            position: relative;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s all ease;
+            img{
+              width: 20%;
+            }
+            h3{
+              font-size: 3em;
+              font-weight: 400;
+              margin: 2% 0;
+            }
+            p{
+              font-size: 2em;
+              margin-bottom: 2%;
+            }
+            & > span{
+              width: 4%;
+              .project_github{
+                width: 100%;
+              }
+            }
           }
         }
         

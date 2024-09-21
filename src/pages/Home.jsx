@@ -190,7 +190,7 @@ const Home = () => {
     onEnterBack: () => gsap.set(page5Ref.current, { position: 'fixed', top: 0 }),
     onLeaveBack: () => gsap.set(page5Ref.current, { position: 'relative', clearProps: 'top' }),
   });
-
+  // Section7 fixed scrolling
   ScrollTrigger.create({
     trigger: '#page7',
     start: 'top top',
@@ -933,26 +933,87 @@ console.log(document.querySelector('#Home #page5 > div > div:nth-of-type(1) > di
           <div className="page7_procjec_sum">
             <Link>
               <img src={camfine_sum} alt="camfine_sum" />
+              <div className="page7_procjec_sum_inner">
+                <img src={cam_logo_white} alt="cam_logo_white" />
+                <h3>
+                  Platform.
+                </h3>
+                <p>
+                  App, Mobile Web
+                </p>
+                {/* 해당되는 깃허브 페이지로 이동되게해야됨 */}
+                <span>
+                  <img className='project_github' src={github_white_ic} alt="github_white_ic" />
+                </span>
+              </div>
             </Link>
           </div>
           <div className="page7 procjec_sum">
             <Link>
               <img src={match_sum} alt="match_sum" />
+              <div className="page7_procjec_sum_inner">
+                <img src={match_logo_white} alt="match_logo_white" />
+                  <h3>
+                    Platform.
+                  </h3>
+                  <p>
+                    App, Mobile Web
+                  </p>
+                  <span>
+                    <img className='project_github' src={github_white_ic} alt="github_white_ic" />
+                  </span>
+                </div>
             </Link>
           </div>
           <div className="page7 procjec_sum">
             <Link>
               <img src={sandbox_sum} alt="sandbox_sum" />
+              <div className="page7_procjec_sum_inner">
+                <img src={sandbox_logo_white} alt="sandbox_logo_white" />
+                <h3>
+                  Platform.
+                </h3>
+                <p>
+                  Web
+                </p>
+                <span>
+                  <img className='project_github' src={github_white_ic} alt="github_white_ic" />
+                </span>
+              </div>
             </Link>
           </div>
           <div className="page7 procjec_sum">
             <Link>
               <img src={move_sum} alt="move_sum" />
+              <div className="page7_procjec_sum_inner">
+                <img src={move_logo_white} alt="move_logo_white" />
+                <h3>
+                  Platform.
+                </h3>
+                <p>
+                  Web
+                </p>
+                <span>
+                  <img className='project_github' src={github_white_ic} alt="github_white_ic" />
+                </span>
+              </div>
             </Link>
           </div>
           <div className="page7 procjec_sum">
             <Link>
-            <img src={samsung_sum_hori} alt="samsung_sum_hori" />
+              <img src={samsung_sum_hori} alt="samsung_sum_hori" />
+              <div className="page7_procjec_sum_inner">
+                <img src={sam_logo_white} alt="sam_logo_white" />
+                <h3>
+                  Platform.
+                </h3>
+                <p>
+                  Web
+                </p>
+                <span>
+                  <img className='project_github' src={github_white_ic} alt="github_white_ic" />
+                </span>
+              </div>
             </Link>
           </div>
         </div>
