@@ -43,6 +43,11 @@ export {
   export { 
     default as samsung_sum 
   } from "../assets/samsung_sum.jpg";
+  export { 
+    default as samsung_sum_hori 
+  } from "../assets/samsung_sum_hori.jpg";
+
+  
 
 // 각 프로젝트 로고 화이트
 export { 

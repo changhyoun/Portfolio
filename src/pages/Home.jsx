@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt } from '../components/Image';
+import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt } from '../components/Image';
 import Header from '../components/Header';
 import Page5_bt_lt_inner_tx from '../components/Page5_bt_lt_inner_tx';
 import { gsap } from 'gsap';
@@ -28,6 +28,8 @@ const Home = () => {
   const canvasRef = useRef(null);
   const profileRef = useRef(null); // page3_warp_profile 요소의 참조
   const textRef = useRef(null);
+  const page5Ref = useRef(null);
+  const page7Ref = useRef(null);
 
 
   useEffect(() => {
@@ -175,7 +177,150 @@ const Home = () => {
       onEnterBack: () => gsap.set('#page3', { position: 'fixed', top: 0 }),
       onLeaveBack: () => gsap.set('#page3', { position: 'relative' }),
     });
-  };
+     // Section5 fixed scrolling
+  ScrollTrigger.create({
+    trigger: '#page5',
+    start: 'top top',
+    endTrigger: '#page6',
+    end: '100% top',
+    pin: '#page5',
+    pinSpacing: false,
+    onEnter: () => gsap.set(page5Ref.current, { position: 'fixed', top: 0 }),
+    onLeave: () => gsap.set(page5Ref.current, { position: 'relative', clearProps: 'top' }),
+    onEnterBack: () => gsap.set(page5Ref.current, { position: 'fixed', top: 0 }),
+    onLeaveBack: () => gsap.set(page5Ref.current, { position: 'relative', clearProps: 'top' }),
+  });
+
+  ScrollTrigger.create({
+    trigger: '#page7',
+    start: 'top top',
+    endTrigger: '#page8',
+    end: '60% top',
+    pin: '#page7',
+    pinSpacing: false,
+    onEnter: () => {
+      gsap.set(page5Ref.current, { 
+        position: 'fixed', 
+        top: 0, 
+        zIndex: 10 
+      });
+    },
+    onLeave: () => {
+      gsap.set(page5Ref.current, { 
+        position: 'relative', 
+        clearProps: 'top' 
+      });
+    },
+    onEnterBack: () => {
+      gsap.set(page5Ref.current, { 
+        position: 'fixed', 
+        top: 0, 
+        zIndex: 10 
+      });
+    },
+    onLeaveBack: () => {
+      gsap.set(page5Ref.current, { 
+        position: 'relative', 
+        clearProps: 'top' 
+      });
+    },
+    // 스크롤 진행 비율에 따라 애니메이션 적용 및 z-index 설정
+    onUpdate: (self) => {
+      const progress = self.progress; // 0 ~ 1 사이의 스크롤 진행 비율
+      const direction = self.direction; // 스크롤 방향 감지 (1: 아래로, -1: 위로)
+  
+      // 0.2 ~ 0.4 구간에서는 2번째 div 애니메이션
+      if (progress >= 0.2 && progress < 0.4) {
+        gsap.to("#Home #page7 > div > div:nth-of-type(2)", {
+          top: direction === 1 ? 0 : '100%', // 아래로 스크롤하면 위에서 아래로, 위로 스크롤하면 아래에서 위로
+          width: '100%',
+          height: '100%',
+          zIndex: 10, // z-index 설정
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      }
+  
+      // 0.4 ~ 0.6 구간에서는 3번째 div 애니메이션
+      else if (progress >= 0.4 && progress < 0.6) {
+        gsap.to("#Home #page7 > div > div:nth-of-type(3)", {
+          top: direction === 1 ? 0 : '100%', // 스크롤 방향에 따라 위아래로 이동
+          width: '100%',
+          height: '100%',
+          zIndex: 11,
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      }
+  
+      // 0.6 ~ 0.8 구간에서는 4번째 div 애니메이션
+      else if (progress >= 0.6 && progress < 0.8) {
+        gsap.to("#Home #page7 > div > div:nth-of-type(4)", {
+          top: direction === 1 ? 0 : '100%', // 스크롤 방향에 따라 이동
+          width: '100%',
+          height: '100%',
+          zIndex: 12,
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      }
+  
+      // 0.8 ~ 1 구간에서는 5번째 div 애니메이션
+      else if (progress >= 0.8 && progress <= 1) {
+        gsap.to("#Home #page7 > div > div:nth-of-type(5)", {
+          top: direction === 1 ? 0 : '100%', // 스크롤 방향에 따라 이동
+          width: '100%',
+          height: '100%',
+          zIndex: 13,
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      }
+  
+      // 스크롤이 역방향으로 올라갈 때의 z-index 및 애니메이션 초기화
+      if (progress < 0.2) {
+        gsap.set("#Home #page7 > div > div:nth-of-type(2)", {
+          zIndex: 1, // 초기화
+          top: '100%', // 다시 아래로 이동
+          width: 0,
+          height: 0
+        });
+      }
+  
+      if (progress < 0.4) {
+        gsap.set("#Home #page7 > div > div:nth-of-type(3)", {
+          zIndex: 2, // 초기화
+          top: '100%', // 다시 아래로 이동
+          width: 0,
+          height: 0
+        });
+      }
+  
+      if (progress < 0.6) {
+        gsap.set("#Home #page7 > div > div:nth-of-type(4)", {
+          zIndex: 3, // 초기화
+          top: '100%', // 다시 아래로 이동
+          width: 0,
+          height: 0
+        });
+      }
+  
+      if (progress < 0.8) {
+        gsap.set("#Home #page7 > div > div:nth-of-type(5)", {
+          zIndex: 4, // 초기화
+          top: '100%', // 다시 아래로 이동
+          width: 0,
+          height: 0
+        });
+      }
+    }
+  });
+  
+  
+};
+
+ 
+
 
   const animateHeaders = () => {
     h2Refs.current.forEach((h2) => {
@@ -404,122 +549,56 @@ const Home = () => {
       }
     );
 
-    // splitWords 함수
-  const splitWords = () => {
-    const textNode = textRef.current;
-    const text = textNode.textContent;
-    const newDomElements = text.split(" ").map((word, index) => {
-      const highlighted =
-        word.startsWith(`"30under30"`) ||
-        word.startsWith(`CTO`) ||
-        word.startsWith(`Mythrill`);
-      return (
-        <span key={index} className={`word ${highlighted ? "highlighted" : ""}`}>
-          {word}
-        </span>
-      );
-    });
-    textNode.innerHTML = ""; // 기존 내용을 지우고
-    textNode.append(...newDomElements.map(node => node)); // 새로운 노드를 추가
-  };
 
 
-  // renderCanvas 함수
-  const renderCanvas = () => {
-    const Engine = Matter.Engine;
-    const Render = Matter.Render;
-    const World = Matter.World;
-    const Bodies = Matter.Bodies;
-    const Runner = Matter.Runner;
-    const params = {
-      isStatic: true,
-      render: {
-        fillStyle: "transparent"
-      }
-    };
-    const canvasSize = {
-      width: window.innerWidth,
-      height: window.innerHeight
-    };
-    const engine = Engine.create({});
+// 스크롤 이벤트 리스너 추가
+window.addEventListener('scroll', function() {
+  const triggerElement = document.querySelector('#page6'); // 스크롤 트리거가 될 요소
+  const targetElement = page5Ref.current.querySelector('#Home #page5 > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2)');
 
-    const render = Render.create({
-      element: document.body,
-      engine: engine,
-      options: {
-        ...canvasSize,
-        background: "transparent",
-        wireframes: false
-      }
-    });
+  const triggerPosition = triggerElement.getBoundingClientRect().top; // 트리거 요소의 위치 계산
+  const windowHeight = window.innerHeight; // 현재 창의 높이
 
-    const floor = Bodies.rectangle(canvasSize.width / 2, canvasSize.height, canvasSize.width, 50, params);
-    const wall1 = Bodies.rectangle(0, canvasSize.height / 2, 50, canvasSize.height, params);
-    const wall2 = Bodies.rectangle(canvasSize.width, canvasSize.height / 2, 50, canvasSize.height, params);
-    const top = Bodies.rectangle(canvasSize.width / 2, 0, canvasSize.width, 50, params);
+  // 섹션 6이 화면에 나타나면 중앙으로 이동 (CSS로 처리)
+  if (triggerPosition < windowHeight * 0.5) { 
+    targetElement.style.position = 'absolute';
+    targetElement.style.top = '50%';
+    targetElement.style.left = '50%';
+    targetElement.style.transform = 'translate(-50%, -50%)';
+    targetElement.style.zIndex = '10';
+    targetElement.style.transition = '0.5s ease';
+  } else {
+    targetElement.style.position = '';
+    targetElement.style.top = '';
+    targetElement.style.left = '';
+    targetElement.style.transform = '';
+    targetElement.style.zIndex = '';
+  }
+});
 
-    const wordElements = document.querySelectorAll(".word");
-    const wordBodies = [...wordElements].map((elemRef) => {
-      const width = elemRef.offsetWidth;
-      const height = elemRef.offsetHeight;
+// GSAP 애니메이션에서 크기와 위치를 처리
+gsap.to(
+  page5Ref.current.querySelector('#Home #page5 > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2)'),
+  {
+    width : '100vw',
+    height : '100vh',
+    borderRadius : 0,
+    duration: 2,
+    ease: "none",
+    scrollTrigger: {
+      trigger: '#page6',  // 애니메이션이 시작될 페이지의 트리거
+      start: '10% center',
+      end: '70% center',  
+      scrub: true,  // 스크롤에 따라 애니메이션이 천천히 실행됨
+    }
+  }
+);
 
-      return {
-        body: Matter.Bodies.rectangle(canvasSize.width / 2, 0, width, height, {
-          render: {
-            fillStyle: "transparent"
-          }
-        }),
-        elem: elemRef,
-        render() {
-          const { x, y } = this.body.position;
-          this.elem.style.top = `${y - 20}px`;
-          this.elem.style.left = `${x - width / 2}px`;
-          this.elem.style.transform = `rotate(${this.body.angle}rad)`;
-        }
-      };
-    });
-
-    const mouse = Matter.Mouse.create(document.body);
-    const mouseConstraint = Matter.MouseConstraint.create(engine, {
-      mouse,
-      constraint: {
-        stiffness: 0.2,
-        render: {
-          visible: false
-        }
-      }
-    });
-
-    mouse.element.removeEventListener("mousewheel", mouse.mousewheel);
-    mouse.element.removeEventListener("DOMMouseScroll", mouse.mousewheel);
-
-    World.add(engine.world, [
-      floor,
-      ...wordBodies.map((box) => box.body),
-      wall1,
-      wall2,
-      top,
-      mouseConstraint
-    ]);
-
-    render.mouse = mouse;
-    Runner.run(engine);
-    Render.run(render);
-
-    (function rerender() {
-      wordBodies.forEach((element) => {
-        element.render();
-      });
-      Matter.Engine.update(engine);
-      requestAnimationFrame(rerender);
-    })();
-  };
-  
+console.log(document.querySelector('#Home #page5 > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2)'))
   };
 
 
 
- 
   return (
     <div id="Home">
       {/* SVG 필터 추가 */}
@@ -696,7 +775,7 @@ const Home = () => {
         </div>
       </section>
       <div id="page4"></div>
-      <div id="page5">
+      <div id="page5" ref={page5Ref}>
         <div className="page5_inner">
           <div className="page5_t">
               <div className="page5_t_lt">
@@ -845,6 +924,44 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div id="page6">
+
+      </div>
+      <div id="page7" ref={page7Ref}>
+        <div className="page7_inner">
+          <div className="page7_procjec_sum">
+            <Link>
+              <img src={camfine_sum} alt="camfine_sum" />
+            </Link>
+          </div>
+          <div className="page7 procjec_sum">
+            <Link>
+              <img src={match_sum} alt="match_sum" />
+            </Link>
+          </div>
+          <div className="page7 procjec_sum">
+            <Link>
+              <img src={sandbox_sum} alt="sandbox_sum" />
+            </Link>
+          </div>
+          <div className="page7 procjec_sum">
+            <Link>
+              <img src={move_sum} alt="move_sum" />
+            </Link>
+          </div>
+          <div className="page7 procjec_sum">
+            <Link>
+            <img src={samsung_sum_hori} alt="samsung_sum_hori" />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div id="page8">
+
+      </div>
+      <div id="page9">
+
       </div>
     </div>
   );

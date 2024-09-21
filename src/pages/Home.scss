@@ -623,12 +623,16 @@
     background-color: darkblue;
   }
   #page5{
+    visibility: visible;
+    overflow: hidden;
     width: 100%;
     height: 100vh;
     background-color: #121212;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 10;
     > div{
       width: 80%;
       height: 80%;
@@ -758,6 +762,7 @@
               display: flex;
               align-items: center;
               justify-content: center;
+              
               .box_inner{
                 width: 90%;
                 height: 90%;
@@ -849,9 +854,9 @@
                 width: 100%;
                 height: 100%;            
                 .box__background {
-                  top: -50%;
-                  left: 5%;
-                  width: 100%;
+                  top: -52%;
+                  left: -1%;
+                  width: 103%;
                   height: auto;
                   font-size: 35px;
                   font-family: 'AppleNeoSB';
@@ -1172,5 +1177,81 @@
       background-color: #0000004d;
       z-index: 1;
     }
+  }
+  #page6{
+    width: 100%;
+    height: 100vh;
+    background-color: darkblue;
+  }
+  #page7{
+    width: 100%;
+    height: 100vh;
+    background-color: #1d6c41;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    box-sizing: border-box;
+    > div{
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      position: relative;
+      > div{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &:not(:nth-of-type(1)) {
+          width: 0;
+          height: 0;
+          bottom: 0;
+          left: 0;
+        }
+        a{
+          width: 100%;
+          height: 100%;
+          display: inline-block;
+          position: relative;
+          &:hover::before{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            background-color: #00000059;
+            z-index: 30;
+            transition: all 0.3s ease;
+          }
+          img{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+        
+      }
+    }
+  }
+  #page8{
+    width: 100%;
+    height: 300vh;
+    background-color: darkblue;
+
+  }
+  #page9{
+    width: 100%;
+    height: 100vh;
+    background-color: #1d6c41;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    border: 5px solid red;
+    box-sizing: border-box;
   }
 }
