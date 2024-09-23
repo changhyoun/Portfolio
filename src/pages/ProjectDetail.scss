@@ -21,7 +21,7 @@
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: #00000069;
+    background-color: #000000b6;
     position: absolute;
   }
   .ProjectDetail_warp{
@@ -74,6 +74,15 @@
           width: 100%;
           height: 450px;
           color: #333;
+          canvas{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0; 
+            border-radius: 40px;
+            overflow: hidden;
+          }
           img{
             height: 110px;
             width: 110px;
@@ -84,6 +93,8 @@
           & > div:nth-of-type(1){
             width: fit-content;
             height: auto;
+            position: relative;
+            z-index: 10;
             h2{
               font-family: 'Parabole';
               font-size: 5em;
@@ -124,19 +135,20 @@
             transform: translateY(100%);
           }
         }
-        & > div:nth-of-type(2){
+        // & > div:nth-of-type(2) 
+        .sc2_single-swiper{
+          margin-top: 5%;
           position: relative;
           width: 100%;
-          height: 400px;
+          height: 800px;
           color: #333;
           .swiper{
             width: 100%;
-            height: 80%;
+            height: 100%;
             .swiper-wrapper{
               width: 100%;
-              height: 100%;
+              height: 80%;
               border-radius: 40px;
-              overflow: hidden;
               .single-slide{
                 width: 100%;
                 height: 100%;
@@ -144,21 +156,46 @@
                   width: 100%;
                   height: 100%;
                   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-                  object-fit: contain;
                 }
               }
+            }            
+          }
+        }
+        .sc2_multiple-swiper{
+          position: relative;
+          width: 100%;
+          height: 400px;
+          color: #333;
+          margin-top: 5%;
+          .swiper{
+            width: 100%;
+            height: 100%;
+            .swiper-wrapper{
+              width: 100%;
+              height: 80%;
+              border-radius: 40px;
               .multiple-slide{
                 width: 45% !important;
                 height: 100%;
                 background-color: #EFEFEF;
                 border-radius: 40px;
                 box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #BFBFBF;
                 img{
-                  width: 100%;
-                  height: 100%;
-                  object-fit: contain;
+                  height: 80%;
+                  filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.25));
                 }
               }
+            }
+            .swiper-pagination{
+              width: 100%;
+              height: 20%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
             }
           }
         }

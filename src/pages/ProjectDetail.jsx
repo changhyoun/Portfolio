@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './ProjectDetail.scss';
-import { camfine_sum, move_sum, match_sum, samsung_sum_hori, sandbox_sum, pr_dt_logo1, pr_dt_logo2, pr_dt_logo3, pr_dt_logo4, pr_dt_logo5 } from '../components/Image';
+import {  move_sum,samsung_sum_hori, sandbox_sum, pr_dt_logo1, pr_dt_logo2, pr_dt_logo3, pr_dt_logo4, pr_dt_logo5,match_mock1,match_mock2,match_mock3,match_mock4,match_mock5,match_mock6,match_mock7,match_mock8,match_mock9,camfine_mock1,camfine_mock2,camfine_mock3,camfine_mock4,camfine_mock5,camfine_mock6,camfine_mock7,camfine_mock8 } from '../components/Image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
-// 각 프로젝트별 이미지 및 로고를 설정
 const projects = [
   { 
     id: 'camfine', 
@@ -14,7 +13,7 @@ const projects = [
     ProjectDetail_warp_center_sc1_h2: 'Camfine', 
     ProjectDetail_warp_center_sc1_p: '캠파인.', 
     slidesPerView: 2,
-    images: [camfine_sum, '추가 이미지 1', '추가 이미지 2'],  // 이미지 배열 추가
+    images: [camfine_mock1,camfine_mock2,camfine_mock3,camfine_mock4,camfine_mock5,camfine_mock6,camfine_mock7,camfine_mock8],  
   },
   { 
     id: 'match', 
@@ -23,7 +22,7 @@ const projects = [
     ProjectDetail_warp_center_sc1_h2: 'Match Point', 
     ProjectDetail_warp_center_sc1_p: '매치포인트.', 
     slidesPerView: 2,
-    images: [match_sum, '추가 이미지 1', '추가 이미지 2'],  // 이미지 배열 추가
+    images: [match_mock1, match_mock2, match_mock3,match_mock4,match_mock5,match_mock6,match_mock7,match_mock8,match_mock9],  
   },
   { 
     id: 'sandbox', 
@@ -32,7 +31,7 @@ const projects = [
     ProjectDetail_warp_center_sc1_h2: 'Code Sandbox', 
     ProjectDetail_warp_center_sc1_p: '코드 샌드박스.', 
     slidesPerView: 1,
-    images: [sandbox_sum, '추가 이미지 1'],  // 이미지 배열 추가
+    images: [sandbox_sum, '추가 이미지 1'],  
   },
   { 
     id: 'move', 
@@ -41,7 +40,7 @@ const projects = [
     ProjectDetail_warp_center_sc1_h2: 'Move', 
     ProjectDetail_warp_center_sc1_p: '무브.', 
     slidesPerView: 1,
-    images: [move_sum, '추가 이미지 1'],  // 이미지 배열 추가
+    images: [move_sum, '추가 이미지 1'],  
   },
   { 
     id: 'samsung', 
@@ -50,25 +49,19 @@ const projects = [
     ProjectDetail_warp_center_sc1_h2: 'Samsung\nElectro-Mechanics', 
     ProjectDetail_warp_center_sc1_p: '삼성전기.', 
     slidesPerView: 1,
-    images: [samsung_sum_hori, '추가 이미지 1'],  // 이미지 배열 추가
+    images: [samsung_sum_hori, '추가 이미지 1'],  
   },
 ];
 
 function ProjectDetail() {
   const { projectId } = useParams(); // URL에서 projectId 가져오기
 
-  // 현재 프로젝트 정보 찾기
   const currentProject = projects.find(project => project.id === projectId);
 
-  // 이전 및 다음 프로젝트 찾기
   const currentIndex = projects.findIndex(project => project.id === projectId);
   const previousProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
-  console.log("Current projectId:", projectId);
-  console.log("Current Project:", currentProject);
-
-  // 줄바꿈 적용을 위해 \n을 <br />로 변환
   const formatTextWithLineBreaks = (text) => {
     return text.split('\n').map((line, index) => (
       <React.Fragment key={index}>
@@ -78,12 +71,97 @@ function ProjectDetail() {
     ));
   };
 
-  // 프로젝트가 존재할 때만 렌더링
+  useEffect(() => {
+    const utils = {
+      distance: function (p0, p1) {
+        var dx = p1.x - p0.x,
+          dy = p1.y - p0.y;
+        return Math.sqrt(dx * dx + dy * dy);
+      },
+    };
+  
+    const vector = {
+      _x: 1,
+      _y: 0,
+      create: function (x, y) {
+        var obj = Object.create(this);
+        obj.setX(x);
+        obj.setY(y);
+        return obj;
+      },
+      setX: function (value) {
+        this._x = value;
+      },
+      getX: function () {
+        return this._x;
+      },
+      setY: function (value) {
+        this._y = value;
+      },
+      getY: function () {
+        return this._y;
+      },
+    };
+  
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+    const full = { x: window.innerWidth, y: window.innerHeight };
+    canvas.width = full.x;
+    canvas.height = full.y;
+  
+    const mouse = { x: 0, y: 0 };
+  
+    // 캔버스 내 마우스 좌표 계산
+    canvas.addEventListener("mousemove", function (e) {
+      const rect = canvas.getBoundingClientRect(); // 캔버스의 경계 좌표
+      mouse.x = (e.clientX - rect.left) * (canvas.width / rect.width); // 캔버스 비율 보정
+      mouse.y = (e.clientY - rect.top) * (canvas.height / rect.height); // 캔버스 비율 보정
+    });
+    const number = 20;
+    const baseDotSize = 1;
+    const hoverDotSizeMultiplier = 6;
+    const vectorStock = [];
+  
+    // 점 배치
+    for (let i = 0; i < full.x / number + 1; i++) {
+      for (let j = 0; j < full.y / number + 1; j++) {
+        vectorStock.push(vector.create(i * number, j * number));
+      }
+    }
+  
+    function update() {
+      context.clearRect(0, 0, full.x, full.y);
+      for (let i = 0; i < vectorStock.length; i++) {
+        const dx = vectorStock[i].getX() - mouse.x;
+        const dy = vectorStock[i].getY() - mouse.y;
+        let dist = Math.sqrt(dx * dx + dy * dy);
+  
+        // 마우스 근처 점 크기 변경
+        let dotSize = baseDotSize;
+        if (dist < 100) {
+          dotSize = baseDotSize + (hoverDotSizeMultiplier * (100 - dist) / 100);
+        }
+  
+        context.fillStyle = "#333";
+        context.save();
+        context.translate(vectorStock[i].getX(), vectorStock[i].getY());
+  
+        // 원 그리기
+        context.beginPath();
+        context.arc(0, 0, dotSize, 0, 2 * Math.PI);
+        context.fill();
+  
+        context.restore();
+      }
+      requestAnimationFrame(update);
+    }
+  
+    update();
+  }, []);
   return (
     <div id="ProjectDetail">
       {currentProject ? (
         <>
-          {/* 배경 이미지 */}
           <img src={currentProject.images[0]} alt={`${currentProject.name} Background`} className="ProjectDetail_bg" />
           <div className="ProjectDetail_bg_ol"></div>
           <div className="ProjectDetail_warp">
@@ -95,47 +173,37 @@ function ProjectDetail() {
             <div className="ProjectDetail_warp_center content_box">
               <div className="ProjectDetail_warp_center_inner">
                 <div className="ProjectDetail_warp_center_sc1">
+                  <canvas id="canvas"></canvas> {/* 캔버스 추가 */}
                   <img src={currentProject.logo} alt={`${currentProject.name} Logo`} className="ProjectDetail_logo" />
-
-                  <div className='ProjectDetail_warp_center_sc1_tx'>
-                    {/* 줄바꿈을 적용하여 텍스트 출력 */}
+                  <div className="ProjectDetail_warp_center_sc1_tx">
                     <h2>{formatTextWithLineBreaks(currentProject.ProjectDetail_warp_center_sc1_h2)}</h2>
                     <p>{currentProject.ProjectDetail_warp_center_sc1_p}</p>
                   </div>
                   <div className="ProjectDetail_warp_center_sc1_ic">
-                    <span className="material-symbols-rounded">
-                      south
-                    </span>
-                    <span className="material-symbols-rounded">
-                      south
-                    </span>
+                    <span className="material-symbols-rounded">south</span>
+                    <span className="material-symbols-rounded">south</span>
                   </div>
                 </div>
-
-                {/* 스와이퍼 섹션 */}
                 <div 
                     className={`ProjectDetail_warp_center_sc2 ${
                     currentProject.slidesPerView === 1 
-                        ? 'sc2_single-swiper' // 1개씩 보여질 때 추가되는 클래스
-                        : 'sc2_multiple-swiper' // 3개씩 보여질 때 추가되는 클래스
+                        ? 'sc2_single-swiper' 
+                        : 'sc2_multiple-swiper' 
                     }`}
                 >
                   <Swiper
                     spaceBetween={50}
-                    slidesPerView={currentProject.slidesPerView}  // 각 프로젝트별 슬라이드 개수
+                    slidesPerView={currentProject.slidesPerView}
                     modules={[Navigation, Pagination]}
                     navigation
                     pagination={{ clickable: true }}
                   >
                     {currentProject.images.map((image, index) => (
-                      <SwiperSlide 
-                        key={index} 
-                        className={
+                      <SwiperSlide key={index} className={
                           currentProject.slidesPerView === 1 
-                            ? 'swiper-slide-custom single-slide' // 1개씩 보여질 때 추가되는 클래스
-                            : 'swiper-slide-custom multiple-slide' // 3개씩 보여질 때 추가되는 클래스
-                        }
-                      >
+                            ? 'swiper-slide-custom single-slide' 
+                            : 'swiper-slide-custom multiple-slide'
+                        }>
                         <img src={image} alt={`${currentProject.name} Slide ${index + 1}`} />
                       </SwiperSlide>
                     ))}

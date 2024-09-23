@@ -91,4 +91,57 @@ export {
   default as pr_dt_logo5
 } from "../assets/pr_dt_logo5.png";
 
+// 프로젝트 목업 
 
+export { 
+  default as camfine_mock1 
+} from "../assets/camfine_mock1.png";
+export { 
+  default as camfine_mock2 
+} from "../assets/camfine_mock2.png";
+export { 
+  default as camfine_mock3
+} from "../assets/camfine_mock3.png";
+export { 
+  default as camfine_mock4
+} from "../assets/camfine_mock4.png";
+export { 
+  default as camfine_mock5
+} from "../assets/camfine_mock5.png";
+export { 
+  default as camfine_mock6 
+} from "../assets/camfine_mock6.png";
+export { 
+  default as camfine_mock7 
+} from "../assets/camfine_mock7.png";
+export { 
+  default as camfine_mock8
+} from "../assets/camfine_mock8.png";
+
+export { 
+  default as match_mock1 
+} from "../assets/match_mock1.png";
+export { 
+  default as match_mock2 
+} from "../assets/match_mock2.png";
+export { 
+  default as match_mock3
+} from "../assets/match_mock3.png";
+export { 
+  default as match_mock4
+} from "../assets/match_mock4.png";
+export { 
+  default as match_mock5
+} from "../assets/match_mock5.png";
+export { 
+  default as match_mock6 
+} from "../assets/match_mock6.png";
+export { 
+  default as match_mock7 
+} from "../assets/match_mock7.png";
+export { 
+  default as match_mock8
+} from "../assets/match_mock8.png";
+export { 
+  default as match_mock9
+} from "../assets/match_mock9.png";
