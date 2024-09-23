@@ -16,11 +16,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "gsap": "^3.12.5",
+    "loader": "^2.1.1",
     "matter-js": "^0.20.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
-    "sass": "^1.78.0",
+    "sass": "^1.79.3",
     "swiper": "^11.1.14"
   },
   "devDependencies": {

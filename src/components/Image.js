@@ -69,5 +69,26 @@ export {
 // 프로젝트 로테이딩 circle
 import rotate_txt from "../assets/rotate_txt.svg"
 export {rotate_txt}
+// 그랩 아이콘
+import grab_ic from "../assets/grab_ic.png"
+export {grab_ic}
+
+// 상세페이지 프로젝트 로고
+
+export { 
+  default as pr_dt_logo1 
+} from "../assets/pr_dt_logo1.png";
+export { 
+  default as pr_dt_logo2 
+} from "../assets/pr_dt_logo2.png";
+export { 
+  default as pr_dt_logo3
+} from "../assets/pr_dt_logo3.png";
+export { 
+  default as pr_dt_logo4
+} from "../assets/pr_dt_logo4.png";
+export { 
+  default as pr_dt_logo5
+} from "../assets/pr_dt_logo5.png";
 
 

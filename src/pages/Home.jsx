@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt } from '../components/Image';
+import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic } from '../components/Image';
 import Header from '../components/Header';
 import Page5_bt_lt_inner_tx from '../components/Page5_bt_lt_inner_tx';
 import { gsap } from 'gsap';
@@ -594,8 +594,8 @@ gsap.to(
   }
 );
 
-console.log(document.querySelector('#Home #page5 > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2)'))
   };
+
 
 
 
@@ -930,8 +930,8 @@ console.log(document.querySelector('#Home #page5 > div > div:nth-of-type(1) > di
       </div>
       <div id="page7" ref={page7Ref}>
         <div className="page7_inner">
-          <div className="page7_procjec_sum">
-            <Link>
+          <div className="page7_procject_sum">
+            <Link to="/project/camfine" state={{ ProjectDetail_bg: camfine_sum }}>
               <img src={camfine_sum} alt="camfine_sum" />
               <div className="page7_procjec_sum_inner">
                 <img src={cam_logo_white} alt="cam_logo_white" />
@@ -948,8 +948,8 @@ console.log(document.querySelector('#Home #page5 > div > div:nth-of-type(1) > di
               </div>
             </Link>
           </div>
-          <div className="page7 procjec_sum">
-            <Link>
+          <div className="page7 procject_sum">
+            <Link to="/project/match" state={{ ProjectDetail_bg: match_sum }}>
               <img src={match_sum} alt="match_sum" />
               <div className="page7_procjec_sum_inner">
                 <img src={match_logo_white} alt="match_logo_white" />
@@ -965,8 +965,8 @@ console.log(document.querySelector('#Home #page5 > div > div:nth-of-type(1) > di
                 </div>
             </Link>
           </div>
-          <div className="page7 procjec_sum">
-            <Link>
+          <div className="page7 procject_sum">
+            <Link to="/project/sandbox" state={{ ProjectDetail_bg: sandbox_sum }}>
               <img src={sandbox_sum} alt="sandbox_sum" />
               <div className="page7_procjec_sum_inner">
                 <img src={sandbox_logo_white} alt="sandbox_logo_white" />
@@ -982,8 +982,8 @@ console.log(document.querySelector('#Home #page5 > div > div:nth-of-type(1) > di
               </div>
             </Link>
           </div>
-          <div className="page7 procjec_sum">
-            <Link>
+          <div className="page7 procject_sum">
+            <Link to="/project/move" state={{ ProjectDetail_bg: move_sum }}>
               <img src={move_sum} alt="move_sum" />
               <div className="page7_procjec_sum_inner">
                 <img src={move_logo_white} alt="move_logo_white" />
@@ -999,8 +999,8 @@ console.log(document.querySelector('#Home #page5 > div > div:nth-of-type(1) > di
               </div>
             </Link>
           </div>
-          <div className="page7 procjec_sum">
-            <Link>
+          <div className="page7 procject_sum">
+            <Link to="/project/samsung" state={{ ProjectDetail_bg: samsung_sum_hori }}>
               <img src={samsung_sum_hori} alt="samsung_sum_hori" />
               <div className="page7_procjec_sum_inner">
                 <img src={sam_logo_white} alt="sam_logo_white" />

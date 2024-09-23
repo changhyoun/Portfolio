@@ -960,12 +960,34 @@
           align-items: center;
           justify-content: center;
           position: relative;
-          > div{
+          .throw_warp{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            
+            transform: translate(-50%,-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 50%;
+            img{
+              width: 50%;
+              filter: grayscale(1);
+            }
+            p{
+              color: #736C6C;
+              font-family: 'AppleNeoEB';
+              font-size: 0.8em;
+              margin-top: 7%;
+            }
+          }
+          > div:nth-of-type(2){
             width:100%;
             height:100%;
             border-radius: 10px;
             position: relative;
-            
+        
               
             canvas{
               width: 100%;
@@ -981,6 +1003,7 @@
               padding: 6.5px;
               text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
               cursor: grab;
+              
               svg{
                 margin-left: 3px;
                 font-size: 0.65em;
@@ -1212,15 +1235,20 @@
           bottom: 0;
           left: 0;
         }
-        & > a{
+        & > a {
           width: 100%;
           height: 100%;
-          display: inline-block;
-          position: relative;
-          transition: all 0.3s ease;
           display: flex;
           align-items: center;
           justify-content: center;
+          position: relative;
+          transition: all 0.3s ease;
+          @for $i from 1 through 5 {
+            &:nth-of-type(#{$i}) {
+              z-index: $i;
+            }
+          }
+        
           &::before {
             content: "";
             position: absolute;

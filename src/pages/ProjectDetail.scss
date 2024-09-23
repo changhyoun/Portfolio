@@ -1,0 +1,179 @@
+#ProjectDetail{
+  width: 100%;
+  height: 100vh;
+  max-width: 1920px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    object-fit: cover;
+  }
+  .ProjectDetail_bg_ol{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #00000069;
+    position: absolute;
+  }
+  .ProjectDetail_warp{
+    width: 80%;
+    height: 90%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    > div:nth-of-type(1),
+    > div:nth-of-type(3){
+      width: 3.5%;
+      height: 100%;
+      a{
+        display: block;
+        background-color: #E9ECEF;
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+        span{
+          font-size: 1.5em;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+          color: #6E6E73;
+        }
+      }
+    }
+  
+    > div:nth-of-type(2){
+      width: 88%;
+      height: 100%;
+      background-color: #E9ECEF;
+      border-radius: 20px;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+      & > div{
+        width: 90%;
+        height: 90%;
+        position: relative;
+        & > div:nth-of-type(1){
+          position: relative;
+          width: 100%;
+          height: 450px;
+          color: #333;
+          img{
+            height: 110px;
+            width: 110px;
+            object-fit: contain;
+            margin-bottom: 3%;
+            filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.25));
+          }
+          & > div:nth-of-type(1){
+            width: fit-content;
+            height: auto;
+            h2{
+              font-family: 'Parabole';
+              font-size: 5em;
+              font-weight: 100;
+              text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+            }
+            p{
+              font-family: 'AppleNeoEB';
+              font-size: 2em;
+              text-align: right;
+              text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+            }
+          }
+          & > div:nth-of-type(2){
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            overflow: hidden;
+            transition: transform 200ms;
+            display: grid;
+            span{
+              font-size: 5em;
+              cursor: pointer;
+            }
+            span:nth-of-type(1){
+              position: absolute;
+              transform: translateY(-100%);
+            }
+          }
+          &:hover> div:nth-of-type(2) span:nth-of-type(1){
+            transition: transform 0.3s ease-in-out;
+            transform: translate(0, 0);
+          }
+          
+          &:hover > div:nth-of-type(2) span:nth-of-type(2){
+            transition: transform 0.3s ease-in-out 0.1s;
+            transform: translateY(100%);
+          }
+        }
+        & > div:nth-of-type(2){
+          position: relative;
+          width: 100%;
+          height: 400px;
+          color: #333;
+          .swiper{
+            width: 100%;
+            height: 80%;
+            .swiper-wrapper{
+              width: 100%;
+              height: 100%;
+              border-radius: 40px;
+              overflow: hidden;
+              .single-slide{
+                width: 100%;
+                height: 100%;
+                img{
+                  width: 100%;
+                  height: 100%;
+                  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+                  object-fit: contain;
+                }
+              }
+              .multiple-slide{
+                width: 45% !important;
+                height: 100%;
+                background-color: #EFEFEF;
+                border-radius: 40px;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+                img{
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                }
+              }
+            }
+          }
+        }
+        
+      }
+    }
+
+    > div:nth-of-type(3){
+     display: flex;
+     justify-content: end;
+     flex-direction: column;
+     a:nth-of-type(1){
+        margin-bottom: 30%;
+     }
+    }
+    
+  }
+}

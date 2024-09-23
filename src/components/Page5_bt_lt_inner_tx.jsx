@@ -7,6 +7,7 @@ import {
 import {
   faImage, faBezierCurve, faObjectGroup, faFilePowerpoint, faFileExcel, faEllipsis, faCode,
 } from "@fortawesome/free-solid-svg-icons";
+import { grab_ic } from "./Image";
 
 const Page5_bt_lt_inner_tx = () => {
   const [elements, setElements] = useState([]);
@@ -249,7 +250,12 @@ const Page5_bt_lt_inner_tx = () => {
         overflow: "hidden",
       }}
     >
+       <div className="throw_warp">
+          <img src={grab_ic} alt="grab_ic" />
+          <p>박스를 잡고 던져보세요!</p>
+      </div>
       <div className="content" ref={contentRef}>
+       
         {elements.map((item) => (
           <div key={item.key} className="element" style={{ position: "absolute" }}>
             {item.content}
