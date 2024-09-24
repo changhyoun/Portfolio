@@ -1,7 +1,33 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './ProjectDetail.scss';
-import {  move_sum,samsung_sum_hori, sandbox_sum, pr_dt_logo1, pr_dt_logo2, pr_dt_logo3, pr_dt_logo4, pr_dt_logo5,match_mock1,match_mock2,match_mock3,match_mock4,match_mock5,match_mock6,match_mock7,match_mock8,match_mock9,camfine_mock1,camfine_mock2,camfine_mock3,camfine_mock4,camfine_mock5,camfine_mock6,camfine_mock7,camfine_mock8 } from '../components/Image';
+import { 
+  // Move 프로젝트 이미지
+  move_sum, 
+  move_moc1, move_moc2, move_moc3, move_moc4, move_moc5, move_moc6, move_moc7, move_moc8, move_moc9,
+
+  // Samsung 프로젝트 이미지
+  samsung_sum_hori,sam_moc1,sam_moc2,sam_moc3,sam_moc4,sam_moc5,
+
+  // Sandbox 프로젝트 이미지
+  sandbox_sum,sand_moc1,sand_moc2,sand_moc3,sand_moc4,sand_moc5,sand_moc6,sand_moc7,
+
+  // 프로젝트 로고
+  pr_dt_logo1, pr_dt_logo2, pr_dt_logo3, pr_dt_logo4, pr_dt_logo5,
+
+  // Match 프로젝트 이미지
+  match_sum,
+  match_mock1, match_mock2, match_mock3, match_mock4, match_mock5, match_mock6, match_mock7, match_mock8, match_mock9, 
+  
+
+  // Camfine 프로젝트 이미지
+  camfine_sum,
+  camfine_mock1, camfine_mock2, camfine_mock3, camfine_mock4, camfine_mock5, camfine_mock6, camfine_mock7, camfine_mock8, 
+  
+  // 스킬 아이콘
+  html_ic,figma_ic,illust_ic,photoshop_ic,scss_ic,react_ic,javaScript_ic,css_ic
+} from '../components/Image';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
@@ -13,7 +39,12 @@ const projects = [
     ProjectDetail_warp_center_sc1_h2: 'Camfine', 
     ProjectDetail_warp_center_sc1_p: '캠파인.', 
     slidesPerView: 2,
-    images: [camfine_mock1,camfine_mock2,camfine_mock3,camfine_mock4,camfine_mock5,camfine_mock6,camfine_mock7,camfine_mock8],  
+    images: [camfine_sum,camfine_mock1,camfine_mock2,camfine_mock3,camfine_mock4,camfine_mock5,camfine_mock6,camfine_mock7,camfine_mock8],  
+    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>Match_Point',
+    ProjectDetail_warp_center_sc3_tx_2_box_inner : "테니스 예약 사이트, 앱",
+    ProjectDetail_warp_center_sc3_tx_3_box_inner : "모바일 웹, 앱",
+    skill_ic : [photoshop_ic,illust_ic,figma_ic,html_ic,scss_ic,javaScript_ic,react_ic],
+    skill_tx : ['photoshop','illust', 'figma','html','scss','javaScript','react']
   },
   { 
     id: 'match', 
@@ -22,7 +53,12 @@ const projects = [
     ProjectDetail_warp_center_sc1_h2: 'Match Point', 
     ProjectDetail_warp_center_sc1_p: '매치포인트.', 
     slidesPerView: 2,
-    images: [match_mock1, match_mock2, match_mock3,match_mock4,match_mock5,match_mock6,match_mock7,match_mock8,match_mock9],  
+    images: [match_sum,match_mock1, match_mock2, match_mock3,match_mock4,match_mock5,match_mock6,match_mock7,match_mock8,match_mock9],
+    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>Match_Point',
+    ProjectDetail_warp_center_sc3_tx_2_box_inner : "테니스 예약 사이트, 앱",
+    ProjectDetail_warp_center_sc3_tx_3_box_inner : "모바일 웹, 앱",
+    skill_ic : [photoshop_ic,figma_ic,html_ic,scss_ic,javaScript_ic,react_ic],
+    skill_tx : ['photoshop', 'figma','html','scss','javaScript','react']
   },
   { 
     id: 'sandbox', 
@@ -31,7 +67,12 @@ const projects = [
     ProjectDetail_warp_center_sc1_h2: 'Code Sandbox', 
     ProjectDetail_warp_center_sc1_p: '코드 샌드박스.', 
     slidesPerView: 1,
-    images: [sandbox_sum, '추가 이미지 1'],  
+    images: [sandbox_sum, sand_moc1, sand_moc2, sand_moc3, sand_moc4, sand_moc5, sand_moc6, sand_moc7],  
+    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>Match_Point',
+    ProjectDetail_warp_center_sc3_tx_2_box_inner : "테니스 예약 사이트, 앱",
+    ProjectDetail_warp_center_sc3_tx_3_box_inner : "모바일 웹, 앱",
+    skill_ic : [figma_ic,html_ic,scss_ic,javaScript_ic,react_ic],
+    skill_tx : ['figma','html','scss','javaScript','react']
   },
   { 
     id: 'move', 
@@ -40,7 +81,12 @@ const projects = [
     ProjectDetail_warp_center_sc1_h2: 'Move', 
     ProjectDetail_warp_center_sc1_p: '무브.', 
     slidesPerView: 1,
-    images: [move_sum, '추가 이미지 1'],  
+    images: [move_sum, move_moc1, move_moc2, move_moc3, move_moc4, move_moc5, move_moc6, move_moc7, move_moc8, move_moc9,],  
+    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>Match_Point',
+    ProjectDetail_warp_center_sc3_tx_2_box_inner : "테니스 예약 사이트, 앱",
+    ProjectDetail_warp_center_sc3_tx_3_box_inner : "모바일 웹, 앱",
+    skill_ic : [figma_ic,html_ic,css_ic,javaScript_ic],
+    skill_tx : ['figma','html','css','javaScript',]
   },
   { 
     id: 'samsung', 
@@ -49,7 +95,12 @@ const projects = [
     ProjectDetail_warp_center_sc1_h2: 'Samsung\nElectro-Mechanics', 
     ProjectDetail_warp_center_sc1_p: '삼성전기.', 
     slidesPerView: 1,
-    images: [samsung_sum_hori, '추가 이미지 1'],  
+    images: [samsung_sum_hori,sam_moc1,sam_moc2,sam_moc3,sam_moc4,sam_moc5,],
+    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>Match_Point',
+    ProjectDetail_warp_center_sc3_tx_2_box_inner : "테니스 예약 사이트, 앱",
+    ProjectDetail_warp_center_sc3_tx_3_box_inner : "모바일 웹, 앱",
+    skill_ic : [figma_ic,html_ic,css_ic,javaScript_ic],
+    skill_tx : ['figma','html','css','javaScript',]
   },
 ];
 
@@ -191,23 +242,133 @@ function ProjectDetail() {
                         : 'sc2_multiple-swiper' 
                     }`}
                 >
-                  <Swiper
-                    spaceBetween={50}
+                 <Swiper
                     slidesPerView={currentProject.slidesPerView}
                     modules={[Navigation, Pagination]}
-                    navigation
-                    pagination={{ clickable: true }}
+                    navigation={{
+                      nextEl: `.swiper-button-next`, // 고유 next 버튼 클래스 설정
+                      prevEl: `.swiper-button-prev`, // 고유 prev 버튼 클래스 설정
+                    }}
+                    pagination={{ clickable: true, el: `.pagination-${currentProject.id} .pagination` }} // 고유 pagination 설정
                   >
-                    {currentProject.images.map((image, index) => (
+                    {currentProject.id === 'move' && currentProject.images.slice(1, 10).map((image, index) => (
                       <SwiperSlide key={index} className={
                           currentProject.slidesPerView === 1 
                             ? 'swiper-slide-custom single-slide' 
                             : 'swiper-slide-custom multiple-slide'
                         }>
-                        <img src={image} alt={`${currentProject.name} Slide ${index + 1}`} />
+                        <img src={image} alt={`${currentProject.name} Slide ${index + 2}`} />
                       </SwiperSlide>
                     ))}
+                  
+                    {currentProject.id === 'samsung' && currentProject.images.slice(1, 6).map((image, index) => (
+                      <SwiperSlide key={index} className={
+                          currentProject.slidesPerView === 1 
+                            ? 'swiper-slide-custom single-slide' 
+                            : 'swiper-slide-custom multiple-slide'
+                        }>
+                        <img src={image} alt={`${currentProject.name} Slide ${index + 2}`} />
+                      </SwiperSlide>
+                    ))}
+                  
+                    {currentProject.id === 'sandbox' && currentProject.images.slice(1, 8).map((image, index) => (
+                      <SwiperSlide key={index} className={
+                          currentProject.slidesPerView === 1 
+                            ? 'swiper-slide-custom single-slide' 
+                            : 'swiper-slide-custom multiple-slide'
+                        }>
+                        <img src={image} alt={`${currentProject.name} Slide ${index + 2}`} />
+                      </SwiperSlide>
+                    ))}
+                  
+                    {currentProject.id === 'match' && currentProject.images.slice(1, 10).map((image, index) => (
+                      <SwiperSlide key={index} className={
+                          currentProject.slidesPerView === 1 
+                            ? 'swiper-slide-custom single-slide' 
+                            : 'swiper-slide-custom multiple-slide'
+                        }>
+                        <img src={image} alt={`${currentProject.name} Slide ${index + 2}`} />
+                      </SwiperSlide>
+                    ))}
+                  
+                    {currentProject.id === 'camfine' && currentProject.images.slice(1, 9).map((image, index) => (
+                      <SwiperSlide key={index} className={
+                          currentProject.slidesPerView === 1 
+                            ? 'swiper-slide-custom single-slide' 
+                            : 'swiper-slide-custom multiple-slide'
+                        }>
+                        <img src={image} alt={`${currentProject.name} Slide ${index + 2}`} />
+                      </SwiperSlide>
+                    ))}
+                  <div className={`pagination-wrapper pagination-${currentProject.id}`}>
+                    <div className="pagination"></div> {/* Swiper의 페이지네이션 위치 */}
+                  </div>
+                  <div className="swiper-button-prev">
+                    <span className="material-symbols-rounded">
+                      swipe_left
+                    </span>
+                  </div>
+                  {/* 기본 prev 버튼 */}
+                  <div className="swiper-button-next">
+                    <span className="material-symbols-rounded">
+                      swipe_right
+                    </span>
+                  </div>
                   </Swiper>
+
+                </div>
+                <div className="ProjectDetail_warp_center_sc3">
+                  <div className="ProjectDetail_warp_center_sc3_tx_1">
+                     <p>Website.</p>
+                     
+                      <Link className='ProjectDetail_warp_center_sc3_tx_1_box'>
+                        <span className="material-symbols-rounded">
+                          north_east
+                        </span>
+                        <div className="ProjectDetail_warp_center_sc3_tx_1_box_inner"
+                          dangerouslySetInnerHTML={{ __html: currentProject.ProjectDetail_warp_center_sc3_tx_1_box_inner }}
+                        ></div>
+                    
+                      </Link>
+                  </div>
+                  <div className="ProjectDetail_warp_center_sc3_tx_2">
+                     <p>Industry.</p>
+                     
+                      <div className='ProjectDetail_warp_center_sc3_tx_2_box'>
+                        <div className="ProjectDetail_warp_center_sc3_tx_2_box_inner">
+                          {currentProject.ProjectDetail_warp_center_sc3_tx_2_box_inner}
+                        </div>
+                    
+                      </div>
+                  </div>
+                  <div className="ProjectDetail_warp_center_sc3_tx_3">
+                     <p>Platform.</p>
+                     
+                      <div className='ProjectDetail_warp_center_sc3_tx_3_box'>
+                        <div className="ProjectDetail_warp_center_sc3_tx_3_box_inner">
+                          {currentProject.ProjectDetail_warp_center_sc3_tx_3_box_inner}
+                        </div>
+                    
+                      </div>
+                  </div>
+                  <div className="ProjectDetail_warp_center_sc3_tx_4">
+                     <p>UsedSkills.</p>
+                     
+                      <div className='ProjectDetail_warp_center_sc3_tx_4_box'>
+                        
+
+                        
+                          {currentProject.skill_ic.map((icon, index) => (
+                            <div key={index} className="skill">
+                            <div className="ProjectDetail_warp_center_sc3_tx_4_skill_warp">
+                              <img src={icon} alt={`${currentProject.skill_tx[index]} Icon`} className="skill_icon" />
+                              <span>{currentProject.skill_tx[index]}</span>
+                              </div>
+                            </div>
+                          ))}
+                
+                      </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -93,55 +93,156 @@ export {
 
 // 프로젝트 목업 
 
+// 프로젝트 목업 - Camfine
 export { 
   default as camfine_mock1 
-} from "../assets/camfine_mock1.png";
+} from "../assets/camfine_moc/camfine_mock1.png";
 export { 
   default as camfine_mock2 
-} from "../assets/camfine_mock2.png";
+} from "../assets/camfine_moc/camfine_mock2.png";
 export { 
-  default as camfine_mock3
-} from "../assets/camfine_mock3.png";
+  default as camfine_mock3 
+} from "../assets/camfine_moc/camfine_mock3.png";
 export { 
-  default as camfine_mock4
-} from "../assets/camfine_mock4.png";
+  default as camfine_mock4 
+} from "../assets/camfine_moc/camfine_mock4.png";
 export { 
-  default as camfine_mock5
-} from "../assets/camfine_mock5.png";
+  default as camfine_mock5 
+} from "../assets/camfine_moc/camfine_mock5.png";
 export { 
   default as camfine_mock6 
-} from "../assets/camfine_mock6.png";
+} from "../assets/camfine_moc/camfine_mock6.png";
 export { 
   default as camfine_mock7 
-} from "../assets/camfine_mock7.png";
+} from "../assets/camfine_moc/camfine_mock7.png";
 export { 
-  default as camfine_mock8
-} from "../assets/camfine_mock8.png";
+  default as camfine_mock8 
+} from "../assets/camfine_moc/camfine_mock8.png";
 
+
+// 프로젝트 목업 - Match
 export { 
   default as match_mock1 
-} from "../assets/match_mock1.png";
+} from "../assets/match_moc/match_mock1.png";
 export { 
   default as match_mock2 
-} from "../assets/match_mock2.png";
+} from "../assets/match_moc/match_mock2.png";
 export { 
-  default as match_mock3
-} from "../assets/match_mock3.png";
+  default as match_mock3 
+} from "../assets/match_moc/match_mock3.png";
 export { 
-  default as match_mock4
-} from "../assets/match_mock4.png";
+  default as match_mock4 
+} from "../assets/match_moc/match_mock4.png";
 export { 
-  default as match_mock5
-} from "../assets/match_mock5.png";
+  default as match_mock5 
+} from "../assets/match_moc/match_mock5.png";
 export { 
   default as match_mock6 
-} from "../assets/match_mock6.png";
+} from "../assets/match_moc/match_mock6.png";
 export { 
   default as match_mock7 
-} from "../assets/match_mock7.png";
+} from "../assets/match_moc/match_mock7.png";
 export { 
-  default as match_mock8
-} from "../assets/match_mock8.png";
+  default as match_mock8 
+} from "../assets/match_moc/match_mock8.png";
 export { 
-  default as match_mock9
-} from "../assets/match_mock9.png";
+  default as match_mock9 
+} from "../assets/match_moc/match_mock9.png";
+
+// 프로젝트 목업 - Sam
+export {
+  default as sam_moc1
+} from "../assets/sam_moc/sam_moc1.jpg";
+export {
+  default as sam_moc2
+} from "../assets/sam_moc/sam_moc2.jpg";
+export {
+  default as sam_moc3
+} from "../assets/sam_moc/sam_moc3.jpg";
+export {
+  default as sam_moc4
+} from "../assets/sam_moc/sam_moc4.jpg";
+export {
+  default as sam_moc5
+} from "../assets/sam_moc/sam_moc5.jpg";
+
+// 프로젝트 목업 - Move
+export {
+  default as move_moc1
+} from "../assets/move_moc/move_moc1.jpg";
+export {
+  default as move_moc2
+} from "../assets/move_moc/move_moc2.jpg";
+export {
+  default as move_moc3
+} from "../assets/move_moc/move_moc3.jpg";
+export {
+  default as move_moc4
+} from "../assets/move_moc/move_moc4.jpg";
+export {
+  default as move_moc5
+} from "../assets/move_moc/move_moc5.jpg";
+export {
+  default as move_moc6
+} from "../assets/move_moc/move_moc6.jpg";
+export {
+  default as move_moc7
+} from "../assets/move_moc/move_moc7.jpg";
+export {
+  default as move_moc8
+} from "../assets/move_moc/move_moc8.jpg";
+export {
+  default as move_moc9
+} from "../assets/move_moc/move_moc9.jpg";
+
+// 프로젝트 목업 - Sand
+export {
+  default as sand_moc1
+} from "../assets/sand_moc/sand_moc1.jpg";
+export {
+  default as sand_moc2
+} from "../assets/sand_moc/sand_moc2.jpg";
+export {
+  default as sand_moc3
+} from "../assets/sand_moc/sand_moc3.jpg";
+export {
+  default as sand_moc4
+} from "../assets/sand_moc/sand_moc4.jpg";
+export {
+  default as sand_moc5
+} from "../assets/sand_moc/sand_moc5.jpg";
+export {
+  default as sand_moc6
+} from "../assets/sand_moc/sand_moc6.jpg";
+export {
+  default as sand_moc7
+} from "../assets/sand_moc/sand_moc7.jpg";
+
+
+// 스킬 아이콘
+
+
+export {
+  default as javaScript_ic
+} from "../assets/skill_ic/javaScript.png";
+export {
+  default as html_ic
+} from "../assets/skill_ic/html.png";
+export {
+  default as figma_ic
+} from "../assets/skill_ic/figma.png";
+export {
+  default as illust_ic
+} from "../assets/skill_ic/illust.png";
+export {
+  default as photoshop_ic
+} from "../assets/skill_ic/photoshop.png";
+export {
+  default as scss_ic
+} from "../assets/skill_ic/scss.png";
+export {
+  default as react_ic
+} from "../assets/skill_ic/react.png";
+export {
+  default as css_ic
+} from "../assets/skill_ic/css.png";

@@ -137,7 +137,7 @@
         }
         // & > div:nth-of-type(2) 
         .sc2_single-swiper{
-          margin-top: 5%;
+          margin: 5% 0 3% 0;
           position: relative;
           width: 100%;
           height: 800px;
@@ -147,18 +147,57 @@
             height: 100%;
             .swiper-wrapper{
               width: 100%;
-              height: 80%;
-              border-radius: 40px;
+              height: 85%;
               .single-slide{
                 width: 100%;
                 height: 100%;
+                
                 img{
+                  border: 1px solid #b9b9b9;
                   width: 100%;
                   height: 100%;
                   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+                  border-radius: 40px;
                 }
               }
             }            
+          }
+          .pagination-wrapper{
+            width: 100%;
+            height: 15%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .pagination{
+              width: auto;
+              height: 30%;
+              
+              display: flex;
+              justify-content: space-between;
+              background-color: #FAFAFA;
+              box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+              padding: 5px 15px;
+              align-items: center;
+              border-radius: 30px;
+              .swiper-pagination-bullet{
+                width: 8px;
+                height: 8px;
+                margin-left: 10px;
+                border-radius: 10px;
+                color: #EAEAEA;
+                box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25) inset;
+                &:first-child{
+                  margin-left: 0px;
+                }
+                
+              }
+              .swiper-pagination-bullet-active{
+                width: 16px;
+                
+              }
+              
+            }
+            
           }
         }
         .sc2_multiple-swiper{
@@ -166,7 +205,7 @@
           width: 100%;
           height: 400px;
           color: #333;
-          margin-top: 5%;
+          margin: 5% 0 3% 0;
           .swiper{
             width: 100%;
             height: 100%;
@@ -184,24 +223,172 @@
                 align-items: center;
                 justify-content: center;
                 border: 1px solid #BFBFBF;
+                margin-left: 3%;
+                margin-right: 2%;
                 img{
                   height: 80%;
                   filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.25));
                 }
               }
+             
             }
-            .swiper-pagination{
+            .pagination-wrapper{
               width: 100%;
-              height: 20%;
+              height: 15%;
+              display: flex;
+              align-items: end;
+              justify-content: center;
+              .pagination{
+                width: auto;
+                height: 30%;
+                
+                display: flex;
+                justify-content: space-between;
+                background-color: #FAFAFA;
+                box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+                padding: 5px 15px;
+                align-items: center;
+                border-radius: 30px;
+                .swiper-pagination-bullet{
+                  width: 8px;
+                  height: 8px;
+                  margin-left: 10px;
+                  border-radius: 10px;
+                  color: #EAEAEA;
+                  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25) inset;
+                  &:first-child{
+                    margin-left: 0px;
+                  }
+                  
+                }
+                .swiper-pagination-bullet-active{
+                  width: 16px;
+                  
+                }
+                
+              }
+            }
+          }
+       
+        }
+
+        & > div:nth-of-type(3){
+          width: 100%;
+          height: 500px;
+          position: relative;
+
+          font-family: 'Parabole';
+          padding-top: 3%;
+          &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            border-top:2px dashed #D8D8D8 ;
+          }
+          & > div:nth-child(1),
+          & > div:nth-child(2),
+          & > div:nth-child(3),
+          & > div:nth-child(4){
+            margin-top: 3%;
+            width: 100%;
+            height: auto;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.10);
+            &:nth-child(1){
+              margin-top: 0;
+            }
+            p{
+              font-size: 2em;  
+              color: #1d1d1d;
+              margin-bottom: 1%;
+            }
+            a{
               display: flex;
               align-items: center;
               justify-content: center;
+              border: 1px solid #c7c7c7;
+              background-color: #EFEFEF;
+              box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+              border-radius: 10px;
+              position: relative;
+              color: #535353;
+              font-size: 1.5em;
+              width: 50%;
+              height: 150px;
+
+              span{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 1.5%;
+                border-radius: 50%;
+                background-color: white;
+                box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+                font-size: 0.8em;
+                color: #535353;
+              }
+              & > div{
+                width: 80%;
+                height: 80%;
+                display: flex;
+                align-items: center;
+                
+              }
+            }
+            .ProjectDetail_warp_center_sc3_tx_2_box_inner,
+            .ProjectDetail_warp_center_sc3_tx_3_box_inner{
+              font-family: 'AppleNeoSB';
+              color: #7a7a7a;
+            }
+            .ProjectDetail_warp_center_sc3_tx_4_box{
+              width: auto;
+              height: auto;
+              display: flex;
+              column-gap: 2%;
+              row-gap: 2%;
+              flex-wrap: wrap;
+              & > div{
+                width: 100px;
+                height: 90px;
+                display: flex;
+                border-radius: 15px;
+                border: 1px solid #c7c7c7;
+                background-color: #EFEFEF;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);    
+                align-items: center;  
+                justify-content: center;
+                & > div{
+                  width: 80%;
+                  height: 80%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  img{
+                    width: 70%;
+                    height: 60%;
+                    object-fit: contain;
+                    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.15));
+                  }
+                  span{
+                    font-family: 'AppleNeoSB';
+                    height: 50%;
+                    display: flex;
+                    align-items: end;
+                    justify-content: center;
+                  }
+                }
+                
+              }
             }
           }
         }
         
       }
     }
+    
 
     > div:nth-of-type(3){
      display: flex;
@@ -213,4 +400,43 @@
     }
     
   }
+  
 }
+
+
+// 프로젝트 스와이퍼 페이지네이션 불릿 조정 (작동을 안해서 위에 배치함)
+#ProjectDetail .ProjectDetail_warp > div:nth-of-type(2) > div .sc2_multiple-swiper .swiper .pagination-camfine .pagination .swiper-pagination-bullet-active{
+  background: #5092CF !important ;
+}
+#ProjectDetail .ProjectDetail_warp > div:nth-of-type(2) > div .sc2_multiple-swiper .swiper .pagination-match .pagination .swiper-pagination-bullet-active{
+  background: #77B850 !important;
+}
+
+#ProjectDetail .ProjectDetail_warp > div:nth-of-type(2) > div  .sc2_single-swiper .swiper .pagination-sandbox .pagination .swiper-pagination-bullet-active{
+  background: #94CE9B !important ;
+}
+#ProjectDetail .ProjectDetail_warp > div:nth-of-type(2) > div  .sc2_single-swiper .swiper .pagination-move .pagination .swiper-pagination-bullet-active{
+  background: #252B71 !important ;
+}
+#ProjectDetail .ProjectDetail_warp > div:nth-of-type(2) > div  .sc2_single-swiper .swiper .pagination-samsung .pagination .swiper-pagination-bullet-active{
+  background: #003d98 !important ;
+}
+#ProjectDetail .swiper-button-next, #ProjectDetail .swiper-button-prev{
+  top: 40%;
+  color: #EAEAEA;
+  span{
+    font-size: 2.5em;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  }
+}
+#ProjectDetail .swiper-button-prev{
+  left: 5%;
+}
+#ProjectDetail .swiper-button-next{
+  right: 5%;
+}
+#ProjectDetail .swiper-button-prev:after, .swiper-button-next:after{
+  content: "";
+}
+
+
