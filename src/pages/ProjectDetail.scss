@@ -72,7 +72,7 @@
         & > div:nth-of-type(1){
           position: relative;
           width: 100%;
-          height: 450px;
+          height: 400px;
           color: #333;
           canvas{
             position: absolute;
@@ -278,7 +278,7 @@
           position: relative;
 
           font-family: 'Parabole';
-          padding-top: 3%;
+          padding-top: 4%;
           &::before{
             content: "";
             position: absolute;
@@ -291,13 +291,17 @@
           & > div:nth-child(1),
           & > div:nth-child(2),
           & > div:nth-child(3),
-          & > div:nth-child(4){
-            margin-top: 3%;
+          & > div:nth-child(4),
+          & > div:nth-child(5){
+            margin-top: 4%;
             width: 100%;
             height: auto;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.10);
             &:nth-child(1){
               margin-top: 0;
+            }
+            &:nth-child(5){
+              padding-bottom: 5%;
             }
             p{
               font-size: 2em;  
@@ -318,23 +322,54 @@
               width: 50%;
               height: 150px;
 
-              span{
+              & > div:nth-child(1){
                 position: absolute;
                 top: 10px;
                 right: 10px;
-                padding: 1.5%;
+                width: 10%;
+                aspect-ratio: 1;
                 border-radius: 50%;
                 background-color: white;
                 box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-                font-size: 0.8em;
+                display: grid;
                 color: #535353;
+                transition: transform 200ms;
+                overflow: hidden;
+                span{
+                  font-size: 0.8em;
+                  &:nth-of-type(1){
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
+                    transition: all 0.3s ease;
+                  }
+                  &:nth-of-type(2){
+                    position: absolute;
+                    left: -0%;
+                    top: 100%;
+                    transform: translate(-50%,-50%);
+                    transition: all 0.3s ease;
+                  }
+                  
+                }
+              
+                
               }
-              & > div{
+              &:hover div:nth-of-type(1) span:nth-of-type(1){
+                left: 100%;
+                top: 0%;
+              }
+              &:hover div:nth-of-type(1) span:nth-of-type(2){
+                left: 50%;
+                top: 50%;
+              }
+              & > div:nth-child(2){
                 width: 80%;
                 height: 80%;
                 display: flex;
                 align-items: center;
-                
+                justify-content: center;
               }
             }
             .ProjectDetail_warp_center_sc3_tx_2_box_inner,
@@ -346,8 +381,7 @@
               width: auto;
               height: auto;
               display: flex;
-              column-gap: 2%;
-              row-gap: 2%;
+
               flex-wrap: wrap;
               & > div{
                 width: 100px;
@@ -359,6 +393,8 @@
                 box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);    
                 align-items: center;  
                 justify-content: center;
+                margin-right: 2%;
+                margin-bottom: 2%;
                 & > div{
                   width: 80%;
                   height: 80%;
@@ -373,7 +409,7 @@
                     filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.15));
                   }
                   span{
-                    font-family: 'AppleNeoSB';
+                    font-family: 'AppleNeoM';
                     height: 50%;
                     display: flex;
                     align-items: end;
@@ -382,6 +418,13 @@
                 }
                 
               }
+            }
+            .ProjectDetail_warp_center_sc3_tx_5_box{
+              width: 50%;
+              height: auto;
+              color: #7a7a7a;
+              font-family: 'AppleNeoR';
+              font-size: 1em;
             }
           }
         }
@@ -392,8 +435,22 @@
 
     > div:nth-of-type(3){
      display: flex;
-     justify-content: end;
+     justify-content: space-between;
      flex-direction: column;
+     
+     .github_btn{
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: #E9ECEF;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg{
+        font-size: 1.5em;
+      }
+     }
      a:nth-of-type(1){
         margin-bottom: 30%;
      }
