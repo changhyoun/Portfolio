@@ -1,0 +1,257 @@
+// 노트북 1.25배
+@media (max-width: 1600px) {
+    #Home {
+      .scrollDown {
+        .button {
+          .sparkle {
+            width: 1.25rem;
+          }
+        }
+        .down_box {
+          p {
+            font-size: 1.3em;
+          }
+          > div span {
+            font-size: 1.5em;
+          }
+        }
+      }
+  
+      // main
+      #main {
+        .main_tx_box h2 {
+          font-size: 1.7em;
+        }
+  
+        > div:nth-of-type(1) h2 {
+          font-size: 5em;
+        }
+      }
+  
+      // 페이지 3
+      #page3 {
+        > div:nth-of-type(2) {
+          .page3_tx {
+            p:nth-of-type(1) span {
+              font-size: 1.3em;
+              font-family: "Parabole";
+            }
+            p:nth-of-type(2) span {
+              font-size: 0.9em;
+            }
+          }
+  
+          .page3_swiper_tx_box {
+            font-size: 1rem;
+  
+            .page3_swiper_btn {
+              button {
+                width: 30px;
+                height: 30px;
+  
+                span {
+                  font-size: 1.2em;
+                  transform: translate(46%, 0%) !important;
+                }
+              }
+            }
+          }
+        }
+      }
+  
+      // 페이지 5
+      #page5 {
+        > div {
+          > div:nth-of-type(1) {
+            > div:nth-of-type(1) {
+              > div {
+                > div:nth-of-type(1) {
+                  .box_inner {
+                    > div:nth-of-type(1) {
+                      h3 {
+                        font-size: 1.2em;
+                      }
+                      img {
+                        height: 30px;
+                      }
+                    }
+  
+                    > div:nth-of-type(2) {
+                      h3 {
+                        font-size: 1.5em;
+                      }
+                      p {
+                        font-size: 0.9em;
+                      }
+                    }
+                  }
+                  .rotate_tx_box {
+                    width: 100px;
+                    height: 100px;
+  
+                    span {
+                      font-size: 2em;
+                    }
+                  }
+                }
+  
+                > div:nth-of-type(2) {
+                  .box_inner {
+                    > div:nth-of-type(1) img {
+                      height: 60px;
+                    }
+  
+                    > div:nth-of-type(1) h3 {
+                      font-size: 1.2em;
+                    }
+  
+                    > div:nth-of-type(2) {
+                      h3 {
+                        font-size: 1.5em;
+                      }
+                      p {
+                        font-size: 1em;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+  
+            > div:nth-of-type(2) {
+              > div {
+                > div:nth-of-type(1) {
+                  .box--2 {
+                    font-size: 1em;
+  
+                    .box__background {
+                      font-size: 1.8em;
+                    }
+                  }
+  
+                  .box_inner {
+                    > div:nth-of-type(1) img {
+                      height: 60px;
+                    }
+  
+                    > div:nth-of-type(1) h3 {
+                      font-size: 1.2em;
+                    }
+  
+                    > div:nth-of-type(2) {
+                      h3 {
+                        font-size: 1.2em;
+                      }
+                      p {
+                        font-size: 0.8em;
+                      }
+                    }
+                  }
+                }
+
+                
+  
+                > div:nth-of-type(2) {
+                  .box_inner {
+                    > div:nth-of-type(1) img {
+                      height: 20px;
+                    }
+  
+                    > div:nth-of-type(1) h3 {
+                      font-size: 1em;
+                    }
+  
+                    > div:nth-of-type(2) {
+                      h3 {
+                        font-size: 1.4em;
+                      }
+                      p {
+                        font-size: 0.8em;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+        // 그랩 박스 p
+        .page5_bt_lt_txbox p{
+            font-size: 0.55em;   
+            zoom: 0.8;
+        }
+  
+      // 페이지 9
+      #page9 {
+        > div > div:nth-of-type(1) {
+          > div > div > div {
+            h3 {
+              font-size: 1.25em;
+            }
+  
+            .timeline {
+              li {
+                font-size: 0.65em;
+  
+                &::after {
+                  height: 240%;
+                }
+              }
+            }
+          }
+        }
+      }
+  
+      // 페이지 10
+      #page10 {
+        > div > div:nth-of-type(1) {
+          h3 {
+            font-size: 1.5em;
+  
+            bdo {
+              font-size: 0.8rem;
+            }
+          }
+          p {
+            font-size: 1.5em;
+          }
+        }
+  
+        > div > div:nth-of-type(2) > div {
+          .skill_box {
+            width: 14%;
+            height: 50%;
+  
+            img {
+              width: 15%;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+@media only screen and (max-width: 1400px) and (orientation: landscape) {
+
+}
+
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+
+}
+
+
+@media only screen and (max-width: 750px) and (orientation: landscape) {
+
+
+}
+
+@media only screen and (max-width: 1400px) and (orientation: portrait) {
+
+}
+
+
+@media only screen and (max-width: 400px) and (orientation: portrait) {
+
+}

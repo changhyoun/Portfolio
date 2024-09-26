@@ -221,7 +221,30 @@ export {
 
 // 스킬 아이콘
 
-
+export {
+  default as bootstrap_ic
+} from "../assets/skill_ic/bootstrap.png";
+export {
+  default as powerpoint_ic
+} from "../assets/skill_ic/powerpoint.png";
+export {
+  default as tailwind_ic
+} from "../assets/skill_ic/tailwind.png";
+export {
+  default as vue_ic
+} from "../assets/skill_ic/vue.png";
+export {
+  default as xd_ic
+} from "../assets/skill_ic/xd.png";
+export {
+  default as jquery_ic
+} from "../assets/skill_ic/jquery.png";
+export {
+  default as indesign_ic
+} from "../assets/skill_ic/indesign.png";
+export {
+  default as excel_ic
+} from "../assets/skill_ic/excel.png";
 export {
   default as javaScript_ic
 } from "../assets/skill_ic/javaScript.png";
@@ -246,3 +269,7 @@ export {
 export {
   default as css_ic
 } from "../assets/skill_ic/css.png";
+
+// 페이지9 백그라운드 이미지
+import page9_back from "../assets/history_back.jpg"
+export {page9_back}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic } from '../components/Image';
+import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic,page9_back,photoshop_ic,illust_ic,indesign_ic,powerpoint_ic,excel_ic,xd_ic,figma_ic,html_ic,css_ic,scss_ic,tailwind_ic,bootstrap_ic,javaScript_ic,jquery_ic,vue_ic,react_ic } from '../components/Image';
 import Header from '../components/Header';
 import Page5_bt_lt_inner_tx from '../components/Page5_bt_lt_inner_tx';
 import { gsap } from 'gsap';
@@ -9,7 +9,24 @@ import { TextPlugin } from 'gsap/TextPlugin';
 import './Home.scss';
 import { Link } from 'react-router-dom';
 import Matter from 'matter-js';
+import '../components/Responsive_home.scss';
 
+
+
+const skill_box = {
+  Available_skill_tx: [
+    'Photoshop', 'Illustrator', 'InDesign', 'Powerpoint', 'Excel', 'Adobe XD', 'Figma', 'Html', 'Css', 'Scss', 'Tailwind Css', 'Bootstrap', 'Javascript', 'Jquery', 'Vue', 'React'
+  ],
+  Available_skill_ic: [
+    photoshop_ic, illust_ic, indesign_ic, powerpoint_ic, excel_ic, xd_ic, figma_ic, html_ic, css_ic, scss_ic, tailwind_ic, bootstrap_ic, javaScript_ic, jquery_ic, vue_ic, react_ic
+  ]
+};
+
+// 스킬 박스 변수
+const firstHalfSkills = skill_box.Available_skill_ic.slice(0, 8);
+const secondHalfSkills = skill_box.Available_skill_ic.slice(8, 16);
+const firstHalfText = skill_box.Available_skill_tx.slice(0, 8);
+const secondHalfText = skill_box.Available_skill_tx.slice(8, 16);
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
 
@@ -30,6 +47,7 @@ const Home = () => {
   const textRef = useRef(null);
   const page5Ref = useRef(null);
   const page7Ref = useRef(null);
+  const page9BoxRefs = useRef([])
 
 
   useEffect(() => {
@@ -594,6 +612,27 @@ gsap.to(
   }
 );
 
+page9BoxRefs.current.forEach((box, index) => {
+  gsap.fromTo(
+    box,
+    {
+      opacity: 0,
+      y: 50, // 아래에서 위로 올라오는 애니메이션
+    },
+    {
+      opacity: 1,
+      y: 0,
+      delay: index * 0.5, // 각 박스마다 0.3초의 딜레이 추가
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: box, // 각 박스를 트리거로 설정
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      },
+    }
+  );
+});
+
   };
 
 
@@ -1022,8 +1061,104 @@ gsap.to(
 
       </div>
       <div id="page9">
-
+        <div className="page9_inner">
+          <img src={page9_back} alt="page9_back" />
+          <div className="page9_in">
+            <div className="page9_box" ref={(el) => (page9BoxRefs.current[0] = el)}>
+              <div className="page9_box_inner">
+                <div className="page9_box_inner_lt">
+                  <h3>
+                    Work<br/>
+                    Histoy
+                  </h3>
+                </div>
+                <div className="page9_box_inner_rt">
+                    <ul className="timeline">
+                        <li>개인 포트폴리오 제작</li>
+                        <li>달뜨리몬당, 소치빌리지<br/>
+                        펜션 홈페이지 제작<br/>
+                        (퍼블리싱)</li>
+                        <li>모바일 강의실 제작<br/>
+                        (디자인, 퍼블리싱)</li>
+                        <li>그 외 기타.</li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+           
+            <div className="page9_box" ref={(el) => (page9BoxRefs.current[1] = el)}>
+              <div className="page9_box_inner">
+                <div className="page9_box_inner_lt">
+                  <h3>
+                    Work<br/>
+                    Experience
+                  </h3>
+                </div>
+                <div className="page9_box_inner_rt">
+                    <ul className="timeline">
+                        <li>
+                          에듀사이버 평생교육원<br/>
+                          ( 2023.11 ~ 2024.02 )
+                        </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+            <div className="page9_box" ref={(el) => (page9BoxRefs.current[2] = el)}>
+              <div className="page9_box_inner">
+                <div className="page9_box_inner_lt">
+                  <h3>
+                      Education
+                  </h3>
+                </div>
+                <div className="page9_box_inner_rt">
+                    <ul className="timeline">
+                        <li>
+                        충남기계공업고등학교<br/>
+                        ( 2017.03 ~ 2020.03 )
+                        </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+          
       </div>
+      <div id="page10">
+        <div className="page10_warp">
+          <div className="page10_t">
+          <h3>Availablea Skills <bdo>사용가능한 스킬</bdo></h3>
+          <p>scroll Right&nbsp;&nbsp; →
+            
+          </p>
+          </div>
+          <div className="page10_bt">
+            {/* 첫 번째 div: 1~9까지 */}
+            <div className="skills_row">
+              {firstHalfSkills.map((icon, index) => (
+                <div key={index} className="skill_box">
+                  <img src={icon} alt={`${firstHalfText[index]} Icon`} className="skill_icon" />
+                  <p>{firstHalfText[index]}</p>
+                </div>
+              ))}
+            </div>
+            
+            {/* 두 번째 div: 9~16까지 */}
+            <div className="skills_row">
+              {secondHalfSkills.map((icon, index) => (
+                <div key={index} className="skill_box">
+                  <img src={icon} alt={`${secondHalfText[index]} Icon`} className="skill_icon" />
+                  <p>{secondHalfText[index]}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
     </div>
   );
 };
