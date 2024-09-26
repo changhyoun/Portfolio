@@ -1162,5 +1162,5 @@ page9BoxRefs.current.forEach((box, index) => {
     </div>
   );
 };
-
+// 테스트
 export default Home;
