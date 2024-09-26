@@ -74,11 +74,6 @@ const Header = () => {
               style={{ width: '0', display: 'none' }}
             />
           </div>
-          <div className="hambuger">
-            <span className="material-symbols-rounded">
-              menu
-            </span>
-          </div>
         </div>
          
       </div>
