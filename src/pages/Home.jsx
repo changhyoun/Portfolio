@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic,page9_back,photoshop_ic,illust_ic,indesign_ic,powerpoint_ic,excel_ic,xd_ic,figma_ic,html_ic,css_ic,scss_ic,tailwind_ic,bootstrap_ic,javaScript_ic,jquery_ic,vue_ic,react_ic,page11_back } from '../components/Image';
+import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic,page9_back,photoshop_ic,illust_ic,indesign_ic,powerpoint_ic,excel_ic,xd_ic,figma_ic,html_ic,css_ic,scss_ic,tailwind_ic,bootstrap_ic,javaScript_ic,jquery_ic,vue_ic,react_ic,page11_back,number_qr } from '../components/Image';
 import Header from '../components/Header';
 import Page5_bt_lt_inner_tx from '../components/Page5_bt_lt_inner_tx';
 import { gsap } from 'gsap';
@@ -9,7 +9,14 @@ import { TextPlugin } from 'gsap/TextPlugin';
 import './Home.scss';
 import { Link } from 'react-router-dom';
 import Matter from 'matter-js';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import {
+  faGithub,faInstagram,
+  faNeos
+} from "@fortawesome/free-brands-svg-icons";  // faReact는 free-brands-svg-icons에서 가져와야 합니다.
 import '../components/Responsive_home.scss';
+import { faMobile } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -1274,6 +1281,52 @@ page9BoxRefs.current.forEach((box, index) => {
           <img src={page11_back} alt="page11_back" />
           <div className="page11_in">
             <div className="page11_inner_lt">
+              <div className="page11_inner_lt_box">
+                <div className="page11_inner_lt_box_t">
+                  <h2>Contact Info.</h2>
+                  <div className="Contact_box1">
+                    <div className="Contact_box1_lt">
+                      <FontAwesomeIcon icon={faEnvelope} />
+                    </div>
+                    <div className="Contact_box1_rt">
+                      <a href="mailto:llh94367@naver.com">
+                        <h3>Mail To -</h3>
+                        <p>llh94367@naver.com</p>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="Contact_box2">
+                    <div className="Contact_box2_lt">
+                      <div className="Contact_box2_lt">
+                        <FontAwesomeIcon icon={faMobile} />
+                      </div>
+                    </div>
+                    <div className="Contact_box2_rt">
+                      <a href="tel:010-6636-5780">
+                        <h3>call To -</h3>
+                        <p>010.6636-5780</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="page11_inner_lt_box_bt">
+                  <div className="page11_inner_lt_box_bt_t">
+                    <h2>social Info.</h2>
+                  </div>
+                  <div className="page11_inner_lt_box_bt_bt">
+                    <Link className="social_box">
+                      <FontAwesomeIcon icon={faGithub} />
+                    </Link>
+                    <Link className="social_box">
+                      <FontAwesomeIcon icon={faNeos} />
+                    </Link>
+                    <Link className="social_box">
+                      <FontAwesomeIcon icon={faInstagram} />
+                    </Link>
+                    
+                  </div>
+                </div>
+              </div>
               
             </div>
             <div className="page11_inner_rt">
@@ -1288,7 +1341,7 @@ page9BoxRefs.current.forEach((box, index) => {
                       <div className="input_box">
                         <div className="name_input">
                           <label htmlFor="name">Name:</label>
-                          <input type="text" id="name" name="name" placeholder="성함 및 회사명을  작성해주세요" required />
+                          <input type="text" id="name" name="name" placeholder="성함 및 회사명을  작성해주세요." required />
                           <span className="material-symbols-rounded contact_ic">
                             account_circle
                           </span>
@@ -1321,6 +1374,12 @@ page9BoxRefs.current.forEach((box, index) => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      {/* qr 코드 div */}
+      <div id="page12">
+        <div className="page12_inner">
+          <img src={number_qr} alt="number_qr" />
         </div>
       </div>
       

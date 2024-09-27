@@ -278,3 +278,8 @@ export {page9_back}
 import page11_back from "../assets/contact_back.jpg"
 export {page11_back}
 
+// 페이지12 qr 이미지
+import number_qr from "../assets/number_qr.png"
+export {number_qr}
+
+
