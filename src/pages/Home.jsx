@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic,page9_back,photoshop_ic,illust_ic,indesign_ic,powerpoint_ic,excel_ic,xd_ic,figma_ic,html_ic,css_ic,scss_ic,tailwind_ic,bootstrap_ic,javaScript_ic,jquery_ic,vue_ic,react_ic } from '../components/Image';
+import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic,page9_back,photoshop_ic,illust_ic,indesign_ic,powerpoint_ic,excel_ic,xd_ic,figma_ic,html_ic,css_ic,scss_ic,tailwind_ic,bootstrap_ic,javaScript_ic,jquery_ic,vue_ic,react_ic,page11_back } from '../components/Image';
 import Header from '../components/Header';
 import Page5_bt_lt_inner_tx from '../components/Page5_bt_lt_inner_tx';
 import { gsap } from 'gsap';
@@ -1267,6 +1267,60 @@ page9BoxRefs.current.forEach((box, index) => {
               </div>
           </div>
           
+        </div>
+      </div>
+      <div id="page11">
+        <div className="page11_inner">
+          <img src={page11_back} alt="page11_back" />
+          <div className="page11_in">
+            <div className="page11_inner_lt">
+              
+            </div>
+            <div className="page11_inner_rt">
+              <div className="page11_inner_rt_box">
+                <div className="page11_inner_rt_box_inner">
+                  <div className="page11_inner_rt_box_t">
+                    <h2>Let’s Work <span>Together.</span></h2>
+                    <p>함께 일할 기회나 문의 사항이 있으시면 메세지를 보내주세요.</p>
+                  </div>
+                  <div className="page11_inner_rt_box_bt">
+                    <form action="/submit" method="POST">
+                      <div className="input_box">
+                        <div className="name_input">
+                          <label htmlFor="name">Name:</label>
+                          <input type="text" id="name" name="name" placeholder="성함 및 회사명을  작성해주세요" required />
+                          <span className="material-symbols-rounded contact_ic">
+                            account_circle
+                          </span>
+                        </div>
+                        <div className="email_input">
+                          <label htmlFor="email">email:</label>
+                          <input type="text" id="email" name="email" placeholder="이메일 및 연락처를 작성해주세요." required />
+                          <span className="material-symbols-rounded contact_ic">
+                            call
+                          </span>
+                        </div>
+                        <div className="tx_input">
+                          <label htmlFor="say">say:</label>
+                          <textarea type="text" id="say" name="say" placeholder="메세지를 입력해주세요." required />
+                          <span className="material-symbols-rounded contact_ic">
+                            sms
+                          </span>
+                        </div>
+                      </div>
+                      <button type="submit">
+                        Send message
+                        <span className="material-symbols-rounded">
+                          send
+                        </span>
+                      </button>
+                        
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       

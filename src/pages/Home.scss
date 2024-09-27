@@ -15,7 +15,7 @@
     justify-content: center;
     .down_box {
       display: flex;
-      align-items: flex-end; // 'end' 대신 'flex-end' 사용
+      align-items: flex-end;
       font-family: "Bangers", system-ui;
       color: white;
       white-space: nowrap;
@@ -1346,7 +1346,7 @@
         top: 0;
         left: 0;
         z-index: 0;
-        box-shadow: 0px 0px 20fpx #262958;
+        box-shadow: 0px 0px 20px #262958;
       }
       > div:nth-of-type(1){
         position: relative;
@@ -1560,6 +1560,223 @@
     
     }
 
+  }
+  #page11{
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > div{
+      width: 80%;
+      height: 80%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      > div{
+        width: 80%;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid red;
+        z-index: 1;
+        & > div:nth-of-type(1){
+          width: 30%;
+          height: 100%;
+          border: 1px solid red;
+        }
+        & > div:nth-of-type(2){
+          width: 55%;
+          height: 100%;
+          border: 1px solid red;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          > div{
+            width: 80%;
+            height: 90%;
+            background: linear-gradient(315deg, #36363681 0%, #14141470 100%);
+            border-radius: 30px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            > div{
+              width: 90%;
+              height: 90%;
+              > div:nth-of-type(1){
+                width: 100%;
+                height: 20%;
+                color: white;
+                h2{
+                  font-family: 'AppleNeoEB';
+                  font-weight: 100;
+                  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+                  font-size: 2em;
+                  span{
+                    color: transparent;
+                    background: linear-gradient(90deg, #a0abff 0%, #676ea3 100%);
+                    background-clip: text;
+                    -webkit-background-clip: text; /* Safari를 위한 추가 */
+                  }
+                }
+                p{
+                  font-family: 'AppleNeoM';
+                  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+                }
+              }
+              > div:nth-of-type(2){
+                width: 100%;
+                height: 70%;
+                form{
+                  width: 100%;
+                  height: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  >div{
+                    width: 100%;
+                    height: 75%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    > div:nth-of-type(1),
+                    div:nth-of-type(2){
+                      width: 100%;
+                      height: 20%;
+                      position: relative;
+                      color: #939393;
+                      span{
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+                        left: 2%;
+                      }
+
+                      input{
+                        width: calc(100% - 50px);
+                        padding: 0 10px 0 40px;
+                        height: 100%;
+                        border-radius: 15px;
+                        font-family: 'AppleNeoSB';
+                        background: none;
+                        border: none;
+                        outline: none;
+                        background-color: #4f4f4f73;
+                        color: #d3d3d3;
+                        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+                        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+                        &:-webkit-autofill,
+                        &:-webkit-autofill:hover, 
+                        &:-webkit-autofill:focus {
+                          -webkit-text-fill-color: #d3d3d3;
+                          -webkit-box-shadow: 0 0 0px 1000px #4f4f4f73 inset;
+                          transition: background-color 5000s ease-in-out 0s;
+                        }
+                        &::placeholder{
+                          color: #939393
+                        }
+                        &:focus{
+                          border: 1px solid #616161;
+                        }
+                        &:focus + .contact_ic {
+                          color: #d3d3d3;
+                        }
+                      }
+                      
+                    }
+                    > div:nth-of-type(3){
+                      width: 100%;
+                      height: 50%;
+                      position: relative;
+                      color: #939393;
+                      span{
+                        position: absolute;
+                        top: 30px;
+                        transform: translateY(-50%);
+                        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+                        left: 2%;
+                      }
+                      textarea{
+                        border-radius: 15px;
+                        background: none;
+                        border: none;
+                        outline: none;
+                        background-color: #4f4f4f73;
+                        color: #afafaf;
+                        font-family: 'AppleNeoSB';
+                        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+                        width: calc(100% - 50px);
+                        padding: 20px 10px 0 40px;
+                        height: calc(100% - 20px);
+                        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+                        resize: none;
+                        &:focus + .contact_ic {
+                          color: #d3d3d3;
+                        }
+                        &::placeholder{
+                          color: #939393
+                        }
+                        &:focus{
+                          border: 1px solid #616161;
+                        }
+                      }
+                    }
+                    > div label{
+                      display: none;
+                    }
+                  }
+                 
+                  button{
+                    width: 100%;
+                    height: 16%;
+                    border-radius: 10px;
+                    background: none;
+                    border: none;
+                    outline: none;
+                    background-color: #4f4f4f73;
+                    color: #afafaf;
+                    font-family: 'AppleNeoH';
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1em;
+                    border: 1px solid #616161;
+                    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+                    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+                    span{
+                      font-size: 1.2em;
+                      margin-left: 5px;
+                    }
+                  }
+               
+                }
+                
+              }
+           
+            }
+          }
+        }
+      }
+      > img{
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        border: 2px solid #262958;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        box-shadow: 0px 0px 20px #262958;
+      }
+      
+    }
   }
 
 }

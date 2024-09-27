@@ -273,3 +273,8 @@ export {
 // 페이지9 백그라운드 이미지
 import page9_back from "../assets/history_back.jpg"
 export {page9_back}
+
+// 페이지11 백그라운드 이미지
+import page11_back from "../assets/contact_back.jpg"
+export {page11_back}
+
