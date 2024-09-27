@@ -23,10 +23,15 @@ const skill_box = {
 };
 
 // 스킬 박스 변수
-const firstHalfSkills = skill_box.Available_skill_ic.slice(0, 8);
-const secondHalfSkills = skill_box.Available_skill_ic.slice(8, 16);
-const firstHalfText = skill_box.Available_skill_tx.slice(0, 8);
-const secondHalfText = skill_box.Available_skill_tx.slice(8, 16);
+const firstHalfSkills = skill_box.Available_skill_ic.slice(0, 6);
+const secondHalfSkills = skill_box.Available_skill_ic.slice(6, 12);
+const thirdHalfSkills = skill_box.Available_skill_ic.slice(12, 18);
+const fourthHalfSkills = skill_box.Available_skill_ic.slice(18, 24);
+const firstHalfText = skill_box.Available_skill_tx.slice(0, 6);
+const secondHalfText = skill_box.Available_skill_tx.slice(6, 12);
+const thirdHalfText = skill_box.Available_skill_tx.slice(12, 18);
+const fourthHalfText = skill_box.Available_skill_tx.slice(18, 24);
+
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
 
@@ -62,6 +67,38 @@ const Home = () => {
           disableOnInteraction: true,
         },
       });
+    }
+
+    if (window.Swiper) {
+      const swiper = new window.Swiper('.swiper-container2', {
+        slidesPerView: 1, // 한 번에 보이는 슬라이드 수
+        spaceBetween: 0,  // 슬라이드 간격을 0으로 설정
+        navigation: {
+          nextEl: '.swiper-button-next2',
+          prevEl: '.swiper-button-prev2',
+        },
+        autoplay: {
+          delay: 5000,  // 3초마다 슬라이드 전환
+          disableOnInteraction: false,  // 상호작용해도 자동 재생이 멈추지 않음
+        },
+        effect: 'coverflow',
+        coverflowEffect: {
+          rotate: 50, // 슬라이드 회전 각도
+          stretch: 0, // 슬라이드 간 거리
+          depth: 100, // 슬라이드 깊이
+          modifier: 1, // 효과 강도
+          slideShadows: true // 슬라이드 그림자
+        },
+      });
+    
+      // 사용자가 클릭하면 자동 재생 타이머를 다시 시작
+      const restartAutoplay = () => {
+        swiper.autoplay.stop();  // 일시적으로 멈추고
+        swiper.autoplay.start(); // 자동 재생을 다시 시작
+      };
+    
+      document.querySelector('.swiper-button-next2').addEventListener('click', restartAutoplay);
+      document.querySelector('.swiper-button-prev2').addEventListener('click', restartAutoplay);
     }
 
     initializeScrollTrigger();
@@ -1121,6 +1158,41 @@ page9BoxRefs.current.forEach((box, index) => {
                 </div>
               </div>
             </div>
+            <div className="page9_box" ref={(el) => (page9BoxRefs.current[3] = el)}>
+              <div className="page9_box_inner">
+                <div className="page9_box_inner_lt">
+                  <h3>
+                    Certificate
+                  </h3>
+                </div>
+                <div className="page9_box_inner_rt">
+                    <ul className="timeline">
+                        <li>
+                        웹디자인기능사
+                        </li>
+                        <li>
+                        GTQ포토샵1급
+                        </li>
+                        <li>
+                        GTQ일러스트 1급
+                        </li>
+                        <li>
+                        GTQ인디자인 1급
+                        </li>
+                        <li>
+                        정보기술자격(ITQ)한글파워포인트 A등급
+                        </li>
+                        <li>
+                        GAIQ (Google Analytics Individual Qualification)
+                        </li>
+                        <li>
+                        캘리그라피 1급
+                        </li>
+                        
+                    </ul>
+                </div>
+              </div>
+            </div>
           </div>
          
         </div>
@@ -1129,31 +1201,70 @@ page9BoxRefs.current.forEach((box, index) => {
       <div id="page10">
         <div className="page10_warp">
           <div className="page10_t">
-          <h3>Availablea Skills <bdo>사용가능한 스킬</bdo></h3>
-          <p>scroll Right&nbsp;&nbsp; →
-            
-          </p>
+            <h3>Availablea Skills <bdo>사용가능한 스킬</bdo></h3>
           </div>
-          <div className="page10_bt">
-            {/* 첫 번째 div: 1~9까지 */}
-            <div className="skills_row">
-              {firstHalfSkills.map((icon, index) => (
-                <div key={index} className="skill_box">
-                  <img src={icon} alt={`${firstHalfText[index]} Icon`} className="skill_icon" />
-                  <p>{firstHalfText[index]}</p>
+         <div className="page10_bt">
+            {/* Swiper 컨테이너 */}
+            <div className="swiper-container2">
+              <div className="swiper-wrapper">
+                {/* Swiper 슬라이드 */}
+                <div className="swiper-slide">
+                  {/* 첫 번째 skills_row */}
+                  <div className="skills_row">
+                    {firstHalfSkills.map((icon, index) => (
+                      <div key={index} className="skill_box">
+                        <img src={icon} alt={`${firstHalfText[index]} Icon`} className="skill_icon" />
+                        <p>{firstHalfText[index]}</p>
+                      </div>
+                    ))}
+                  </div>
+                  {/* 두 번째 skills_row */}
+                  <div className="skills_row">
+                    {secondHalfSkills.map((icon, index) => (
+                      <div key={index} className="skill_box">
+                        <img src={icon} alt={`${secondHalfText[index]} Icon`} className="skill_icon" />
+                        <p>{secondHalfText[index]}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
+                <div className="swiper-slide">
+                  {/* 세 번째 skills_row */}
+                  <div className="skills_row">
+                    {thirdHalfSkills.map((icon, index) => (
+                      <div key={index} className="skill_box">
+                        <img src={icon} alt={`${thirdHalfText[index]} Icon`} className="skill_icon" />
+                        <p>{thirdHalfText[index]}</p>
+                      </div>
+                    ))}
+                  </div>
+                  {/* 네 번째 skills_row */}
+                  <div className="skills_row">
+                    {fourthHalfSkills.map((icon, index) => (
+                      <div key={index} className="skill_box">
+                        <img src={icon} alt={`${fourthHalfText[index]} Icon`} className="skill_icon" />
+                        <p>{fourthHalfText[index]}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             
-            {/* 두 번째 div: 9~16까지 */}
-            <div className="skills_row">
-              {secondHalfSkills.map((icon, index) => (
-                <div key={index} className="skill_box">
-                  <img src={icon} alt={`${secondHalfText[index]} Icon`} className="skill_icon" />
-                  <p>{secondHalfText[index]}</p>
-                </div>
-              ))}
             </div>
+                  
+              {/* Swiper 내비게이션 버튼 */}
+              <div className="swiper2_arrow_warp">
+                <div className="swiper-button-prev2">
+                  <span className="material-symbols-rounded">
+                    line_start_arrow_notch
+                  </span>
+                </div>
+                <div className="swiper-button-next2">
+                  <span className="material-symbols-rounded">
+                    line_end_arrow_notch
+                  </span>
+                </div>
+              </div>
           </div>
           
         </div>
