@@ -65,6 +65,87 @@
       position: relative;
       overflow-x: hidden;
       overflow-y: auto;
+
+      // 캠파인 스크롤바 
+      &.camfine-scroll::-webkit-scrollbar-thumb {
+        background: #5092CF;
+        border-radius: 10px;
+        box-shadow: inset 2px 2px 2px #00000040, 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+      &.camfine-scroll::-webkit-scrollbar{
+        background-color: #ffffff;
+        position: absolute;
+        right: 5px;
+        box-shadow: inset 2px 2px 2px #00000040;
+        width: 5px;
+        border-radius: 20px;
+      } 
+      // 매치포인트 스크롤바 
+      &.match-scroll::-webkit-scrollbar-thumb {
+        background: #77B850;
+        border-radius: 10px;
+        box-shadow: inset 2px 2px 2px #00000040, 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+      &.match-scroll::-webkit-scrollbar{
+        background-color: #ffffff;
+        position: absolute;
+        right: 5px;
+        box-shadow: inset 2px 2px 2px #00000040;
+        width: 5px;
+        border-radius: 20px;
+      }
+       // 샌드박스 스크롤바 
+       &.sandbox-scroll::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 10px;
+        box-shadow: inset 2px 2px 2px #00000040, 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+      &.sandbox-scroll::-webkit-scrollbar{
+        background-color: #ffffff;
+        position: absolute;
+        right: 5px;
+        box-shadow: inset 2px 2px 2px #00000040;
+        width: 5px;
+        border-radius: 20px;
+      }
+
+      // 무브 스크롤바 
+      &.move-scroll::-webkit-scrollbar-thumb {
+        background: #252b71;
+        border-radius: 10px;
+        box-shadow: inset 2px 2px 2px #00000040, 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+      &.move-scroll::-webkit-scrollbar{
+        background-color: #ffffff;
+        position: absolute;
+        right: 5px;
+        box-shadow: inset 2px 2px 2px #00000040;
+        width: 5px;
+        border-radius: 20px;
+      }
+
+      // 삼성 스크롤바 
+      &.samsung-scroll::-webkit-scrollbar-thumb {
+        background: #003d98;
+        border-radius: 10px;
+        box-shadow: inset 2px 2px 2px #00000040, 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+      &.samsung-scroll::-webkit-scrollbar{
+        background-color: #ffffff;
+        position: absolute;
+        right: 5px;
+        box-shadow: inset 2px 2px 2px #00000040;
+        width: 5px;
+        border-radius: 20px;
+      }
+
+      
+
+       
+
+      
+
+     
       & > div{
         width: 90%;
         height: 90%;
@@ -478,14 +559,43 @@
 #ProjectDetail .ProjectDetail_warp > div:nth-of-type(2) > div  .sc2_single-swiper .swiper .pagination-samsung .pagination .swiper-pagination-bullet-active{
   background: #003d98 !important ;
 }
+
 #ProjectDetail .swiper-button-next, #ProjectDetail .swiper-button-prev{
   top: 40%;
-  color: #EAEAEA;
   span{
     font-size: 2.5em;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
   }
 }
+
+// 매치 다음, 전버튼
+.match-scroll .swiper-button-next, .match-scroll .swiper-button-prev{
+  color: #77B850;
+  span{
+    text-shadow: none !important;
+  }
+}
+// 캠파인 다음, 전버튼
+.camfine-scroll .swiper-button-next, .camfine-scroll .swiper-button-prev{
+  color: #5092CF;
+  span{
+    text-shadow: none !important;
+  }
+}
+// 샌드박스 다음, 전버튼
+.sandbox-scroll .swiper-button-next, .sandbox-scroll .swiper-button-prev{
+  color: #333;
+}
+// 무브 다음, 전버튼
+.move-scroll .swiper-button-next, .move-scroll .swiper-button-prev{
+  color: #3f4ac8;
+}
+// 삼성 다음, 전버튼
+.samsung-scroll .swiper-button-next, .samsung-scroll .swiper-button-prev{
+  color: #003d98;
+}
+
+
 #ProjectDetail .swiper-button-prev{
   left: 5%;
 }

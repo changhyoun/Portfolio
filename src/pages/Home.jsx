@@ -14,10 +14,11 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
   faGithub,faInstagram,
   faNeos
-} from "@fortawesome/free-brands-svg-icons";  // faReact는 free-brands-svg-icons에서 가져와야 합니다.
+} from "@fortawesome/free-brands-svg-icons";
 import '../components/Responsive_home.scss';
 import { faMobile } from '@fortawesome/free-solid-svg-icons';
-
+import Page11_inner_rt_box from '../components/Page11_inner_rt_box';
+import Page5_inner from '../components/Page5_inner';
 
 
 const skill_box = {
@@ -60,6 +61,7 @@ const Home = () => {
   const page5Ref = useRef(null);
   const page7Ref = useRef(null);
   const page9BoxRefs = useRef([])
+  const page11BoxRefs = useRef([]);
 
 
   useEffect(() => {
@@ -677,7 +679,33 @@ page9BoxRefs.current.forEach((box, index) => {
   );
 });
 
+page11BoxRefs.current.forEach((box, index) => {
+  gsap.fromTo(
+    box,
+    {
+      opacity: 0,
+      y: 100, // 아래에서 위로 올라오는 애니메이션
+    },
+    {
+      opacity: 1,
+      y: 0,
+      delay: index * 0.5, // 각 박스마다 0.3초의 딜레이 추가
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: box, // 각 박스를 트리거로 설정
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      },
+    }
+  );
+});
+
   };
+
+  const camfineGit = () => {
+    window.open("https://github.com/changhyoun/Camfine", "_blank"); // 새 탭에서 열기
+  };
+  
 
 
 
@@ -859,154 +887,7 @@ page9BoxRefs.current.forEach((box, index) => {
       </section>
       <div id="page4"></div>
       <div id="page5" ref={page5Ref}>
-        <div className="page5_inner">
-          <div className="page5_t">
-              <div className="page5_t_lt">
-                <div className="page5_t_lt_inner">
-                  <div className="box sam">
-                    <img className='section5_sum' src={samsung_sum} alt="samsung_sum" />
-                    <div className="dark_overlay"></div>
-                    <div className="box_inner sam_inner">
-                      <div className="lo_name">
-                        <img src={sam_logo_white} alt="sam_logo_white" />
-                        <h3>삼성전기.</h3>
-                      </div>
-                      <div className="cr_date">
-                        <h3>Created date</h3>
-                        <p>2024.02.11</p>
-                      </div>
-                        
-                    </div>
-                    <div className="rotate_tx_box">
-                      <img src={rotate_txt} alt="rotate_txt" />
-                      <span className="material-symbols-rounded">
-                        arrow_right_alt
-                      </span>
-                    </div>
-                  </div>
-                  <div className="box cam">
-                    <img className='section5_sum' src={camfine_sum} alt="camfine_sum" />
-                    <div className="dark_overlay"></div>
-                    <div className="box_inner sum_inner">
-                      <div className="lo_name">
-                        <img src={cam_logo_white} alt="cam_logo_white" />
-                        <h3>CamFine.</h3>
-                      </div>
-                      <div className="cr_date">
-                        <h3>Created date</h3>
-                        <p>2024.09.12</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="page5_t_rt">
-                <div className="page5_t_rt_inner">
-                  <div className="box ani">
-                    <a className="box box--2">
-                      <svg className="box__background" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                          <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style={{ stopColor: "#292979", stopOpacity: 1 }} />
-                            <stop offset="100%" style={{ stopColor: "#232389", stopOpacity: 1 }} />
-                          </linearGradient>
-                        </defs>
-                        <path
-                          id="line1"
-                          d="M100 21.5L100 190.5C100 212.591 150 230.5 180 230.5L517.5 230.5C539.592 230.5 557.5 248.409 557.5 270.5L557.5 275.5C557.5 297.591 575.409 315.5 597.5 315.5L1200 315.5"
-                          stroke="url(#gradientStroke)"
-                          strokeWidth="60"
-                          strokeLinecap="round"
-                        />
-                        <path
-                          id="line2"
-                          d="M0 451L226 451C248.091 451 266 468.909 266 491L266 530C266 552.091 283.908 570 306 570L800 570C822 570 840 587.909 840 610L840 1000"
-                          stroke="url(#gradientStroke)"
-                          strokeWidth="60"
-                          strokeLinecap="round"
-                        />
-                        <text fill="#111">
-                          <textPath startOffset="0%" textAnchor="middle" alignmentBaseline="central" xlinkHref="#line1">
-                            Changhyun Kim
-                            <animate attributeName="startOffset" from="0%" to="100%" begin="0s" dur="12s" repeatCount="indefinite" />
-                          </textPath>
-                        </text>
-                        <text fill="#111">
-                          <textPath startOffset="0%" textAnchor="middle" alignmentBaseline="central" xlinkHref="#line1">
-                          Front-End Developer
-                            <animate attributeName="startOffset" from="0%" to="100%" begin="6s" dur="12s" repeatCount="indefinite" />
-                          </textPath>
-                        </text>
-
-                        <text fill="#111">
-                          <textPath startOffset="0%" textAnchor="middle" alignmentBaseline="central" xlinkHref="#line2">
-                          Study TypeScript, ReactNative
-                            <animate attributeName="startOffset" from="0%" to="100%" begin="0s" dur="12s" repeatCount="indefinite" />
-                          </textPath>
-                        </text>
-                        <text fill="#111">
-                          <textPath startOffset="0%" textAnchor="middle" alignmentBaseline="central" xlinkHref="#line2">
-                            HTML,SCSS,JAVASCRIPT,REACT
-                            <animate attributeName="startOffset" from="0%" to="100%" begin="6s" dur="12s" repeatCount="indefinite" />
-                          </textPath>
-                        </text>
-                      </svg>
-                    </a>
-                  </div>
-                  <div className="box match">
-                    <img className='section5_sum' src={match_sum} alt="match_sum" />
-                    <div className="dark_overlay"></div>
-                    <div className="box_inner match_inner">
-                      <div className="lo_name">
-                        <img src={match_logo_white} alt="match_logo_white" />
-                        <h3>Match_point.</h3>
-                      </div>
-                      <div className="cr_date">
-                        <h3>Created date</h3>
-                        <p>2024.09.12</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div className="page5_bt"> 
-              {/* page5_bt_lt_inner */}
-              <Page5_bt_lt_inner_tx/>
-            <div className="page5_bt_rt">
-              <div className="page5_bt_rt_inner">
-                <div className="box code">
-                  <img className='section5_sum' src={sandbox_sum} alt="sandbox_sum" />
-                  <div className="dark_overlay"></div>
-                  <div className="box_inner sandbox_inner">
-                      <div className="lo_name">
-                        <img src={sandbox_logo_white} alt="sandbox_logo_white" />
-                        <h3>코드 샌드박스.</h3>
-                      </div>
-                      <div className="cr_date">
-                        <h3>Created date</h3>
-                        <p>2024.09.12</p>
-                      </div>
-                  </div>
-                </div>
-                <div className="box move">
-                  <img className='section5_sum' src={move_sum} alt="camfine_sum" />
-                  <div className="dark_overlay"></div>
-                  <div className="box_inner camfine_inner">
-                      <div className="lo_name">
-                        <img src={move_logo_white} alt="move_logo_white" />
-                        <h3>무브.</h3>
-                      </div>
-                      <div className="cr_date">
-                        <h3>Created date</h3>
-                        <p>2024.09.12</p>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Page5_inner/>
       </div>
       <div id="page6">
 
@@ -1024,10 +905,10 @@ page9BoxRefs.current.forEach((box, index) => {
                 <p>
                   App, Mobile Web
                 </p>
-                {/* 해당되는 깃허브 페이지로 이동되게해야됨 */}
-                <span>
+                <span onClick={camfineGit}>
                   <img className='project_github' src={github_white_ic} alt="github_white_ic" />
                 </span>
+                <article>이미지를 선택해 프로젝트를 살펴보세요.</article>
               </div>
             </Link>
           </div>
@@ -1042,9 +923,10 @@ page9BoxRefs.current.forEach((box, index) => {
                   <p>
                     App, Mobile Web
                   </p>
-                  <span>
+                  <span onClick={camfineGit}>
                     <img className='project_github' src={github_white_ic} alt="github_white_ic" />
                   </span>
+                  <article>이미지를 선택해 프로젝트를 살펴보세요.</article>
                 </div>
             </Link>
           </div>
@@ -1057,11 +939,12 @@ page9BoxRefs.current.forEach((box, index) => {
                   Platform.
                 </h3>
                 <p>
-                  Web
+                  Web, mobile web
                 </p>
-                <span>
+                <span onClick={camfineGit}>
                   <img className='project_github' src={github_white_ic} alt="github_white_ic" />
                 </span>
+                <article>이미지를 선택해 프로젝트를 살펴보세요.</article>
               </div>
             </Link>
           </div>
@@ -1070,18 +953,21 @@ page9BoxRefs.current.forEach((box, index) => {
               <img src={move_sum} alt="move_sum" />
               <div className="page7_procjec_sum_inner">
                 <img src={move_logo_white} alt="move_logo_white" />
-                <h3>
-                  Platform.
-                </h3>
-                <p>
-                  Web
-                </p>
-                <span>
-                  <img className='project_github' src={github_white_ic} alt="github_white_ic" />
+                <h3>Platform.</h3>
+                <p>Web, mobile web</p>
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation(); // 이벤트 전파 중단
+                    camfineGit();
+                  }}
+                >
+                  <img className="project_github" src={github_white_ic} alt="github_white_ic" />
                 </span>
+                <article>이미지를 선택해 프로젝트를 살펴보세요.</article>
               </div>
             </Link>
           </div>
+
           <div className="page7 procject_sum">
             <Link to="/project/samsung" state={{ ProjectDetail_bg: samsung_sum_hori }}>
               <img src={samsung_sum_hori} alt="samsung_sum_hori" />
@@ -1091,11 +977,12 @@ page9BoxRefs.current.forEach((box, index) => {
                   Platform.
                 </h3>
                 <p>
-                  Web
+                  Web, mobile web
                 </p>
-                <span>
+                <span onClick={camfineGit}>
                   <img className='project_github' src={github_white_ic} alt="github_white_ic" />
                 </span>
+                <article>이미지를 선택해 프로젝트를 살펴보세요.</article>
               </div>
             </Link>
           </div>
@@ -1280,7 +1167,7 @@ page9BoxRefs.current.forEach((box, index) => {
         <div className="page11_inner">
           <img src={page11_back} alt="page11_back" />
           <div className="page11_in">
-            <div className="page11_inner_lt">
+            <div className="page11_inner_lt" ref={(el) => (page11BoxRefs.current[0] = el)}>
               <div className="page11_inner_lt_box">
                 <div className="page11_inner_lt_box_t">
                   <h2>Contact Info.</h2>
@@ -1314,13 +1201,14 @@ page9BoxRefs.current.forEach((box, index) => {
                     <h2>social Info.</h2>
                   </div>
                   <div className="page11_inner_lt_box_bt_bt">
-                    <Link className="social_box">
+                    <Link to={'https://github.com/changhyoun'} target='_blank' className="social_box">
                       <FontAwesomeIcon icon={faGithub} />
                     </Link>
-                    <Link className="social_box">
+                    <Link to={'https://www.notion.so/6681cf5058ad47d88a218527c6df4dc8'} target='_blank' className="social_box">
                       <FontAwesomeIcon icon={faNeos} />
                     </Link>
-                    <Link className="social_box">
+                  
+                    <Link to={'https://www.instagram.com/chhy02_14/?igsh=MWRxYThreTRxNG52bQ%3D%3D&utm_source=qr'} target='_blank' className="social_box">
                       <FontAwesomeIcon icon={faInstagram} />
                     </Link>
                     
@@ -1329,49 +1217,8 @@ page9BoxRefs.current.forEach((box, index) => {
               </div>
               
             </div>
-            <div className="page11_inner_rt">
-              <div className="page11_inner_rt_box">
-                <div className="page11_inner_rt_box_inner">
-                  <div className="page11_inner_rt_box_t">
-                    <h2>Let’s Work <span>Together.</span></h2>
-                    <p>함께 일할 기회나 문의 사항이 있으시면 메세지를 보내주세요.</p>
-                  </div>
-                  <div className="page11_inner_rt_box_bt">
-                    <form action="/submit" method="POST">
-                      <div className="input_box">
-                        <div className="name_input">
-                          <label htmlFor="name">Name:</label>
-                          <input type="text" id="name" name="name" placeholder="성함 및 회사명을  작성해주세요." required />
-                          <span className="material-symbols-rounded contact_ic">
-                            account_circle
-                          </span>
-                        </div>
-                        <div className="email_input">
-                          <label htmlFor="email">email:</label>
-                          <input type="text" id="email" name="email" placeholder="이메일 및 연락처를 작성해주세요." required />
-                          <span className="material-symbols-rounded contact_ic">
-                            call
-                          </span>
-                        </div>
-                        <div className="tx_input">
-                          <label htmlFor="say">say:</label>
-                          <textarea type="text" id="say" name="say" placeholder="메세지를 입력해주세요." required />
-                          <span className="material-symbols-rounded contact_ic">
-                            sms
-                          </span>
-                        </div>
-                      </div>
-                      <button type="submit">
-                        Send message
-                        <span className="material-symbols-rounded">
-                          send
-                        </span>
-                      </button>
-                        
-                    </form>
-                  </div>
-                </div>
-              </div>
+            <div className="page11_inner_rt" ref={(el) => (page11BoxRefs.current[1] = el)}>
+                <Page11_inner_rt_box/>
             </div>
           </div>
         </div>

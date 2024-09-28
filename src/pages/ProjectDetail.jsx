@@ -49,7 +49,7 @@ const projects = [
     ProjectDetail_warp_center_sc1_p: '캠파인.', 
     slidesPerView: 2,
     images: [camfine_sum,camfine_mock1,camfine_mock2,camfine_mock3,camfine_mock4,camfine_mock5,camfine_mock6,camfine_mock7,camfine_mock8],  
-    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>Match_Point',
+    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>Camfine',
     ProjectDetail_warp_center_sc3_tx_2_box_inner : "테니스 예약 사이트, 앱",
     ProjectDetail_warp_center_sc3_tx_3_box_inner : "모바일 웹, 앱",
     skill_ic : [photoshop_ic,illust_ic,figma_ic,html_ic,scss_ic,javaScript_ic,react_ic],
@@ -65,7 +65,7 @@ const projects = [
     필터, 위치 정보 조회 등의 기능을 제공합니다.<br/>
     또한, 각 캠핑장 지역의 실시간 날씨 정보와 즐겨찾기 기능을 통해<br/>
     사용자의 캠핑 계획을 보다 효율적으로 지원합니다.`,
-    github_url : 'https://github.com/changhyoun/Match_Point'
+    github_url : 'https://github.com/changhyoun/Camfine'
   },
   { 
     id: 'match', 
@@ -101,7 +101,7 @@ const projects = [
     ProjectDetail_warp_center_sc1_p: '코드 샌드박스.', 
     slidesPerView: 1,
     images: [sandbox_sum, sand_moc1, sand_moc2, sand_moc3, sand_moc4, sand_moc5, sand_moc6, sand_moc7],  
-    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>Match_Point',
+    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>CodeSandbox',
     ProjectDetail_warp_center_sc3_tx_2_box_inner : "코드샌드박스 한국 페이지 ",
     ProjectDetail_warp_center_sc3_tx_3_box_inner : "PC, 모바일 웹",
     skill_ic : [figma_ic,html_ic,scss_ic,javaScript_ic,react_ic],
@@ -110,7 +110,7 @@ const projects = [
     `해당 프로젝트는 gsap을 이용한 자연스러은 스크롤 기능,<br/>
     반응형, codesandbox 정보 확인을 할 수 있는<br/>
     Code Sandbox 한국 페이지를 제작했습니다.`,
-    github_url : 'https://github.com/changhyoun/Match_Point'
+    github_url : 'https://github.com/changhyoun/CodeSandbox'
   },
   { 
     id: 'move', 
@@ -120,7 +120,7 @@ const projects = [
     ProjectDetail_warp_center_sc1_p: '무브.', 
     slidesPerView: 1,
     images: [move_sum, move_moc1, move_moc2, move_moc3, move_moc4, move_moc5, move_moc6, move_moc7, move_moc8, move_moc9,],  
-    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>Match_Point',
+    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>move',
     ProjectDetail_warp_center_sc3_tx_2_box_inner : "무브(Move) 홈페이지 클론코딩",
     ProjectDetail_warp_center_sc3_tx_3_box_inner : "PC, 모바일 웹",
     skill_ic : [figma_ic,html_ic,css_ic,javaScript_ic],
@@ -130,7 +130,7 @@ const projects = [
     클론 코딩하여, 추가적인 페이지를 제작하고,<br/>
     반응형 웹 디자인을 적용하여 다양한<br/>
     화면 크기에서도 잘 동작하도록 구현했습니다. `,
-    github_url : 'https://github.com/changhyoun/Match_Point'
+    github_url : 'https://github.com/changhyoun/move'
   },
   { 
     id: 'samsung', 
@@ -140,7 +140,7 @@ const projects = [
     ProjectDetail_warp_center_sc1_p: '삼성전기.', 
     slidesPerView: 1,
     images: [samsung_sum_hori,sam_moc1,sam_moc2,sam_moc3,sam_moc4,sam_moc5,],
-    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>Match_Point',
+    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>SamsungElectro-Mechanics',
     ProjectDetail_warp_center_sc3_tx_2_box_inner :  "삼성전기(Samsung Electro-Mechanics) 홈페이지 클론코딩",
     ProjectDetail_warp_center_sc3_tx_3_box_inner : "PC, 모바일 웹",
     skill_ic : [figma_ic,html_ic,css_ic,javaScript_ic],
@@ -149,7 +149,7 @@ const projects = [
     `해당 프로젝트는 기존 삼성전기(Samsung Electro-Mechanics')<br/>
     홈페이지를 클론 코딩하여, 반응형 웹 디자인을 적용하여<br/>
     다양한 화면 크기에서도 잘 동작하도록 구현했습니다. `,
-    github_url : 'https://github.com/changhyoun/Match_Point'
+    github_url : 'https://github.com/changhyoun/SamsungElectro-Mechanics'
   },
 ];
 
@@ -337,7 +337,7 @@ function ProjectDetail() {
                 <span className="material-symbols-rounded">home</span>
               </Link>
             </div>
-            <div className="ProjectDetail_warp_center content_box">
+            <div className={`ProjectDetail_warp_center content_box ${currentProject.id}-scroll`}>
               <div className="ProjectDetail_warp_center_inner">
                 <div className="ProjectDetail_warp_center_sc1">
                   <canvas id="canvas"></canvas> {/* 캔버스 추가 */}
