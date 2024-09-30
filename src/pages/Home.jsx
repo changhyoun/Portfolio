@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic,page9_back,photoshop_ic,illust_ic,indesign_ic,powerpoint_ic,excel_ic,xd_ic,figma_ic,html_ic,css_ic,scss_ic,tailwind_ic,bootstrap_ic,javaScript_ic,jquery_ic,vue_ic,react_ic,page11_back,number_qr } from '../components/Image';
 import Header from '../components/Header';
-import Page5_bt_lt_inner_tx from '../components/Page5_bt_lt_inner_tx';
+import Footer from '../components/Footer';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -1229,7 +1229,7 @@ page11BoxRefs.current.forEach((box, index) => {
           <img src={number_qr} alt="number_qr" />
         </div>
       </div>
-      
+      <Footer/>
     </div>
   );
 };
