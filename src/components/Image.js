@@ -282,4 +282,10 @@ export {page11_back}
 import number_qr from "../assets/number_qr.png"
 export {number_qr}
 
+// 404 아이콘
+import error_404_ic from "../assets/404_ic.png"
+export {error_404_ic}
+
+
+
 

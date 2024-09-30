@@ -1,7 +1,6 @@
 #NotFound{
   width: 100%;
   height: 100vh;
-  border: 1px solid red;
   background-color: black;
   display: flex;
   align-items: center;
@@ -14,7 +13,6 @@
     position: absolute;
     right: 0;
     top: 0;
-    border: 1px solid blue;
     &::before{
       content: "";
       right: 0;
@@ -54,10 +52,63 @@
         font-size: 6em;
         text-align: center;
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-        span{
+        direction: ltr;
+        strong{
           background: -webkit-linear-gradient(45deg,#545cff,#8d95ff 80%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        
+      }
+    }
+    .NotFound_txbox{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      padding: 3% 6%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #00000056;
+      border-radius: 40px;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+      
+      img{
+        height: 200px;
+        filter: saturate(0.7) drop-shadow(1px 1px 1px rgba(0,0,0.25));
+        
+      }
+      p{
+        color : #A5A5A5;
+        font-family: 'AppleNeoEB';
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+        margin: 8% 0;
+        font-size: 1.2em;
+      }
+      a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+        font-family: 'AppleNeoEB';
+        border: none;
+        outline: none;
+        color: white; /* 텍스트 색상을 흰색으로 설정 */
+        background: -webkit-linear-gradient(45deg,#697ac5,#4B5BA0 80%);
+        background: linear-gradient(45deg,#697ac5,#4B5BA0 80%);
+        border-radius: 15px;
+        padding: 15% 30%;
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2em;
+        box-sizing: border-box;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
         }
       }
     }
