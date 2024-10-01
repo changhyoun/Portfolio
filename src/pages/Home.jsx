@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef,useState } from 'react';
 import { Home_main_back, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic,page9_back,photoshop_ic,illust_ic,indesign_ic,powerpoint_ic,excel_ic,xd_ic,figma_ic,html_ic,css_ic,scss_ic,tailwind_ic,bootstrap_ic,javaScript_ic,jquery_ic,vue_ic,react_ic,page11_back,number_qr } from '../components/Image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -30,17 +30,6 @@ const skill_box = {
   ]
 };
 
-// 스킬 박스 변수
-const firstHalfSkills = skill_box.Available_skill_ic.slice(0, 6);
-const secondHalfSkills = skill_box.Available_skill_ic.slice(6, 12);
-const thirdHalfSkills = skill_box.Available_skill_ic.slice(12, 18);
-const fourthHalfSkills = skill_box.Available_skill_ic.slice(18, 24);
-const firstHalfText = skill_box.Available_skill_tx.slice(0, 6);
-const secondHalfText = skill_box.Available_skill_tx.slice(6, 12);
-const thirdHalfText = skill_box.Available_skill_tx.slice(12, 18);
-const fourthHalfText = skill_box.Available_skill_tx.slice(18, 24);
-
-
 gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
 
 const Home = () => {
@@ -62,7 +51,15 @@ const Home = () => {
   const page7Ref = useRef(null);
   const page9BoxRefs = useRef([])
   const page11BoxRefs = useRef([]);
-
+  const [isVisible, setIsVisible] = useState(false);
+  const [firstHalfSkills, setFirstHalfSkills] = useState([]);
+  const [secondHalfSkills, setSecondHalfSkills] = useState([]);
+  const [thirdHalfSkills, setThirdHalfSkills] = useState([]);
+  const [fourthHalfSkills, setFourthHalfSkills] = useState([]);
+  const [firstHalfText, setFirstHalfText] = useState([]);
+  const [secondHalfText, setSecondHalfText] = useState([]);
+  const [thirdHalfText, setThirdHalfText] = useState([]);
+  const [fourthHalfText, setFourthHalfText] = useState([]);
 
   useEffect(() => {
 
@@ -119,6 +116,8 @@ const Home = () => {
     splitTextAndAnimate();
     splitTextIntoSpans();
     createProfileHoverAnimation(); // 프로필 이미지 호버 애니메이션 생성
+    updateSkills();
+    window.addEventListener('resize', updateSkills);
     
 
     // Canvas를 사용하여 이미지 렌더링
@@ -222,9 +221,9 @@ const Home = () => {
       end: '50% top',
       pin: mainRef.current,
       pinSpacing: false,
-      onEnter: () => gsap.set(mainRef.current, { position: 'fixed', top: 0 }),
+      onEnter: () => gsap.set(mainRef.current, { position: 'fixed', top: 0,width : '100vw' }),
       onLeave: () => gsap.set(mainRef.current, { position: 'relative', clearProps: 'top' }),
-      onEnterBack: () => gsap.set(mainRef.current, { position: 'fixed', top: 0 }),
+      onEnterBack: () => gsap.set(mainRef.current, { position: 'fixed', top: 0,width : '100vw' }),
       onLeaveBack: () => gsap.set(mainRef.current, { position: 'relative', clearProps: 'top' }),
     });
 
@@ -381,7 +380,7 @@ const Home = () => {
   });
   
   
-};
+  };
 
  
 
@@ -525,6 +524,33 @@ const Home = () => {
     });
   };
 
+  
+const updateSkills = () => {
+  if (window.innerWidth <= 768) {
+    // 768px 이하에서는 4개씩 슬라이싱
+    setFirstHalfSkills(skill_box.Available_skill_ic.slice(0, 4));
+    setSecondHalfSkills(skill_box.Available_skill_ic.slice(4, 8));
+    setThirdHalfSkills(skill_box.Available_skill_ic.slice(8, 12));
+    setFourthHalfSkills(skill_box.Available_skill_ic.slice(12, 16));
+
+    setFirstHalfText(skill_box.Available_skill_tx.slice(0, 4));
+    setSecondHalfText(skill_box.Available_skill_tx.slice(4, 8));
+    setThirdHalfText(skill_box.Available_skill_tx.slice(8, 12));
+    setFourthHalfText(skill_box.Available_skill_tx.slice(12, 16));
+  } else {
+    // 768px 이상에서는 6개씩 슬라이싱
+    setFirstHalfSkills(skill_box.Available_skill_ic.slice(0, 6));
+    setSecondHalfSkills(skill_box.Available_skill_ic.slice(6, 12));
+    setThirdHalfSkills(skill_box.Available_skill_ic.slice(12, 18));
+    setFourthHalfSkills(skill_box.Available_skill_ic.slice(18, 24));
+
+    setFirstHalfText(skill_box.Available_skill_tx.slice(0, 6));
+    setSecondHalfText(skill_box.Available_skill_tx.slice(6, 12));
+    setThirdHalfText(skill_box.Available_skill_tx.slice(12, 18));
+    setFourthHalfText(skill_box.Available_skill_tx.slice(18, 24));
+  }
+};
+
   const splitTextIntoSpans = () => {
     const paragraphs = page3TextRef.current.querySelectorAll('p');
 
@@ -644,6 +670,7 @@ window.addEventListener('scroll', function() {
 gsap.to(
   page5Ref.current.querySelector('#Home #page5 > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2)'),
   {
+
     width : '100vw',
     height : '100vh',
     borderRadius : 0,
@@ -705,6 +732,25 @@ page11BoxRefs.current.forEach((box, index) => {
   const camfineGit = () => {
     window.open("https://github.com/changhyoun/Camfine", "_blank"); // 새 탭에서 열기
   };
+
+  const handleScrollTop = () => {
+    gsap.to(window, { scrollTo: { y: 0, autoKill: true }, duration: 1, });
+  };
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 1) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility);
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    };
+  }, []);
   
 
 
@@ -765,13 +811,30 @@ page11BoxRefs.current.forEach((box, index) => {
           </div>
         </div>
       </div>
+      <div className={`scrollTop ${isVisible ? 'visible' : 'hidden'}`} onClick={handleScrollTop}>
+        <svg className="icon-svg" viewBox="0 0 100 100">
+          <g>
+            <circle className="circle" cx="50" cy="50" r="30" />
+            <polygon className="diamond" points="50,10 90,50 50,90 10,50" />
 
+          </g>
+        </svg>
+        <span className="material-symbols-rounded top_arrow">
+              keyboard_arrow_up
+        </span>
+      </div>
 
 
 
       <main id="main" ref={mainRef}>
-        <video src={Home_main_back} autoPlay muted playsInline loop></video>
-        <video src={Home_main_back2} autoPlay muted playsInline loop ref={videoRef2}></video>
+        <video src={Home_main_back}
+          // autoPlay muted playsInline loop
+        >
+
+        </video>
+        <video src={Home_main_back2}
+        // autoPlay muted playsInline loop ref={videoRef2}
+        ></video>
         <div className="main_warp" ref={mainWarpRef}>
           <h2 ref={(el) => (h2Refs.current[0] = el)}>
             For the web,

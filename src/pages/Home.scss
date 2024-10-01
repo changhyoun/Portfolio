@@ -7,7 +7,7 @@
   
   .scrollDown{
     position: fixed;
-    bottom: 5%;
+    bottom: 10%;
     right: 10%;
     z-index: 100;
     display: flex;
@@ -222,6 +222,57 @@
     }        
   
     
+  }
+  .scrollTop{
+    cursor: pointer;
+    position: fixed;
+    bottom: 1%;
+    right: 9%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .icon-svg {
+      width: 75px;
+      height: 75px;
+      position: relative;
+    }
+    
+    .circle {
+      fill: none;
+      stroke: #b1b1b1;
+      stroke-width: 1;
+      transform: scale(1.05);
+      transform-origin: center center;
+    }
+    
+    .diamond {
+      fill: none;
+      stroke: #b1b1b1;
+      stroke-width: 1;
+      transform-origin: 50% 50%;
+      transition: transform 0.3s ease;
+    }
+    
+    .top_arrow {
+      fill: #b1b1b1;
+      color: #b1b1b1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    &:hover{
+      .diamond {
+        transform: rotate(90deg); // hover 상태에서만 90도 회전
+      }
+    }
   }
 
   #main {

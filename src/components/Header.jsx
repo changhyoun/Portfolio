@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { useNavigate } from 'react-router-dom';
 import './Header.scss';
 import { logo } from './Image';
 
@@ -8,13 +9,13 @@ const Header = () => {
   const inputBoxRef = useRef();
   const searchInput = useRef();
   const spanRef = useRef();
+  const navigate = useNavigate();  // useNavigate 훅 사용
 
   const handleToggleInput = () => {
     if (!isInputVisible) {
-      // Input을 위에서 내려오듯이 보여주기
       gsap.fromTo(
         searchInput.current,
-        { width: '0', height: '0', y: '-20%', opacity: 0 },  // 초기 위치 및 불투명도
+        { width: '0', height: '0', y: '-20%', opacity: 0 },
         {
           width: '250px',
           height: '',
@@ -24,7 +25,6 @@ const Header = () => {
           display: 'block',
           ease: 'power1.out',
           transformOrigin: 'top right',
-          onComplete : () => searchInput.current.focus(),
         }
       );
       gsap.to(spanRef.current, {
@@ -32,12 +32,11 @@ const Header = () => {
         ease: 'power1.out'
       });
     } else {
-      // Input을 숨기고 span 아이콘 복구
       gsap.to(searchInput.current, {
         width: '0',
         height: '0',
         y: '-20%',
-        opacity: 0, 
+        opacity: 0,
         duration: 0.3,
         display: 'none',
         ease: 'power1.in',
@@ -51,12 +50,14 @@ const Header = () => {
     setIsInputVisible(!isInputVisible);
   };
 
+  const handleLogoClick = () => {
+    navigate('/');  // 로고 클릭 시 네비게이션
+  };
 
   return (
     <div id='Header'>
       <div className='Header_inner'>
-        <img className='logo' src={logo} alt='logo' />
-
+        <img className='logo' src={logo} alt='logo' onClick={handleLogoClick} /> {/* 로고 클릭 시 handleLogoClick 함수 실행 */}
         <div className="Header_rt">
           <div className='input_box' ref={inputBoxRef}>
             <span
@@ -68,14 +69,12 @@ const Header = () => {
             </span>
             <input
               type='text'
-              placeholder='프로젝트를 검색하세요. ex) 캠파인'
+              placeholder='프로젝트를 검색하세요.'
               ref={searchInput}
-            
               style={{ width: '0', display: 'none' }}
             />
           </div>
         </div>
-         
       </div>
     </div>
   );
