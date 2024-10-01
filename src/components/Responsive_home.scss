@@ -1916,6 +1916,8 @@
           position: static;
           max-width: 275px;
           max-height: 223px;
+          border: 3px solid red;
+          box-sizing: border-box;
         }
 
         .page3_swiper_tx_box {
