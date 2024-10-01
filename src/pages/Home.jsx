@@ -828,12 +828,12 @@ page11BoxRefs.current.forEach((box, index) => {
 
       <main id="main" ref={mainRef}>
         <video src={Home_main_back}
-          // autoPlay muted playsInline loop
+          autoPlay muted playsInline loop
         >
 
         </video>
         <video src={Home_main_back2}
-        // autoPlay muted playsInline loop ref={videoRef2}
+        autoPlay muted playsInline loop ref={videoRef2}
         ></video>
         <div className="main_warp" ref={mainWarpRef}>
           <h2 ref={(el) => (h2Refs.current[0] = el)}>
