@@ -1250,7 +1250,517 @@
 
 
 @media only screen and (max-width: 750px) and (orientation: landscape) {
+  #Header{
+    height: 30px;
+    > div .input_box{
+      input{
+        width: 200px;
+        margin-left: 5%;
+        font-size: 0.65em;
+      }
+      span{
+        margin-right: 0;
+        font-size: 0.9em;
+      }
+    }
+    
+  }
+  #Home {
+    width: 100%;
+    height: 100%;
+    .scrollTop{
+      right: 9%;
+      bottom: 4%;
+      .icon-svg{
+        width: 50px;
+        height: 50px;
+      }
+    }
+    .scrollDown {
+      bottom: 20%;
+      .button {
+        .sparkle {
+          width: 0.9rem;
+        }
+      }
+      .down_box {
+        p {
+          font-size: 1.1em;
+        }
+        > div span {
+          font-size: 1.1em;
+        }
+      }
+    }
 
+    // main
+    #main {
+      .main_tx_box{
+        h2 {
+          font-size: 1em;
+        }
+        p{
+          font-size: 0.65em;
+        }
+      } 
+      
+
+      > div:nth-of-type(1) h2 {
+        font-size: 2em;
+      }
+      
+    }
+
+    // 페이지 3
+    #page3 {
+      > div:nth-of-type(2) {
+        .page3_tx {
+          p:nth-of-type(1) span {
+            font-size: 0.9em;
+            font-family: "Parabole";
+          }
+          p:nth-of-type(2){
+            margin-top: 3%;
+            span {
+              font-size: 0.6em;
+              zoom: 0.85;
+            }
+          }
+          
+    
+        }
+
+        .page3_swiper_tx_box {
+          font-size: 0.6em;
+
+          .page3_swiper_btn {
+            button {
+              width: 20px;
+              height: 20px;
+
+              span {
+                font-size: 1em;
+                zoom: 0.85;
+                transform: translate(46%, 0%) !important;
+              }
+            }
+          }
+        }
+      }
+     
+    }
+
+    // 페이지 5
+    
+    #page5 {
+      > div {
+        > div:nth-of-type(1) {
+          height: calc(50% - 10px);
+          > div:nth-of-type(1) {
+            > div {
+              > div:nth-of-type(1) {
+             width: calc(50% - 10px);
+                .box_inner {
+                  > div:nth-of-type(1) {
+                    h3 {
+                      font-size: 0.8em;
+                    }
+                    img {
+                      height: 20px;
+                    }
+                  }
+
+                  > div:nth-of-type(2) {
+                    h3 {
+                      font-size: 0.8em;
+                    }
+                    p {
+                      font-size: 0.6em;
+                    }
+                  }
+                }
+                .rotate_tx_box {
+                  width: 50px;
+                  height: 50px;
+                  transform: translate(-30%, -50%);
+                  span {
+                    font-size: 1em;
+                  }
+                }
+              }   
+              > div:nth-of-type(2) {
+                width: calc(50% - 10px);
+                .box_inner {
+                  > div:nth-of-type(1) img {
+                    height: 35px;
+                  }
+
+                  > div:nth-of-type(1) h3 {
+                    font-size: 0.8em;
+                  }
+
+                  > div:nth-of-type(2) {
+                    h3 {
+                      font-size: 0.8em;
+                    }
+                    p {
+                      font-size: 0.6em;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          
+
+          > div:nth-of-type(2) {
+            > div {
+              > div:nth-of-type(1) {
+                display: none;
+                .box--2 {
+                  font-size: 0.9em;
+
+                  .box__background {
+                    font-size: 1.4em;
+                  }
+                }
+
+                .box_inner {
+                  
+                  > div:nth-of-type(1) img {
+                    height: 60px;
+                  }
+
+                  > div:nth-of-type(1) h3 {
+                    font-size: 1.2em;
+                  }
+
+                  > div:nth-of-type(2) {
+                    
+                    h3 {
+                      font-size: 1.2em;
+                      
+                    }
+                    p {
+                      font-size: 0.8em;
+                    }
+                  }
+                }
+              }
+
+              
+
+              > div:nth-of-type(2) {
+                  height: 100%;
+                .box_inner {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  
+                  > div:nth-of-type(1){
+                    width: 100%;
+                    height: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                      height: 30px;
+                    }
+                    h3 {
+                      font-size: 0.8em;
+                    }
+                  }
+                  
+
+                  > div:nth-of-type(2) {
+                    width: 100%;
+                    height: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    h3 {
+                      font-size: 0.8em;
+                      margin-bottom: 5%;
+                    }
+                    p {
+                      font-size: 0.6em;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        > div:nth-of-type(2) {
+          height: calc(50% - 10px);
+          div:nth-of-type(2){
+            width: 100%;
+          }
+          > div:nth-of-type(2) > div > div:nth-of-type(1) .box_inner > div:nth-of-type(1){
+            img{
+              height: 13px;
+            }
+            h3{
+              font-size: 0.9em;
+            }
+          }
+
+          > div:nth-of-type(2) > div > div:nth-of-type(1) .box_inner > div:nth-of-type(2){
+            h3{
+              font-size: 1em;
+            }
+            p{
+              font-size: 0.7em;
+            }
+          }    
+          > div:nth-of-type(2) > div > div:nth-of-type(2) .box_inner > div:nth-of-type(1){
+            img{
+              height: 13px;
+            }
+            h3{
+              font-size: 0.9em;
+            }
+          }
+          > div:nth-of-type(2) > div > div:nth-of-type(2) .box_inner > div:nth-of-type(2){
+            h3{
+              font-size: 1em;
+            }
+            p{
+              font-size: 0.7em;
+            }
+          }    
+        }
+      }
+      > div > div:nth-of-type(2) > div:nth-of-type(1){
+        display: none;
+      }
+    }
+ 
+      // 그랩 박스 p
+      .throw_warp{
+        width: 80%;
+        img{
+          width: 35% !important;
+        }
+        p{
+          font-size: 0.6em;
+        }
+      }
+      .page5_bt_lt_txbox{
+        padding: 2px !important;
+        border-radius: 5px !important;
+      }
+      .page5_bt_lt_txbox p{
+          font-size: 0.5em;   
+          zoom: 0.3;
+      }
+    
+    // 페이지 7
+    #page7 > div > div > a > div {
+      > img{
+        height: 25%;
+      }
+      h3{
+        font-size: 2em;
+      }
+      p{
+        font-size: 1.5em;
+      }
+      span{
+        width: 5%;
+      }
+      article{
+        font-size: 0.8em;
+      }
+    }
+    // 페이지 9
+    #page9 {
+      > div > div:nth-of-type(1) {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: space-between;
+        > div{
+          margin-left: 0;
+        }
+        > div > div > div {
+          
+          &:nth-of-type(1){
+            width: 45%;
+          }
+          &:nth-of-type(2){
+            width: 55%;
+          }
+          h3 {
+            font-size: 0.9em;
+          }
+
+          .timeline {
+            li {
+              font-size: 0.6em;
+              padding-left: 5px;
+              &::after {
+                height: 240%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 페이지 10
+    #page10 {
+      height: 400px;
+      > div > div:nth-of-type(1) {
+        h3 {
+          font-size: 1.3em;
+    
+          bdo {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    
+      > div > div:nth-of-type(2) {
+        .swiper-container2 {
+          .swiper-wrapper {
+            .swiper-slide {
+              > div {
+                .skill_box {
+                  width: 20%;
+                  height: 60%;
+    
+                  img {
+                    width: 15%;
+                  }
+    
+                  p {
+                    font-size: 0.7em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    
+      span {
+        font-size: 1.2em;
+      }
+    }
+    // 페이지 11
+    #page11{
+      > div > div{
+        width: 90%;
+        height: 90%;
+        > div:nth-of-type(1){
+          width: 40%;
+        }
+        div:nth-of-type(2){
+          width: 55%;
+        }
+      }
+      div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > h2{
+        font-size: 0.9em;
+      }
+      > div > div > div:nth-of-type(1) > div{
+        height: 80%;
+      }
+      > div > div > div:nth-of-type(1) > div > div:nth-of-type(1){
+        height: 70%;
+      }
+      > div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > div:nth-of-type(1){
+        height: 90%;
+      }
+      > div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > div:nth-of-type(2){
+        width: 70%;
+      }
+      > div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > div:nth-of-type(2) a h3{
+        font-size: 0.8em;
+      }
+      > div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > div:nth-of-type(2) a p{
+        font-size: 0.65em;
+      }
+      > div > div > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(2) > a{
+        height: 80%;
+      }
+      > div > div > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(2) > a svg{
+        font-size: 1.2em;
+      }
+      > div > div > div:nth-of-type(2) > div{
+        height: 100%;
+        border-radius: 10px;
+      }
+      > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) h2 {
+        font-size: 0.8em;
+        margin-bottom: 3%;
+      }
+      > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) p{
+        font-size: 0.6em;
+        zoom: 0.8;
+      }
+      > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) form > div > div:nth-of-type(1) span, > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) form > div div:nth-of-type(2) span{
+        font-size: 1em;
+        left: 5%;
+        top: 60%;
+      }
+      > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) form > div > div:nth-of-type(3) span{
+        font-size: 1em;
+        left: 5%;
+        top: 40%;
+      }
+      > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) form > div > div:nth-of-type(1) input, > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) form > div div:nth-of-type(2) input{
+        font-size: 0.6em;
+        zoom: 0.9;
+      }
+      div > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) form > div > div:nth-of-type(3) textarea{
+        font-size: 0.6em;
+        zoom: 0.9;
+      }
+      > div > div > div:nth-of-type(2) > div > div > div:nth-of-type(2) form button{
+        font-size: 0.7em;
+      }
+    }
+    // 페이지 12 qr
+    #page12 > div img{
+      height: 50%;
+    }
+    // 푸터
+    #Footer {
+      height: 400px;
+      > div {
+        > div:nth-of-type(1) {
+          > div {
+            h2 {
+              font-size: 1em;
+            }
+          
+            ul li a {
+              font-size: 1em;
+            }
+          
+            &:nth-of-type(1) p {
+              font-size: 1em;
+            }
+            &:nth-of-type(2) p{
+              font-size: 0.9em;
+            }
+          }
+        }
+        
+        > div:nth-of-type(2) {
+          h1 {
+            font-size: 9em;
+            bottom: -50%;
+          }
+        }
+      }
+    }
+    
+  }
 
 }
 
@@ -2460,7 +2970,7 @@
       }
     }
     .scrollDown {
-      bottom: 10%;
+      bottom: 12%;
       .button {
         .sparkle {
           width: 1.2em;
@@ -2483,12 +2993,11 @@
         width: 90%;
         position: absolute;
         left: 50%;
-        
         transform: translateX(-50%);
-        top: 15%;
+        top: 12%;
         h2 {
           text-align: center;
-          font-size: 1.1em;
+          font-size: 1.3em;
           width: 100%;
         }
         p{
@@ -2507,28 +3016,34 @@
 
     // 페이지 3
     #page3 {
-      
       > div:nth-of-type(2) {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
         .page3_warp_profile .page3_warp_profile_ic_box a{
-          height: 30px;
+          height: 25px !important;
+          img{
+            height: 100%;
+          }
         }  
         .page3_tx {
           position: static;
           text-align: center;
           
           p:nth-of-type(1) span {
-            font-size: 0.85em;
+            font-size: 0.95em;
             font-family: "Parabole";
             text-align: center;
           }
           p:nth-of-type(2) span {
             font-size: 0.65em;
-            zoom: 0.95;
+            zoom: 1;
             text-align: center;
+            span:nth-of-type(3) {
+              padding: 1.5% 2%;
+              margin: 0.5% 1%;
+            }
           }
         }
         .page3_warp_profile{
@@ -2873,14 +3388,16 @@
                   align-items: center;
                   justify-content: center;
                   img {
-                    height: 35%;
+                    height: 25%;
+                    margin-right: 0;
                     width: auto;
                     object-fit: contain;
-                    margin-bottom: 3%;
+                    margin-bottom: 10%;
                   }
     
                   p {
                     font-size: 0.6em;
+                    zoom: 0.9;
                   }
                 }
               }

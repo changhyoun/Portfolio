@@ -600,7 +600,7 @@ const updateSkills = () => {
     const mm = gsap.matchMedia();
 
     // 일반적인 애니메이션 설정
-    mm.add("(min-width: 769px)", () => {
+    mm.add("(min-width: 500px) and (orientation: landscape) ", () => {
       gsap.fromTo(
         page3Ref.current.querySelector('.page3_warp_profile'),
         {
@@ -624,6 +624,8 @@ const updateSkills = () => {
       );
     });
     
+
+   
     // 768px 이하의 포터블 세로 모드일 때 설정
     mm.add("(max-width: 1100px) and (orientation: portrait)", () => {
       gsap.fromTo(
@@ -634,8 +636,8 @@ const updateSkills = () => {
           opacity: 0,
         },
         {
-          width: '60%',
-          height: '20%',
+          width: '80%',
+          height: '30%',
           opacity: 1,
           duration: 0.5,
           scrollTrigger: {
