@@ -1919,6 +1919,7 @@
           border: 3px solid red;
           box-sizing: border-box;
           position: relative;
+          overflow: hidden;
           .image__element{
             object-fit: cover;
             width: 100%;
