@@ -625,7 +625,7 @@ const updateSkills = () => {
     });
     
     // 768px 이하의 포터블 세로 모드일 때 설정
-    mm.add("(max-width: 1100px) and (orientation: portrait)", () => {
+    mm.add("(max-width: 1100px)", () => {
       gsap.fromTo(
         page3Ref.current.querySelector('.page3_warp_profile'),
         {
