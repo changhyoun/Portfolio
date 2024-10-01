@@ -101,25 +101,25 @@ const Footer = () => {
                     <span>{splitTextIntoSpans("Project.")}</span>
                     <ul>
                         <li>
-                          <Link>
+                          <Link to={"/project/camfine"}>
                             {splitTextIntoSpans("Camfine")}
                           </Link>
                             &nbsp;&nbsp;
-                          <Link>
+                          <Link to={'/project/match'}>
                             {splitTextIntoSpans("Match_Point")}
                           </Link>
                         </li>
                         <li>
-                          <Link>
+                          <Link to={'/project/sandbox'}>
                             {splitTextIntoSpans("Code Sandbox")}
                           </Link>
                           &nbsp;&nbsp;
-                          <Link>
+                          <Link to={'/project/move'}>
                           {splitTextIntoSpans("Move")}
                           </Link>
                         </li>
                         <li>
-                            <Link>
+                            <Link to={'/project/samsung'}>
                                 {splitTextIntoSpans("Samsung Electro-Mechanics")}
                             </Link>
                         </li>
