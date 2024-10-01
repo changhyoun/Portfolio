@@ -1260,13 +1260,14 @@
    #Home {
     .scrollTop{
       right: 8.5%;
+      bottom: 3%;
       .icon-svg{
         width: 65px;
         height: 65px;
       }
     }
     .scrollDown {
-      bottom: 8%;
+      bottom: 10%;
       .button {
         .sparkle {
           width: 2em;
@@ -1314,9 +1315,9 @@
       
       > div:nth-of-type(2) {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         
         .page3_tx {
           position: static;
@@ -1334,8 +1335,6 @@
         }
         .page3_warp_profile{
           position: static;
-          width: 80% !important;
-          height: 40% !important;
         }
 
         .page3_swiper_tx_box {
@@ -1819,6 +1818,9 @@
 }
 // 아이폰 14프로맥스 기준 세로
 @media only screen and (max-width: 700px) and (orientation: portrait) {
+  .m_br{
+    display: block;
+  }
   // 헤더 및 스크롤 박스
   #Header{
     width: 100vw;
@@ -1837,7 +1839,7 @@
       }
     }
     .scrollDown {
-      bottom: 9%;
+      bottom: 12%;
       .button {
         .sparkle {
           width: 2em;
@@ -1865,12 +1867,13 @@
         top: 15%;
         h2 {
           text-align: center;
-          font-size: 1.3em;
+          font-size: 1.6em;
           width: 100%;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
         }
         p{
           text-align: center;
-          font-size: 0.7em;
+          font-size: 0.8em;
         }
       } 
 
@@ -1887,7 +1890,7 @@
       
       > div:nth-of-type(2) {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
         justify-content: space-between;
         
@@ -1901,14 +1904,16 @@
             text-align: center;
           }
           p:nth-of-type(2) span {
-            font-size: 0.85em;
+            font-size: 0.9em;
             text-align: center;
+            span:nth-of-type(3){
+              padding: 1.5% 2%;
+              margin: 1% 1%;
+            }
           }
         }
         .page3_warp_profile{
           position: static;
-          width: 80% !important;
-          height: 40% !important;
         }
 
         .page3_swiper_tx_box {
@@ -2147,13 +2152,17 @@
         }
       }
       .page5_bt_lt_txbox{
-        padding: 4px !important;
+        padding: 3px !important;
         border-radius: 5px !important;
       }
       .page5_bt_lt_txbox p{
           font-size: 0.6em !important;   
-          zoom: 1 !important;
+          zoom: 0.9 !important;
       }
+    // 페이지6
+    #page6{
+      height: 70vh;
+    }
     // 페이지 7
     #page7 > div > div > a > img{
       object-fit: cover;
@@ -2180,7 +2189,7 @@
     } 
     // 페이지 8
     #page8{
-      height: 250vh;
+      height: 350vh;
     }
     // 페이지 9
     #page9 {
@@ -2499,7 +2508,7 @@
       
       > div:nth-of-type(2) {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
         justify-content: space-between;
         .page3_warp_profile .page3_warp_profile_ic_box a{
@@ -2522,8 +2531,7 @@
         }
         .page3_warp_profile{
           position: static;
-          width: 80% !important;
-          height: 40% !important;
+          
         }
 
         .page3_swiper_tx_box {

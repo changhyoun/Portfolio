@@ -597,27 +597,57 @@ const updateSkills = () => {
       }
       
     );
-    gsap.fromTo(
-      page3Ref.current.querySelector('.page3_warp_profile'),
-      {
-        width: 0,
-        height: 0,
-        opacity: 0,
-      },
-      {
-        width: '50%',
-        height: '70%',
-        opacity: 1,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: '#page3',
-          start: '50% center',
-          endTrigger: '#page4',
-          end: '10% center',
-          scrub: true,
+    const mm = gsap.matchMedia();
+
+    // 일반적인 애니메이션 설정
+    mm.add("(min-width: 769px)", () => {
+      gsap.fromTo(
+        page3Ref.current.querySelector('.page3_warp_profile'),
+        {
+          width: 0,
+          height: 0,
+          opacity: 0,
         },
-      }
-    );
+        {
+          width: '50%',
+          height: '70%',
+          opacity: 1,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: '#page3',
+            start: '50% center',
+            endTrigger: '#page4',
+            end: '10% center',
+            scrub: true,
+          },
+        }
+      );
+    });
+    
+    // 768px 이하의 포터블 세로 모드일 때 설정
+    mm.add("(max-width: 1100px) and (orientation: portrait)", () => {
+      gsap.fromTo(
+        page3Ref.current.querySelector('.page3_warp_profile'),
+        {
+          width: 0,
+          height: 0,
+          opacity: 0,
+        },
+        {
+          width: '80%',
+          height: '35%',
+          opacity: 1,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: '#page3',
+            start: '50% center',
+            endTrigger: '#page4',
+            end: '10% center',
+            scrub: true,
+          },
+        }
+      );
+    });
 
     gsap.fromTo(
       page3Ref.current.querySelector('.page3_warp_profile'),
@@ -882,7 +912,7 @@ page11BoxRefs.current.forEach((box, index) => {
         
         <div className="page3_tx">
           <p className='page3_tx_eng'>
-            <em>Hello,</em> I am Changhyun Kim, a front-end developer.
+            <em>Hello,</em> I am Changhyun Kim,<br className='m_br'/> a front-end developer.
             <br />
             We develop user-centered web experiences<br />
             using HTML, CSS, JavaScript, and React.
@@ -894,7 +924,7 @@ page11BoxRefs.current.forEach((box, index) => {
           </p>
           <p className='page3_tx_kor'>
           안녕하세요, 프론트엔드 개발자 김창현입니다.<br/>
-          Html, Scss, JavaScript, React를 활용하여<br/>사용자 중심의 웹 경험을 설계하고,
+          Html, Scss, JavaScript, React를 활용하여<br/>사용자 중심의 웹 경험을 설계하고,<br className='m_br'/>
           반응형 디자인과 인터랙티브 기능<br/>구현에 깊은 전문성을 보유하고 있습니다.<br/>
           항상 혁신을 지향하며 지속적인 성장을 추구하고 있습니다.
           </p>
