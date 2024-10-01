@@ -649,25 +649,25 @@ const updateSkills = () => {
       );
     });
 
-    // gsap.fromTo(
-    //   page3Ref.current.querySelector('.page3_warp_profile'),
-    //   {
-    //     right:0,
-    //     bottom : 0,
-    //   },
-    //   {
-    //     right:0,
-    //     bottom : '10%',
-    //     duration: 0.5,
-    //     scrollTrigger: {
-    //       trigger: '#page3',
-    //       start: '70% center',
-    //       endTrigger: '#page4',
-    //       end: '10% center',
-    //       scrub: true,
-    //     },
-    //   }
-    // );
+    gsap.fromTo(
+      page3Ref.current.querySelector('.page3_warp_profile'),
+      {
+        right:0,
+        bottom : 0,
+      },
+      {
+        right:0,
+        bottom : '10%',
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: '#page3',
+          start: '70% center',
+          endTrigger: '#page4',
+          end: '10% center',
+          scrub: true,
+        },
+      }
+    );
 
 
 
