@@ -634,8 +634,8 @@ const updateSkills = () => {
           opacity: 0,
         },
         {
-          width: '60%',
-          height: '20%',
+          width: '70%',
+          height: '30%',
           opacity: 1,
           duration: 0.5,
           scrollTrigger: {
