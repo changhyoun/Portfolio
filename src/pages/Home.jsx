@@ -600,65 +600,63 @@ const updateSkills = () => {
     const mm = gsap.matchMedia();
 
     // 일반적인 애니메이션 설정
-mm.add("(min-width: 500px) and (orientation: landscape)", () => {
-  // 기존 애니메이션 제거
-  gsap.killTweensOf(page3Ref.current.querySelector('.page3_warp_profile'));
+    mm.add("(min-width: 500px) and (orientation: landscape) ", () => {
+      gsap.fromTo(
+        page3Ref.current.querySelector('.page3_warp_profile'),
+        {
+          width: 0,
+          height: 0,
+          opacity: 0,
+        },
+        {
+          width: '50%',
+          height: '70%',
+          opacity: 1,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: '#page3',
+            start: '50% center',
+            endTrigger: '#page4',
+            end: '10% center',
+            scrub: true,
+          },
+        }
+      );
+    });
+    
 
-  gsap.fromTo(
-    page3Ref.current.querySelector('.page3_warp_profile'),
-    {
-      width: 0,
-      height: 0,
-      opacity: 0,
-    },
-    {
-      width: '50%',
-      height: '70%',
-      opacity: 1,
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: '#page3',
-        start: '50% center',
-        endTrigger: '#page4',
-        end: '10% center',
-        scrub: true,
-      },
-    }
-  );
-});
-
-// 768px 이하의 포터블 세로 모드일 때 설정
-mm.add("(max-width: 1100px) and (orientation: portrait)", () => {
-  // 기존 애니메이션 제거
-  gsap.killTweensOf(page3Ref.current.querySelector('.page3_warp_profile'));
-
-  gsap.fromTo(
-    page3Ref.current.querySelector('.page3_warp_profile'),
-    {
-      width: 0,
-      height: 0,
-      opacity: 0,
-    },
-    {
-      width: '80%',
-      height: '30%',
-      opacity: 1,
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: '#page3',
-        start: '50% center',
-        endTrigger: '#page4',
-        end: '10% center',
-        scrub: true,
-        force3D: true, // 하드웨어 가속 강제
-        border: '3px solid red'
-      },
-      onComplete: () => {
-        console.log('애니메이션 완료: width와 height가 성공적으로 적용되었는지 확인하세요');
-      }
-    }
-  );
-});
+   
+    // 768px 이하의 포터블 세로 모드일 때 설정
+    mm.add("(max-width: 1100px)", () => {
+      gsap.fromTo(
+        page3Ref.current.querySelector('.page3_warp_profile'),
+        {
+          width: 0,
+          height: 0,
+          opacity: 0,
+        },
+        {
+          width: '80%',
+          height: '30%',
+          opacity: 1,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: '#page3',
+            start: '50% center',
+            endTrigger: '#page4',
+            end: '10% center',
+            scrub: true,
+            force3D: true, // 하드웨어 가속 강제,
+            border : '3px solid red'
+          },
+          onComplete: () => {
+            // page3Ref.current.querySelector('.page3_warp_profile').style.width = '80%';
+            // page3Ref.current.querySelector('.page3_warp_profile').style.height = '30%';
+            console.log('애니메이션 완료: width와 height가 성공적으로 적용되었는지 확인하세요');
+          }
+        }
+      );
+    });
 
     gsap.fromTo(
       page3Ref.current.querySelector('.page3_warp_profile'),
