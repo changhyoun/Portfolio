@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import './ProjectDetail.scss';
+import '../components/Responsive_projectDetail.scss'
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub

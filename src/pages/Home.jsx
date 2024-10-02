@@ -794,18 +794,19 @@ page11BoxRefs.current.forEach((box, index) => {
     gsap.to(window, { scrollTo: { y: 0, autoKill: true }, duration: 1, });
   };
   
-    // User Agent를 감지하는 함수
-  function isKakaoTalk() {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-    // User Agent에 "KAKAOTALK"라는 문자열이 포함되어 있으면 카카오톡 브라우저로 감지
-    return /KAKAOTALK/i.test(userAgent);
-  }
-
-  // 카카오톡에서 접속했는지 확인
-  if (isKakaoTalk()) {
-    alert("카카오톡을 통해 접속하셨네요.\n이 포트폴리오는 동적 요소와 화면 고정 기능을 포함하고 있어,\n보다 원활한 사용을 위해 크롬이나 사파리 같은 다른 브라우저에서 접속하시는 것을 권장드립니다.");
-  }
+  window.onload = function() {
+    function isKakaoTalk() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      // User Agent에 "KAKAOTALK"라는 문자열이 포함되어 있으면 카카오톡 브라우저로 감지
+      return /KAKAOTALK/i.test(userAgent);
+    }
+  
+    // 카카오톡에서 접속했는지 확인
+    if (isKakaoTalk()) {
+      alert("카카오톡으로 접속하셨습니다.\n이 포트폴리오는 동적 요소와 화면 고정 기능을 포함하고 있어,\n보다 원활한 사용을 위해 크롬이나 사파리 같은\n다른 브라우저에서 접속하시는 것을 권장드립니다.");
+    }
+  };
 
 
 
