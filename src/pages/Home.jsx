@@ -636,8 +636,8 @@ const updateSkills = () => {
           opacity: 0,
         },
         {
-          width: '80%',
-          height: '30%',
+          // width: '80%',
+          // height: '30%',
           opacity: 1,
           duration: 0.5,
           scrollTrigger: {
@@ -649,6 +649,10 @@ const updateSkills = () => {
             force3D: true, // 하드웨어 가속 강제,
             border : '3px solid red'
           },
+          onComplete: () => {
+            page3Ref.current.querySelector('.page3_warp_profile').style.width = '80%';
+            page3Ref.current.querySelector('.page3_warp_profile').style.height = '30%';
+          }
         }
       );
     });
