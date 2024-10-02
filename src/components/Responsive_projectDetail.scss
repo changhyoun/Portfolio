@@ -485,6 +485,8 @@
 // 아이폰 14프로맥스 기준 세로
 @media only screen and (max-width: 760px) and (orientation: portrait) {
   #ProjectDetail {
+    align-items: baseline;
+    margin-top: 5%;
     .ProjectDetail_warp {
       
       flex-direction: column-reverse;
