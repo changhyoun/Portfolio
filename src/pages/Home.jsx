@@ -651,31 +651,6 @@ const updateSkills = () => {
       );
     });
 
-     // 768px 이하의 포터블 세로 모드일 때 설정
-     mm.add("(max-width: 600px) and (orientation: portrait)", () => {
-      gsap.fromTo(
-        page3Ref.current.querySelector('.page3_warp_profile'),
-        {
-          width: 0,
-          height: 0,
-          opacity: 0,
-        },
-        {
-          width: '80%',
-          height: '30%',
-          opacity: 1,
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: '#page3',
-            start: '50% center',
-            endTrigger: '#page4',
-            end: '10% center',
-            scrub: true,
-          },
-        }
-      );
-    });
-
     gsap.fromTo(
       page3Ref.current.querySelector('.page3_warp_profile'),
       {
