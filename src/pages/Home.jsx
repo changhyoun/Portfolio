@@ -773,9 +773,7 @@ page11BoxRefs.current.forEach((box, index) => {
     window.open("https://github.com/changhyoun/Camfine", "_blank"); // 새 탭에서 열기
   };
 
-  const handleScrollTop = () => {
-    gsap.to(window, { scrollTo: { y: 0, autoKill: true }, duration: 1, });
-  };
+
 
   const toggleVisibility = () => {
     if (window.scrollY > 1) {
@@ -796,6 +794,10 @@ page11BoxRefs.current.forEach((box, index) => {
       window.removeEventListener('scroll', toggleVisibility);
     };
   }, []);
+
+  const handleScrollTop = () => {
+    gsap.to(window, { scrollTo: { y: 0, autoKill: true }, duration: 1, });
+  };
   
 
 
