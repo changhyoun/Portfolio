@@ -19,7 +19,7 @@ import '../components/Responsive_home.scss';
 import { faMobile } from '@fortawesome/free-solid-svg-icons';
 import Page11_inner_rt_box from '../components/Page11_inner_rt_box';
 import Page5_inner from '../components/Page5_inner';
-
+import Page3_warp_profile2 from '../components/Page3_warp_profile2';
 
 const skill_box = {
   Available_skill_tx: [
@@ -60,6 +60,7 @@ const Home = () => {
   const [secondHalfText, setSecondHalfText] = useState([]);
   const [thirdHalfText, setThirdHalfText] = useState([]);
   const [fourthHalfText, setFourthHalfText] = useState([]);
+  const [isPortrait, setIsPortrait] = useState(false);
 
   useEffect(() => {
 
@@ -118,6 +119,7 @@ const Home = () => {
     createProfileHoverAnimation(); // 프로필 이미지 호버 애니메이션 생성
     updateSkills();
     window.addEventListener('resize', updateSkills);
+    checkScreenMode();
     
 
     // Canvas를 사용하여 이미지 렌더링
@@ -650,6 +652,9 @@ const updateSkills = () => {
             force3D: true, // 하드웨어 가속 강제,
             border : '3px solid red'
           },
+          onComplete: () => {
+            console.log('애니메이션 완료: width와 height가 성공적으로 적용되었는지 확인하세요');
+          }
         }
       );
     });
@@ -779,6 +784,11 @@ page11BoxRefs.current.forEach((box, index) => {
       setIsVisible(false);
     }
   };
+     // 화면 크기와 방향을 감지하는 함수
+     const checkScreenMode = () => {
+      const isPortraitMode = window.matchMedia('(max-width: 768px) and (orientation: portrait)').matches;
+      setIsPortrait(isPortraitMode);
+    };
 
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
@@ -934,32 +944,38 @@ page11BoxRefs.current.forEach((box, index) => {
           항상 혁신을 지향하며 지속적인 성장을 추구하고 있습니다.
           </p>
         </div>
-          <div 
-            data-repetition-ease="power1.inOut"
-            data-repetition-duration="0.5"
-            data-repetition
-            data-repetition-elems="5"
-            data-repetition-initial-scale="1.05"
-            data-repetition-stagger="-0.15"
-            className="page3_warp_profile image image--style-1"
-            ref={profileRef}
-            alt="se"
-          >
-            <div className="page3_warp_profile_ic_box">
-                <Link to={"https://github.com/changhyoun"} target='_blank'>
-                  <img src={github_white_ic} alt="github_white_ic" />
-                </Link>
-                <Link to={"https://www.instagram.com/chhy02_14?igsh=MWRxYThreTRxNG52bQ%3D%3D&utm_source=qr"} target='_blank'>
-                  <img src={insta_white_ic} alt="insta_white_ic" />
-                </Link>
-                <Link to={"https://www.notion.so/6681cf5058ad47d88a218527c6df4dc8"} target='_blank'>
-                  <img src={notion_white_ic} alt="notion_white_ic" />
-                </Link>
-            </div>
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="image__element" style={{ backgroundImage: `url(${se})` }} />
-            ))}
-          </div>
+        {
+  isPortrait ? (
+    <Page3_warp_profile2 />
+  ) : (
+    <div
+      data-repetition-ease="power1.inOut"
+      data-repetition-duration="0.5"
+      data-repetition
+      data-repetition-elems="5"
+      data-repetition-initial-scale="1.05"
+      data-repetition-stagger="-0.15"
+      className="page3_warp_profile image image--style-1"
+      ref={profileRef}
+      alt="se"
+    >
+      <div className="page3_warp_profile_ic_box">
+        <Link to={"https://github.com/changhyoun"} target="_blank">
+          <img src={github_white_ic} alt="github_white_ic" />
+        </Link>
+        <Link to={"https://www.instagram.com/chhy02_14?igsh=MWRxYThreTRxNG52bQ%3D%3D&utm_source=qr"} target="_blank">
+          <img src={insta_white_ic} alt="insta_white_ic" />
+        </Link>
+        <Link to={"https://www.notion.so/6681cf5058ad47d88a218527c6df4dc8"} target="_blank">
+          <img src={notion_white_ic} alt="notion_white_ic" />
+        </Link>
+      </div>
+      {[...Array(5)].map((_, i) => (
+        <div key={i} className="image__element" style={{ backgroundImage: `url(${se})` }} />
+      ))}
+    </div>
+  )
+}
           <div className="page3_swiper_tx_box">
       <h2>
         I am{' '}
