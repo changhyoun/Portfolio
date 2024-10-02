@@ -646,7 +646,8 @@ const updateSkills = () => {
             endTrigger: '#page4',
             end: '10% center',
             scrub: true,
-            force3D: true // 하드웨어 가속 강제
+            force3D: true, // 하드웨어 가속 강제,
+            border : '3px solid red'
           },
         }
       );
