@@ -5,6 +5,9 @@ export {logo}
 // 메인 뒷 배경 비디오
 import Home_main_back from "../assets/Home_main_back.mp4"
 export {Home_main_back}
+// 메인 뒷 배경 비디오 안나올시 이미지
+import Home_main_back_poster from "../assets/Home_main_back_poster.png"
+export {Home_main_back_poster}
 
 import Home_main_back2 from "../assets/Home_main_back2.mp4"
 export {Home_main_back2}
