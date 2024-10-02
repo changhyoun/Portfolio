@@ -2423,6 +2423,7 @@
           }
         }
         .page3_warp_profile{
+          will-change: width, height, opacity;
           position: static;
           max-width: 275px;
           max-height: 223px;
@@ -3047,6 +3048,7 @@
           }
         }
         .page3_warp_profile{
+          will-change: width, height, opacity;
           position: static;
           max-width: 275px;
           max-height: 223px;
