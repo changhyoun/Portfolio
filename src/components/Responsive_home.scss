@@ -2327,7 +2327,7 @@
   }
 }
 // 아이폰 14프로맥스 기준 세로
-@media only screen and (max-width: 768px) and (orientation: portrait) {
+@media only screen and (max-width: 760px) and (orientation: portrait) {
   .m_br{
     display: block;
   }
@@ -2440,7 +2440,7 @@
           > .page3_warp_profile_ic_box{
             position: relative;
             top: 5%;
-            right: 5%;
+            right: 2%;
             width: 80%;
             height: auto;
             z-index: 11;
@@ -3073,6 +3073,10 @@
           max-width: 275px;
           max-height: 223px;
           border-top: 2px solid darkorange ;
+        }
+        .page3_warp_profile2{
+          max-width: 192px;
+          max-height: 156px;
         }
 
         .page3_swiper_tx_box {

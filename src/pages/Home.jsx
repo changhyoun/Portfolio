@@ -786,7 +786,7 @@ page11BoxRefs.current.forEach((box, index) => {
   };
      // 화면 크기와 방향을 감지하는 함수
      const checkScreenMode = () => {
-      const isPortraitMode = window.matchMedia('(max-width: 768px) and (orientation: portrait)').matches;
+      const isPortraitMode = window.matchMedia('(max-width: 760px) and (orientation: portrait)').matches;
       setIsPortrait(isPortraitMode);
     };
 
