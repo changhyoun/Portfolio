@@ -486,11 +486,11 @@
 @media only screen and (max-width: 760px) and (orientation: portrait) {
   #ProjectDetail {
     align-items: baseline;
-    margin-top: 5%;
     .ProjectDetail_warp {
       height: 85% !important;
       flex-direction: column-reverse;
       width: 90%;
+      margin-top: 5%;
       > div:nth-of-type(2){
         width: 95%;
         height: 81% !important;
