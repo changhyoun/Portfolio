@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 import { gsap } from 'gsap';
 import './NotFound.scss';
 import '../components/Responsive_notFound.scss';
-import '../components/Responsive_home.scss';
 import { error_404_ic } from '../components/Image';
 import { Link } from 'react-router-dom';
 
