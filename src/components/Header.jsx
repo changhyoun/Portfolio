@@ -51,7 +51,7 @@ const Header = () => {
   };
 
   const handleLogoClick = () => {
-    navigate('/');  // 로고 클릭 시 네비게이션
+    navigate('/');
   };
 
   return (

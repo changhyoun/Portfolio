@@ -71,18 +71,14 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-    
       transform-origin: center;
       align-items: center;
       justify-content: center;
-    
       padding: 0.5rem 0.5rem;
       background-color: transparent;
-    
       border: none;
       border-radius: var(--border_radius);
       transform: scale(calc(1 + (var(--active, 0) * 0.1)));
-    
       transition: transform var(--transtion);
      
     }
@@ -102,7 +98,6 @@
       box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
         0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
         0 0 0 calc(var(--active, 0) * 0.375rem) hsl(260 97% 50% / 0.75);
-    
       transition: all var(--transtion);
       z-index: 0;
     }
@@ -125,32 +120,26 @@
         radial-gradient(at 100% 100%, hsla(266, 36%, 60%, 1) 0px, transparent 50%),
         radial-gradient(at 22% 91%, hsla(266, 36%, 60%, 1) 0px, transparent 50%);
       background-position: top;
-    
       opacity: var(--active, 0);
       border-radius: var(--border_radius);
       transition: opacity var(--transtion);
       z-index: 2;
     }
     
-  
     .button:active {
       transform: scale(1);
     }
     
     .button .dots_border {
       --size_border: calc(100% + 4px);
-    
       overflow: hidden;
-    
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-    
       width: var(--size_border);
       height: var(--size_border);
       background-color: transparent;
-    
       border-radius: var(--border_radius);
       z-index: -10;
     }
@@ -163,11 +152,9 @@
       transform: translate(-50%, -50%);
       transform-origin: left;
       transform: rotate(0deg);
-    
       width: 100%;
       height: 2rem;
       background-color: white;
-    
       mask: linear-gradient(transparent 0%, white 120%);
       animation: rotate 2s linear infinite;
     }
@@ -181,16 +168,13 @@
     .button .sparkle {
       position: relative;
       z-index: 10;
-    
       width: 1.75rem;
     }
     
     .button .sparkle .path {
       fill: currentColor;
       stroke: currentColor;
-    
       transform-origin: center;
-    
       color: hsl(0, 0%, 100%);
     }
     
@@ -287,33 +271,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     .main_tx_box {
       position: absolute;
       bottom: 5%;
       left: 10%;
       color: #f5f5f5;
-      height: auto; /* 높이 자동 조정 */
+      height: auto;
       width: auto;
-
       h2 {
         font-family: 'Parabole';
         font-size: 2.2rem;
         margin-bottom: 0.5rem; /* 아래 여백 추가 */
-        color: #ffffff; /* 텍스트 색상 유지 */
+        color: #ffffff; 
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
       }
     
       p {
         font-family: 'AppleNeoEB';
         font-size: 0.8rem;
-        color: #cecece; /* 텍스트 색상 조정 */
+        color: #cecece;
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
       }
     }
     
-    
-
     video {
       width: 100%;
       object-fit: cover;
@@ -346,7 +326,7 @@
         font-family: 'Parabole';
         text-align: center;
         transform: rotate(20deg); /* 초기 회전값 설정 */
-        transition: transform 0.3s ease; /* 회전 애니메이션을 부드럽게 전환 */
+        transition: transform 0.3s ease;
       }
 
       .main_large_cir,
@@ -395,10 +375,7 @@
         }
       }
     }
-    
-
   }
-
 
   #page2 {
     width: 100%;
@@ -458,17 +435,16 @@
         top: 10%;
         left: 10%;
         p {
-          display: block; /* p 요소는 블록 요소로 유지 */
-          text-align: left; /* 텍스트 왼쪽 정렬 */
-          white-space: normal; /* 줄 바꿈을 허용 */         
+          display: block;
+          text-align: left;
+          white-space: normal;    
         }
         span {
           color: #f5f5f5;
           text-align: left;
-          display: inline-block; /* span 요소를 인라인 블록으로 설정 */
+          display: inline-block;
           white-space: pre-wrap; /* 줄 바꿈이 정상적으로 표시되도록 설정 */
-          position: relative; /* 애니메이션을 위해 상대 위치 지정 */
-
+          position: relative; 
           font-size: 1em;
           z-index: 10;
           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
@@ -477,9 +453,7 @@
           span{
             font-size: 1.5em;
             font-family: 'Parabole';
-            
           }
-   
         }
         p:nth-of-type(2){
           margin-top: 6%;
@@ -494,26 +468,23 @@
                 padding: 0.5% 1%;
                 margin: 0.5% 1%;
                 border-radius: 10px;
-                
               }
             }
           }
         }
       }
       
-
-    
       .page3_warp_profile{
         background: url(../assets/se.jpg);
-        width: 0; /* 초기 너비 */
-        height: 0; /* 초기 높이 */
-        opacity: 0; /* 초기 투명도 */
+        width: 0;
+        height: 0;
+        opacity: 0; 
         transform-origin: center center;
         object-fit: cover;
         border-radius: 30px;
         margin: 1% 0;
         filter: grayscale(0.5);
-        transition: all 0.5s ease; /* 애니메이션 부드럽게 전환 */
+        transition: all 0.5s ease;
         position: absolute;
         bottom: 0;
         right: 0;
@@ -564,7 +535,7 @@
           background-size: cover;
           background-position: center;
           border-radius: 30px;
-          transition: transform 0.25s ease, opacity 0.25s ease; // 애니메이션 전환
+          transition: transform 0.25s ease, opacity 0.25s ease;
           box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
           
         }
@@ -585,12 +556,9 @@
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
         height: 10%;
         display: flex;
-        
-        
         width: calc(auto + 6%);
         width: 40%;
         overflow: hidden;
-     
         h2{
           display: flex;
           align-items: center;
@@ -605,20 +573,16 @@
           padding: 0 6%;
           margin: 0 3%;
           display: flex;
-          
           .swiper-container{
-            
             .swiper-notification{
               display: none;
             }
-            
               .swiper-slide{
                 width: auto;
                 display: flex;
                 align-items: center;
                 justify-content: center;
               }
-              
           }
         }
         .page3_swiper_btn{
@@ -653,7 +617,6 @@
                 transform: translate(-100%, 0%) !important;
               }
             }
-          
           }
         }
       &:hover{
@@ -662,7 +625,6 @@
             transition: transform 0.3s ease-in-out;
             transform: translate(25%, 0) !important;
           }
-    
           span:nth-of-type(2) {
             transition: transform 0.3s ease-in-out 0.1s;
             transform: translate(200%, 0%) !important;
@@ -699,7 +661,6 @@
         height: 60%;
         display: flex;
         justify-content: space-between;
-        
         > div:nth-of-type(1){
           width: calc(65% - 20px);
           height: 100%;
@@ -725,7 +686,6 @@
               align-items: center;
               justify-content: center;
               cursor: none;
-      
               .rotate_tx_box{
                 position: absolute;
                 top: 50%;
@@ -780,8 +740,6 @@
                 justify-content: space-between;
                 color: white;
                 text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-                
-                
                 > div:nth-of-type(1){
                   height: 50%;
                   width: 100%;
@@ -822,7 +780,6 @@
               align-items: center;
               justify-content: center;
               cursor: none;
-              
               .box_inner{
                 width: 90%;
                 height: 90%;
@@ -852,7 +809,6 @@
                   justify-content: end;
                   font-family: 'Parabole';
                   text-align: right;
-                  
                   h3{
                     font-size: 2em;
                     font-weight: 400;
@@ -876,7 +832,6 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          
           > div{
             width: calc(100% - 30px);
             height: calc(100% - 30px);
@@ -928,9 +883,7 @@
                   left: 0;
                   width: 100%;
                   height: 100%;
-            
                   path {
-                    
                     stroke-width: 80;
                     stroke-linecap: round;
                   }
@@ -1053,7 +1006,6 @@
               width: 100%;
               height: 100%;
             }
-            
             .page5_bt_lt_txbox{
               color: #333;
               font-family: 'AppleNeoSB';
@@ -1063,7 +1015,6 @@
               padding: 6.5px;
               text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
               cursor: grab;
-              
               svg{
                 margin-left: 3px;
                 font-size: 0.65em;
@@ -1163,7 +1114,6 @@
                   img{
                     height: 25px;
                     object-fit: cover;
-                    
                   }
                   h3{
                     font-size: 1.2em;
@@ -1215,7 +1165,6 @@
                   img{
                     height: 25px;
                     object-fit: cover;
-                    
                   }
                   h3{
                     font-size: 1.2em;
@@ -1275,7 +1224,6 @@
       border: 1px solid #ffffff;
       z-index: 2;
     }
-    
     .cursor-circle {
       position: absolute;
       width: 100px;
@@ -1288,7 +1236,6 @@
       z-index: 9999;
       border: 1px solid red;
     }
-   
   }
   #page6{
     width: 100%;
@@ -1337,7 +1284,6 @@
               z-index: $i;
             }
           }
-        
           &::before {
             content: "";
             position: absolute;
@@ -1348,7 +1294,6 @@
             background-color: #00000059;
             z-index: 12;
           }
-        
           &:hover::before {
             width: 100%;
             height: 100%;
@@ -1405,7 +1350,6 @@
             }
           }
         }
-        
       }
     }
   }
@@ -1512,11 +1456,11 @@
                   &::before{
                     content: '';
                     position: absolute;
-                    left: -13px; /* 원 위치 조정 */
+                    left: -13px;
                     top: 0%;
                     width: 10px;
                     height: 10px;
-                    background-color: white; /* 원 배경색 */
+                    background-color: white;
                     border-radius: 50%;
                     z-index: 2;
                   }
@@ -1527,7 +1471,7 @@
                     top: 0;
                     width: 2px;
                     height: 210%;
-                    background-color: white; /* 세로선 색상 */
+                    background-color: white;
                     z-index: 0;
                     border-radius: 20px;
                   }
@@ -1586,7 +1530,6 @@
         height: 70%;
         display: flex;
         flex-direction: column;
-      
         .swiper-container2{
           width: 100%;
           height: 100%;
@@ -1594,7 +1537,6 @@
           .swiper-wrapper{
             width: 100%;
             height: 100%;
-            
             .swiper-slide{
               width: 100%;
               height: 100%;
@@ -1645,14 +1587,10 @@
           .swiper-button-next2{
             display: inline-block;
             margin-left: 15px;
-          }
-         
-        }
-        
+          } 
+        } 
       }
-    
     }
-
   }
   #page11{
     width: 100%;
@@ -1821,7 +1759,7 @@
                     color: transparent;
                     background: linear-gradient(90deg, #a0abff 0%, #676ea3 100%);
                     background-clip: text;
-                    -webkit-background-clip: text; /* Safari를 위한 추가 */
+                    -webkit-background-clip: text;
                   }
                 }
                 p{
@@ -1857,7 +1795,6 @@
                         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
                         left: 2%;
                       }
-
                       input{
                         width: calc(100% - 50px);
                         padding: 0 10px 0 40px;
@@ -1888,7 +1825,6 @@
                           color: #d3d3d3;
                         }
                       }
-                      
                     }
                     > div:nth-of-type(3){
                       width: 100%;
@@ -1941,7 +1877,6 @@
                       display: none;
                     }
                   }
-                 
                   button{
                     width: 100%;
                     height: 16%;
@@ -1965,11 +1900,9 @@
                       margin-left: 5px;
                     }
                   }
-               
                 }
                 
               }
-           
             }
           }
         }
@@ -1986,7 +1919,6 @@
         z-index: 0;
         box-shadow: 0px 0px 20px #262958;
       }
-      
     }
   }
   #page12{
@@ -2008,5 +1940,4 @@
       }
     }
   }
-
 }

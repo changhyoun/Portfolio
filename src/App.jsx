@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Loading from './pages/Loading';
-import NotFound from './pages/NotFound'; // 404 페이지 컴포넌트 가져오기
+import NotFound from './pages/NotFound';
 import './App.css';
 
 // 각 페이지를 lazy 로딩으로 불러오기
@@ -10,7 +10,7 @@ const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 function App() {
   return (
-    <Router basename="/Portfolio">
+    <Router>
       <div className="App">
         {/* Suspense로 페이지 로딩 시 로딩 화면 표시 */}
         <Suspense fallback={<Loading />}>

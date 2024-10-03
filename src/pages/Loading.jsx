@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
-import './Loading.scss'; // SCSS 파일을 임포트
+import './Loading.scss'; 
 
-gsap.registerPlugin(TextPlugin);  // TextPlugin 등록
+gsap.registerPlugin(TextPlugin);
 
 const Loading = () => {
   useEffect(() => {

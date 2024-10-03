@@ -13,10 +13,9 @@ const Page5_bt_lt_inner_tx = () => {
   const [elements, setElements] = useState([]);
   const containerRef = useRef(null);
   const contentRef = useRef(null);
-  const engineRef = useRef(null);  // engine을 한 번만 생성하도록 저장할 ref
-  const renderRef = useRef(null);  // render도 한 번만 생성되도록 저장할 ref
+  const engineRef = useRef(null);
+  const renderRef = useRef(null);
 
-  // 다양한 JSX 요소들을 처리하는 useEffect
   useEffect(() => {
     const createElements = () => {
       const newElements = [

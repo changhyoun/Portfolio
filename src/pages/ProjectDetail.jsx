@@ -4,11 +4,10 @@ import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import './ProjectDetail.scss';
 import '../components/Responsive_projectDetail.scss'
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub
-} from "@fortawesome/free-brands-svg-icons";  // faReact는 free-brands-svg-icons에서 가져와야 합니다.
+} from "@fortawesome/free-brands-svg-icons";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -187,8 +186,6 @@ function ProjectDetail() {
  
 
   useEffect(() => {
-   
-    
       // h2와 p 태그에 텍스트 초기화 후 GSAP 실행
       gsap.killTweensOf(ProjectDetail_warp_center_sc1_h2Ref.current);
       gsap.killTweensOf(ProjectDetail_warp_center_sc1_pRef.current);
@@ -234,12 +231,7 @@ function ProjectDetail() {
           );
         }
       };
-  
       applyTextAnimation();
-    
-
-
- 
 
     const utils = {
       distance: function (p0, p1) {
@@ -310,16 +302,13 @@ function ProjectDetail() {
         if (dist < 100) {
           dotSize = baseDotSize + (hoverDotSizeMultiplier * (100 - dist) / 100);
         }
-  
         context.fillStyle = "#333";
         context.save();
         context.translate(vectorStock[i].getX(), vectorStock[i].getY());
-  
         // 원 그리기
         context.beginPath();
         context.arc(0, 0, dotSize, 0, 2 * Math.PI);
         context.fill();
-  
         context.restore();
       }
       requestAnimationFrame(update);
@@ -342,7 +331,7 @@ function ProjectDetail() {
             <div className={`ProjectDetail_warp_center content_box ${currentProject.id}-scroll`}>
               <div className="ProjectDetail_warp_center_inner">
                 <div className="ProjectDetail_warp_center_sc1">
-                  <canvas id="canvas"></canvas> {/* 캔버스 추가 */}
+                  <canvas id="canvas"></canvas>
                   <img src={currentProject.logo} alt={`${currentProject.name} Logo`} className="ProjectDetail_logo" />
                   <div className="ProjectDetail_warp_center_sc1_tx">
                     <h2 ref={ProjectDetail_warp_center_sc1_h2Ref}></h2>
@@ -364,8 +353,8 @@ function ProjectDetail() {
                     slidesPerView={currentProject.slidesPerView}
                     modules={[Navigation, Pagination]}
                     navigation={{
-                      nextEl: `.swiper-button-next`, // 고유 next 버튼 클래스 설정
-                      prevEl: `.swiper-button-prev`, // 고유 prev 버튼 클래스 설정
+                      nextEl: `.swiper-button-next`, //
+                      prevEl: `.swiper-button-prev`, //
                     }}
                     pagination={{ clickable: true, el: `.pagination-${currentProject.id} .pagination` }} // 고유 pagination 설정
                   >
@@ -419,14 +408,14 @@ function ProjectDetail() {
                       </SwiperSlide>
                     ))}
                   <div className={`pagination-wrapper pagination-${currentProject.id}`}>
-                    <div className="pagination"></div> {/* Swiper의 페이지네이션 위치 */}
+                    <div className="pagination"></div>
                   </div>
                   <div className="swiper-button-prev">
                     <span className="material-symbols-rounded">
                       swipe_left
                     </span>
                   </div>
-                  {/* 기본 prev 버튼 */}
+              
                   <div className="swiper-button-next">
                     <span className="material-symbols-rounded">
                       swipe_right

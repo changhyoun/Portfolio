@@ -139,7 +139,6 @@
         border-radius: 20px;
       }
 
-      
       & > div{
         width: 90%;
         height: 90%;
@@ -212,7 +211,6 @@
             transform: translateY(100%);
           }
         }
-        // & > div:nth-of-type(2) 
         .sc2_single-swiper{
           margin: 5% 0 3% 0;
           position: relative;
@@ -266,15 +264,11 @@
                 &:first-child{
                   margin-left: 0px;
                 }
-                
               }
               .swiper-pagination-bullet-active{
-                width: 16px;
-                
-              }
-              
+                width: 16px;      
+              } 
             }
-            
           }
         }
         .sc2_multiple-swiper{
@@ -307,7 +301,6 @@
                   filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.25));
                 }
               }
-             
             }
             .pagination-wrapper{
               width: 100%;
@@ -318,7 +311,6 @@
               .pagination{
                 width: auto;
                 height: 30%;
-                
                 display: flex;
                 justify-content: space-between;
                 background-color: #FAFAFA;
@@ -336,13 +328,10 @@
                   &:first-child{
                     margin-left: 0px;
                   }
-                  
                 }
                 .swiper-pagination-bullet-active{
                   width: 16px;
-                  
                 }
-                
               }
             }
           }
@@ -353,7 +342,6 @@
           width: 100%;
           height: 500px;
           position: relative;
-
           font-family: 'Parabole';
           padding-top: 4%;
           &::before{
@@ -428,10 +416,7 @@
                     transform: translate(-50%,-50%);
                     transition: all 0.3s ease;
                   }
-                  
                 }
-              
-                
               }
               &:hover div:nth-of-type(1) span:nth-of-type(1){
                 left: 100%;
@@ -458,7 +443,6 @@
               width: auto;
               height: auto;
               display: flex;
-
               flex-wrap: wrap;
               & > div{
                 width: 100px;
@@ -493,7 +477,6 @@
                     justify-content: center;
                   }
                 }
-                
               }
             }
             .ProjectDetail_warp_center_sc3_tx_5_box{
@@ -505,16 +488,13 @@
             }
           }
         }
-        
       }
     }
     
-
     > div:nth-of-type(3){
      display: flex;
      justify-content: space-between;
      flex-direction: column;
-     
      .github_btn{
       width: 100%;
       aspect-ratio: 1;
@@ -555,7 +535,6 @@
 #ProjectDetail .ProjectDetail_warp > div:nth-of-type(2) > div  .sc2_single-swiper .swiper .pagination-samsung .pagination .swiper-pagination-bullet-active{
   background: #003d98 !important ;
 }
-
 #ProjectDetail .swiper-button-next, #ProjectDetail .swiper-button-prev{
   top: 40%;
   span{
@@ -590,8 +569,6 @@
 .samsung-scroll .swiper-button-next, .samsung-scroll .swiper-button-prev{
   color: #003d98;
 }
-
-
 #ProjectDetail .swiper-button-prev{
   left: 5%;
 }

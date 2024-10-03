@@ -3,8 +3,12 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { gsap } from 'gsap';
 import './NotFound.scss';
+import '../components/Responsive_notFound.scss';
+import '../components/Responsive_home.scss';
 import { error_404_ic } from '../components/Image';
 import { Link } from 'react-router-dom';
+
+
 
 const NotFound = () => {
   useEffect(() => {
@@ -76,12 +80,10 @@ const NotFound = () => {
             <p>페이지가 없는거같네요.</p>
             <Link to={"/"}>
               <button>
-
                   Go Home
                   <span className="material-symbols-rounded">
                     chevron_right
                   </span>
-
               </button>
             </Link>
           </div>

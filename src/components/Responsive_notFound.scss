@@ -1,0 +1,406 @@
+// 노트북 1.25배
+@media (max-width: 1600px) {
+    #NotFound{
+      overflow: hidden;
+      > .NotFound_inner{
+        ul li{
+          font-size: 4em;
+        }
+        .NotFound_txbox{
+          img{
+            height: 150px;
+          }
+          p{
+            font-size: 1em;
+          }
+          a button{
+            font-size: 1em;
+          }
+        } 
+        
+      } 
+    }
+    // 푸터
+    #Footer {
+    > div {
+      > div:nth-of-type(1) {
+        > div {
+          h2 {
+            font-size: 1.5em;
+          }
+        
+          ul li a {
+            font-size: 1.5em;
+          }
+        
+          &:nth-of-type(1) p {
+            font-size: 1em;
+          }
+        }
+      }
+    
+      > div:nth-of-type(2) {
+        h1 {
+          font-size: 18em;
+        }
+      }
+    }
+  }
+  }
+  
+// 아이패드 미니 및 아이폰 14 가로
+@media only screen and (max-width: 1100px) and (orientation: landscape) {
+  #NotFound{
+    overflow: hidden;
+    > .NotFound_inner{
+      ul li{
+        font-size: 2.5em;
+      }
+      .NotFound_txbox{
+        img{
+          height: 100px;
+        }
+        p{
+          font-size: 0.85em;
+        }
+        a button{
+          font-size: 0.85em;
+        }
+      } 
+      
+    } 
+  }
+   // 푸터
+   #Footer {
+    height: 400px;
+    > div {
+      > div:nth-of-type(1) {
+        > div {
+          h2 {
+            font-size: 1.2em;
+          }
+        
+          ul li a {
+            font-size: 1.2em;
+          }
+        
+          &:nth-of-type(1) p {
+            font-size: 1em;
+          }
+        }
+      }
+    
+      > div:nth-of-type(2) {
+        h1 {
+          font-size: 13em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+  #NotFound{
+    overflow: hidden;
+    > .NotFound_inner{
+      ul li{
+        font-size: 2em;
+      }
+      .NotFound_txbox{
+        img{
+          height: 80px;
+        }
+        p{
+          font-size: 0.85em;
+        }
+        a button{
+          font-size: 0.85em;
+        }
+      } 
+      
+    } 
+  }
+   // 푸터
+   #Footer {
+    height: 400px;
+    > div {
+      > div:nth-of-type(1) {
+        > div {
+          h2 {
+            font-size: 1.2em;
+          }
+        
+          ul li a {
+            font-size: 1.2em;
+          }
+        
+          &:nth-of-type(1) p {
+            font-size: 1em;
+          }
+        }
+      }
+    
+      > div:nth-of-type(2) {
+        h1 {
+          font-size: 13em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) and (orientation: landscape) {
+  #Header{
+    height: 30px;
+    > div .input_box{
+      input{
+        width: 200px;
+        margin-left: 5%;
+        font-size: 0.65em;
+      }
+      span{
+        margin-right: 0;
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  #NotFound{
+    overflow: hidden;
+    > .NotFound_inner{
+      ul li{
+        font-size: 2em;
+      }
+      .NotFound_txbox{
+        img{
+          height: 70px;
+        }
+        p{
+          font-size: 0.7em;
+        }
+        a button{
+          font-size: 0.7em;
+        }
+      } 
+    } 
+  }
+
+  // 푸터
+  #Footer {
+    height: 400px;
+    > div {
+      > div:nth-of-type(1) {
+        > div {
+          h2 {
+            font-size: 1em;
+          }
+        
+          ul li a {
+            font-size: 1em;
+          }
+        
+          &:nth-of-type(1) p {
+            font-size: 1em;
+          }
+          &:nth-of-type(2) p{
+            font-size: 0.9em;
+          }
+        }
+      }
+      
+      > div:nth-of-type(2) {
+        h1 {
+          font-size: 9em;
+          bottom: -50%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) and (orientation: portrait) {
+  
+  #NotFound{
+    overflow: hidden;
+    > .NotFound_inner{
+      ul li{
+        font-size: 2.5em;
+      }
+      .NotFound_txbox{
+        img{
+          height: 150px;
+        }
+        p{
+          font-size: 1em;
+        }
+        a button{
+          font-size: 1em;
+        }
+      } 
+      
+    } 
+  }
+  
+    // 푸터
+    #Footer {
+      > div {
+        > div:nth-of-type(1) {
+          > div {
+            h2 {
+              font-size: 1.5em;
+            }
+          
+            ul li a {
+              font-size: 1.5em;
+            }
+          
+            &:nth-of-type(1) p {
+              font-size: 1em;
+            }
+          }
+        }
+      
+        > div:nth-of-type(2) {
+          h1 {
+            bottom: -20%;
+            font-size: 11em;
+          }
+        }
+      }
+    }
+}
+// 아이폰 14프로맥스 기준 세로
+@media only screen and (max-width: 760px) and (orientation: portrait) {
+  #Header{
+    width: 100vw;
+    > div .input_box input{
+      width: 180px !important;
+    }
+  }
+
+  #NotFound{
+    overflow: hidden;
+    > .NotFound_inner{
+      ul li{
+        font-size: 1.3em;
+      }
+      .NotFound_txbox{
+        border-radius: 20px;
+        img{
+          height: 120px;
+        }
+        p{
+          font-size: 0.7em;
+        }
+        a button{
+          font-size: 0.7em;
+          padding: 12% 30%;
+        }
+      } 
+      
+    } 
+  }
+
+   // 푸터
+   #Footer {
+    > div {
+      > div:nth-of-type(1) {
+        flex-direction: column;
+        > div {
+          width: 100%;
+          h2 {
+            font-size: 1em;
+            
+          }
+        
+          ul li a {
+            font-size: 1em;
+          }
+        
+          &:nth-of-type(1) p {
+            font-size: 1em;
+          }
+        }
+      }
+    
+      > div:nth-of-type(2) {
+        h1 {
+          bottom: 22%;
+          font-size: 5.5em;
+        }
+      }
+    }
+  }
+}
+
+// 아이폰 se 기준  세로
+@media only screen and (max-width: 400px) and (orientation: portrait) {
+  #Header{
+    height: 35px;
+    width: 100vw;
+    > div .input_box{
+      input{
+        width: 160px !important;
+        font-size: 0.6em;
+      }
+      span{
+        font-size: 1em;
+      }
+    } 
+  }
+
+  #NotFound{
+    overflow: hidden;
+    > .NotFound_inner{
+      ul li{
+        font-size: 1.1em;
+      }
+      .NotFound_txbox{
+        padding: 5% 10%;
+        border-radius: 20px;
+        img{
+          height: 80px;
+        }
+        p{
+          font-size: 0.7em;
+        }
+        a button{
+          font-size: 0.7em;
+          padding: 12% 30%;
+        }
+      } 
+      
+    } 
+  }
+
+    // 푸터
+    #Footer {
+      > div {
+        > div:nth-of-type(1) {
+          flex-direction: column;
+          > div {
+            width: 100%;
+            h2 {
+              font-size: 1em;
+              
+            }
+          
+            ul li a {
+              font-size: 1em;
+            }
+          
+            &:nth-of-type(1) p {
+              font-size: 1em;
+            }
+          }
+        }
+      
+        > div:nth-of-type(2) {
+          h1 {
+            bottom: 22%;
+            font-size: 5.5em;
+          }
+        }
+      }
+    }
+}

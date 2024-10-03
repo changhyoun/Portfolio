@@ -14,7 +14,6 @@ const Page5_inner = () => {
     cursor.classList.add('cursor-circle');
     document.body.appendChild(cursor);
 
-    // 모든 .page5_inner .box에 이벤트 리스너 추가
     const boxes = document.querySelectorAll('.page5_inner .box:not(.ani)');
 
     boxes.forEach((box) => {

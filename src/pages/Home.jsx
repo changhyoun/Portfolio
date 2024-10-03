@@ -45,7 +45,7 @@ const Home = () => {
   const page3Ref = useRef(null);
   const page3TextRef = useRef(null);
   const canvasRef = useRef(null);
-  const profileRef = useRef(null); // page3_warp_profile 요소의 참조
+  const profileRef = useRef(null);
   const textRef = useRef(null);
   const page5Ref = useRef(null);
   const page7Ref = useRef(null);
@@ -64,7 +64,7 @@ const Home = () => {
 
   useEffect(() => {
 
-     // User Agent를 감지하는 함수
+   // User Agent를 감지하는 함수
   function isKakaoTalk() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -98,7 +98,7 @@ const Home = () => {
           prevEl: '.swiper-button-prev2',
         },
         autoplay: {
-          delay: 5000,  // 3초마다 슬라이드 전환
+          delay: 5000,
           disableOnInteraction: false,  // 상호작용해도 자동 재생이 멈추지 않음
         },
         effect: 'coverflow',
@@ -129,7 +129,7 @@ const Home = () => {
     animateDownBoxText();
     splitTextAndAnimate();
     splitTextIntoSpans();
-    createProfileHoverAnimation(); // 프로필 이미지 호버 애니메이션 생성
+    createProfileHoverAnimation();
     updateSkills();
     window.addEventListener('resize', updateSkills);
     checkScreenMode();
@@ -228,7 +228,7 @@ const Home = () => {
   };
 
   const initializeScrollTrigger = () => {
-    // Section 1 fixed scrolling
+    // 메인 픽스드
     ScrollTrigger.create({
       trigger: mainRef.current,
       start: 'top+=1 top',
@@ -242,7 +242,7 @@ const Home = () => {
       onLeaveBack: () => gsap.set(mainRef.current, { position: 'relative', clearProps: 'top' }),
     });
 
-    // Section 3 fixed scrolling
+    // 페이지3 픽스드
     ScrollTrigger.create({
       trigger: '#page3',
       start: 'top top',
@@ -255,7 +255,7 @@ const Home = () => {
       onEnterBack: () => gsap.set('#page3', { position: 'fixed', top: 0 }),
       onLeaveBack: () => gsap.set('#page3', { position: 'relative' }),
     });
-     // Section5 fixed scrolling
+    // 페이지5 픽스드
   ScrollTrigger.create({
     trigger: '#page5',
     start: 'top top',
@@ -268,7 +268,7 @@ const Home = () => {
     onEnterBack: () => gsap.set(page5Ref.current, { position: 'fixed', top: 0 }),
     onLeaveBack: () => gsap.set(page5Ref.current, { position: 'relative', clearProps: 'top' }),
   });
-  // Section7 fixed scrolling
+  // 페이지7 픽스드
   ScrollTrigger.create({
     trigger: '#page7',
     start: 'top top',
@@ -393,12 +393,7 @@ const Home = () => {
       }
     }
   });
-  
-  
   };
-
- 
-
 
   const animateHeaders = () => {
     h2Refs.current.forEach((h2) => {
@@ -638,8 +633,6 @@ const updateSkills = () => {
       );
     });
     
-
-   
     // 768px 이하의 포터블 세로 모드일 때 설정
     mm.add("(max-width: 1100px) and (orientation: portrait)", () => {
       gsap.fromTo(
@@ -725,7 +718,7 @@ gsap.to(
     duration: 2,
     ease: "none",
     scrollTrigger: {
-      trigger: '#page6',  // 애니메이션이 시작될 페이지의 트리거
+      trigger: '#page6',
       start: '10% center',
       end: '70% center',  
       scrub: true,  // 스크롤에 따라 애니메이션이 천천히 실행됨
@@ -743,7 +736,7 @@ page9BoxRefs.current.forEach((box, index) => {
     {
       opacity: 1,
       y: 0,
-      delay: index * 0.5, // 각 박스마다 0.3초의 딜레이 추가
+      delay: index * 0.5, // 각 박스마다 0.5초의 딜레이 추가
       duration: 0.8,
       scrollTrigger: {
         trigger: box, // 각 박스를 트리거로 설정
@@ -764,24 +757,21 @@ page11BoxRefs.current.forEach((box, index) => {
     {
       opacity: 1,
       y: 0,
-      delay: index * 0.5, // 각 박스마다 0.3초의 딜레이 추가
+      delay: index * 0.5, // 각 박스마다 0.5초의 딜레이 추가
       duration: 0.8,
       scrollTrigger: {
-        trigger: box, // 각 박스를 트리거로 설정
+        trigger: box,
         start: 'top 80%',
         toggleActions: 'play none none none',
       },
     }
   );
 });
-
   };
 
   const camfineGit = () => {
     window.open("https://github.com/changhyoun/Camfine", "_blank"); // 새 탭에서 열기
   };
-
-
 
   const toggleVisibility = () => {
     if (window.scrollY > 1) {
@@ -809,14 +799,12 @@ page11BoxRefs.current.forEach((box, index) => {
   
   return (
     <div id="Home">
-      {/* SVG 필터 추가 */}
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ display: 'none' }}>
         <filter id="pixelate">
           <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="5" />
           <feDisplacementMap in="SourceGraphic" scale="40" />
         </filter>
       </svg>
-
       <Header />
       <div className="scrollDown" ref={scrollDownRef}>
         <button className="button" ref={buttonRef} style={{ display: 'none' }}>
@@ -875,8 +863,6 @@ page11BoxRefs.current.forEach((box, index) => {
         </span>
       </div>
 
-
-
       <main id="main" ref={mainRef}>
         <video src={Home_main_back} poster={Home_main_back_poster}
           autoPlay muted playsInline loop 
@@ -924,7 +910,6 @@ page11BoxRefs.current.forEach((box, index) => {
 
       <section id="page2"></section>
       <section id="page3" ref={page3Ref}>
-        {/* Canvas Element for Image */}
         <div className="canvas-wrap">
           <canvas ref={canvasRef}/>
         </div>
@@ -986,7 +971,6 @@ page11BoxRefs.current.forEach((box, index) => {
       <h2>
         I am{' '}
         <span>
-          {/* Swiper 슬라이더 추가 */}
           <div className="swiper-container">
             <div className="swiper-wrapper">
               <div className="swiper-slide">Front-end Developer</div>
@@ -1005,10 +989,12 @@ page11BoxRefs.current.forEach((box, index) => {
     </div>
         </div>
       </section>
+      {/* 여백용 */}
       <div id="page4"></div>
       <div id="page5" ref={page5Ref}>
         <Page5_inner/>
       </div>
+      {/* 여백용 */}
       <div id="page6">
 
       </div>
@@ -1108,6 +1094,7 @@ page11BoxRefs.current.forEach((box, index) => {
           </div>
         </div>
       </div>
+      {/* 여백용 */}
       <div id="page8">
 
       </div>
@@ -1202,7 +1189,6 @@ page11BoxRefs.current.forEach((box, index) => {
                         <li>
                         캘리그라피 1급
                         </li>
-                        
                     </ul>
                 </div>
               </div>
@@ -1218,10 +1204,8 @@ page11BoxRefs.current.forEach((box, index) => {
             <h3>Availablea Skills <bdo>사용가능한 스킬</bdo></h3>
           </div>
          <div className="page10_bt">
-            {/* Swiper 컨테이너 */}
             <div className="swiper-container2">
               <div className="swiper-wrapper">
-                {/* Swiper 슬라이드 */}
                 <div className="swiper-slide">
                   {/* 첫 번째 skills_row */}
                   <div className="skills_row">
@@ -1263,7 +1247,6 @@ page11BoxRefs.current.forEach((box, index) => {
                   </div>
                 </div>
               </div>
-            
             </div>
                   
               {/* Swiper 내비게이션 버튼 */}
@@ -1280,7 +1263,6 @@ page11BoxRefs.current.forEach((box, index) => {
                 </div>
               </div>
           </div>
-          
         </div>
       </div>
       <div id="page11">
@@ -1335,7 +1317,6 @@ page11BoxRefs.current.forEach((box, index) => {
                   </div>
                 </div>
               </div>
-              
             </div>
             <div className="page11_inner_rt" ref={(el) => (page11BoxRefs.current[1] = el)}>
                 <Page11_inner_rt_box/>
@@ -1343,7 +1324,7 @@ page11BoxRefs.current.forEach((box, index) => {
           </div>
         </div>
       </div>
-      {/* qr 코드 div */}
+      {/* qr 코드*/}
       <div id="page12">
         <div className="page12_inner">
           <img src={number_qr} alt="number_qr" />
@@ -1353,5 +1334,5 @@ page11BoxRefs.current.forEach((box, index) => {
     </div>
   );
 };
-// 테스트
+
 export default Home;
