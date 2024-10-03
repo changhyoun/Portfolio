@@ -10,7 +10,7 @@ const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 function App() {
   return (
-    <Router>
+    <Router basename="/">
       <div className="App">
         {/* Suspense로 페이지 로딩 시 로딩 화면 표시 */}
         <Suspense fallback={<Loading />}>
