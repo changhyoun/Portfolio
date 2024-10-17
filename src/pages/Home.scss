@@ -1511,14 +1511,17 @@
             font-size: 1rem;
           }
         }
-        p{
+        a{
           color: white;
-          font-family: "Bangers", system-ui;
-          font-size: 2em;
+          font-size: 1.5em;
+          font-weight: bold;
           display: flex;
           white-space: nowrap;
           align-items: center;
           margin-top: 1.5%;
+          background: linear-gradient(54deg, #909090, #fff, #909090);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
           span{
             margin-left: 15px;
             font-size: 1em;

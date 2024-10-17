@@ -218,6 +218,9 @@
               font-size: 0.8rem;
             }
           }
+          a{
+            font-size: 1.2em;
+          }
         }
       
         > div > div:nth-of-type(2) {
@@ -652,6 +655,9 @@
               bdo {
                 font-size: 0.7rem;
               }
+            }
+            a{
+              font-size: 1.1em;
             }
           }
         
@@ -1112,6 +1118,9 @@
           bdo {
             font-size: 0.7rem;
           }
+        }
+        a{
+          font-size: 1em;
         }
       }
     
@@ -1596,6 +1605,9 @@
           bdo {
             font-size: 0.7rem;
           }
+        }
+        a{
+          font-size: 0.9em;
         }
       }
     
@@ -2112,6 +2124,9 @@
           bdo {
             font-size: 0.8rem;
           }
+        }
+        a{
+          font-size: 1.2em;
         }
       }
     
@@ -2736,12 +2751,17 @@
     // 페이지 10
     #page10 {
       > div > div:nth-of-type(1) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
         h3 {
           font-size: 1.5em;
-    
           bdo {
             font-size: 0.8rem;
           }
+        }
+        a{
+          font-size: 1.1em;
         }
       }
     
@@ -3359,10 +3379,13 @@
       > div > div:nth-of-type(1) {
         h3 {
           font-size: 1.5em;
-    
+          margin-bottom: 3%;
           bdo {
             font-size: 0.8rem;
           }
+        }
+        a{
+          font-size: 1em;
         }
       }
     

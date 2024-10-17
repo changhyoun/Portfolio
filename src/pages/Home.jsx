@@ -1202,6 +1202,7 @@ page11BoxRefs.current.forEach((box, index) => {
         <div className="page10_warp">
           <div className="page10_t">
             <h3>Availablea Skills <bdo>사용가능한 스킬</bdo></h3>
+            <Link to={"https://www.notion.so/Design_Practice-121473aedb5b8054b2aee244836c8707"} target='_blank'>View design showcase ↠</Link>
           </div>
          <div className="page10_bt">
             <div className="swiper-container2">
