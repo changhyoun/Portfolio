@@ -1116,8 +1116,10 @@ page11BoxRefs.current.forEach((box, index) => {
                         <li>달뜨리몬당, 소치빌리지<br/>
                         펜션 홈페이지 제작<br/>
                         (퍼블리싱)</li>
-                        <li>모바일 강의실 제작<br/>
+                        <li>에듀사이버 모바일 강의실 제작<br/>
                         (디자인, 퍼블리싱)</li>
+                        <li>비긴코퍼레이션 리뉴얼<br/>홈페이지 제작 <a style={{color : 'white'}} href='https://begin2.imweb.me/' target='_blank'>(https://begin2.imweb.me)</a></li>
+                        <li>비긴코퍼레이션 인스타<br/>게시물,스토리 제작</li>
                         <li>그 외 기타.</li>
                     </ul>
                 </div>
@@ -1136,7 +1138,11 @@ page11BoxRefs.current.forEach((box, index) => {
                     <ul className="timeline">
                         <li>
                           에듀사이버 평생교육원<br/>
-                          ( 2023.11 ~ 2024.02 )
+                          {/* ( 2023.11 ~ 2024.02 ) */}
+                        </li>
+                        <li>
+                          비긴코퍼레이션<br/>
+                          {/* ( 2023.11 ~ 2024.02 ) */}
                         </li>
                     </ul>
                 </div>
