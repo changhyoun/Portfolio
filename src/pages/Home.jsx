@@ -990,15 +990,15 @@ page11BoxRefs.current.forEach((box, index) => {
         </div>
       </section>
       {/* 여백용 */}
-      <div id="page4"></div>
-      <div id="page5" ref={page5Ref}>
+      <section id="page4"></section>
+      <section id="page5" ref={page5Ref}>
         <Page5_inner/>
-      </div>
+      </section>
       {/* 여백용 */}
-      <div id="page6">
+      <section id="page6">
 
-      </div>
-      <div id="page7" ref={page7Ref}>
+      </section>
+      <section id="page7" ref={page7Ref}>
         <div className="page7_inner">
           <div className="page7_procject_sum">
             <Link to="/project/camfine" state={{ ProjectDetail_bg: camfine_sum }}>
@@ -1093,12 +1093,12 @@ page11BoxRefs.current.forEach((box, index) => {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
       {/* 여백용 */}
-      <div id="page8">
+      <section id="page8">
 
-      </div>
-      <div id="page9">
+      </section>
+      <section id="page9">
         <div className="page9_inner">
           <img src={page9_back} alt="page9_back" />
           <div className="page9_in">
@@ -1197,8 +1197,8 @@ page11BoxRefs.current.forEach((box, index) => {
          
         </div>
           
-      </div>
-      <div id="page10">
+      </section>
+      <section id="page10">
         <div className="page10_warp">
           <div className="page10_t">
             <h3>Availablea Skills <bdo>사용가능한 스킬</bdo></h3>
@@ -1265,8 +1265,8 @@ page11BoxRefs.current.forEach((box, index) => {
               </div>
           </div>
         </div>
-      </div>
-      <div id="page11">
+      </section>
+      <section id="page11">
         <div className="page11_inner">
           <img src={page11_back} alt="page11_back" />
           <div className="page11_in">
@@ -1324,13 +1324,13 @@ page11BoxRefs.current.forEach((box, index) => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
       {/* qr 코드*/}
-      <div id="page12">
+      <section id="page12">
         <div className="page12_inner">
           <img src={number_qr} alt="number_qr" />
         </div>
-      </div>
+      </section>
       <Footer/>
     </div>
   );
