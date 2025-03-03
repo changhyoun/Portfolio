@@ -33,9 +33,13 @@ import {
   // Camfine 프로젝트 이미지
   camfine_sum,
   camfine_mock1, camfine_mock2, camfine_mock3, camfine_mock4, camfine_mock5, camfine_mock6, camfine_mock7, camfine_mock8, 
+
+  // innogrid 프로젝트 이미지
+  inno_moc1,inno_moc2,inno_moc3,
   
   // 스킬 아이콘
-  html_ic,figma_ic,illust_ic,photoshop_ic,scss_ic,react_ic,javaScript_ic,css_ic
+  html_ic,figma_ic,illust_ic,photoshop_ic,scss_ic,react_ic,javaScript_ic,css_ic,
+  pr_dt_logo6
 } from '../components/Image';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -147,10 +151,29 @@ const projects = [
     skill_ic : [figma_ic,html_ic,css_ic,javaScript_ic],
     skill_tx : ['figma','html','css','javaScript',],
     ProjectDetail_warp_center_sc3_tx_5_box_tx :
-    `해당 프로젝트는 기존 삼성전기(Samsung Electro-Mechanics')<br/>
+    `해당 프로젝트는 기존 삼성전기(Samsung Electro-Mechanics)<br/>
     홈페이지를 클론 코딩하여, 반응형 웹 디자인을 적용하여<br/>
     다양한 화면 크기에서도 잘 동작하도록 구현했습니다. `,
     github_url : 'https://github.com/changhyoun/SamsungElectro-Mechanics'
+  },
+  { 
+    id: 'innogrid', 
+    name: 'Innogrid', 
+    logo: pr_dt_logo6, 
+    ProjectDetail_warp_center_sc1_h2: 'INNOGRID', 
+    ProjectDetail_warp_center_sc1_p: '이노그리드.', 
+    slidesPerView: 1,
+    images: [inno_moc1, inno_moc2, inno_moc3,],  
+    ProjectDetail_warp_center_sc3_tx_1_box_inner : 'https://changhyoun.github.io/<br/>INNOGRID',
+    ProjectDetail_warp_center_sc3_tx_2_box_inner : "이노그리드 홈페이지 클론 코딩 ( 모바일 제작 중 )",
+    ProjectDetail_warp_center_sc3_tx_3_box_inner : "PC, 모바일 웹",
+    skill_ic : [figma_ic,html_ic,scss_ic,javaScript_ic,react_ic],
+    skill_tx : ['html','scss','javaScript','react'],
+    ProjectDetail_warp_center_sc3_tx_5_box_tx :
+    `해당 프로젝트는 기존 이노그리드(INNOGRID)<br/>
+    홈페이지를 클론 코딩하여, 반응형 웹 디자인을 적용하여<br/>
+    다양한 화면 크기에서도 잘 동작하도록 구현했습니다. `,
+    github_url : 'https://github.com/changhyoun/INNOGRID'
   },
 ];
 
@@ -379,6 +402,16 @@ function ProjectDetail() {
                     ))}
                   
                     {currentProject.id === 'sandbox' && currentProject.images.slice(1, 8).map((image, index) => (
+                      <SwiperSlide key={index} className={
+                          currentProject.slidesPerView === 1 
+                            ? 'swiper-slide-custom single-slide' 
+                            : 'swiper-slide-custom multiple-slide'
+                        }>
+                        <img src={image} alt={`${currentProject.name} Slide ${index + 2}`} />
+                      </SwiperSlide>
+                    ))}
+
+                    {currentProject.id === 'innogrid' && currentProject.images.slice(0, 5).map((image, index) => (
                       <SwiperSlide key={index} className={
                           currentProject.slidesPerView === 1 
                             ? 'swiper-slide-custom single-slide' 

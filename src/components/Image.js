@@ -49,6 +49,11 @@ export {
   export { 
     default as samsung_sum_hori 
   } from "../assets/samsung_sum_hori.jpg";
+  export { 
+    default as inno_sum 
+  } from "../assets/inno_sum.jpg";
+
+
 
   
 
@@ -68,6 +73,9 @@ export {
   export { 
     default as cam_logo_white 
   } from "../assets/cam_logo_white.svg";
+  export { 
+    default as inno_logo_white
+  } from "../assets/inno_logo_w.svg";
 
 // 프로젝트 로테이딩 circle
 import rotate_txt from "../assets/rotate_txt.svg"
@@ -93,6 +101,10 @@ export {
 export { 
   default as pr_dt_logo5
 } from "../assets/pr_dt_logo5.png";
+export { 
+  default as pr_dt_logo6
+} from "../assets/pr_dt_logo6.svg";
+
 
 // 프로젝트 목업 
 
@@ -220,6 +232,17 @@ export {
 export {
   default as sand_moc7
 } from "../assets/sand_moc/sand_moc7.jpg";
+
+// 프로젝트 목업 - INO
+export {
+  default as inno_moc1
+} from "../assets/inno_moc/inno_moc1.jpg";
+export {
+  default as inno_moc2
+} from "../assets/inno_moc/inno_moc2.png";
+export {
+  default as inno_moc3
+} from "../assets/inno_moc/inno_moc3.png";
 
 
 // 스킬 아이콘

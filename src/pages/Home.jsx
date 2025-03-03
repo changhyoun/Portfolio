@@ -1,5 +1,5 @@
 import React, { useEffect, useRef,useState } from 'react';
-import { Home_main_back,Home_main_back_poster, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic,page9_back,photoshop_ic,illust_ic,indesign_ic,powerpoint_ic,excel_ic,xd_ic,figma_ic,html_ic,css_ic,scss_ic,tailwind_ic,bootstrap_ic,javaScript_ic,jquery_ic,vue_ic,react_ic,page11_back,number_qr } from '../components/Image';
+import { Home_main_back,Home_main_back_poster, Home_main_back2, se, insta_white_ic, notion_white_ic, github_white_ic, camfine_sum, move_sum, match_sum, samsung_sum,samsung_sum_hori, sandbox_sum, move_logo_white, cam_logo_white, sam_logo_white, match_logo_white, sandbox_logo_white, rotate_txt,grab_ic,page9_back,photoshop_ic,illust_ic,indesign_ic,powerpoint_ic,excel_ic,xd_ic,figma_ic,html_ic,css_ic,scss_ic,tailwind_ic,bootstrap_ic,javaScript_ic,jquery_ic,vue_ic,react_ic,page11_back,number_qr,inno_logo_white, inno_sum } from '../components/Image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { gsap } from 'gsap';
@@ -307,8 +307,8 @@ const Home = () => {
       const progress = self.progress; // 0 ~ 1 사이의 스크롤 진행 비율
       const direction = self.direction; // 스크롤 방향 감지 (1: 아래로, -1: 위로)
   
-      // 0.2 ~ 0.4 구간에서는 2번째 div 애니메이션
-      if (progress >= 0.2 && progress < 0.4) {
+      
+      if (progress >= 0.15 && progress < 0.3) {
         gsap.to("#Home #page7 > div > div:nth-of-type(2)", {
           top: direction === 1 ? 0 : '100%', // 아래로 스크롤하면 위에서 아래로, 위로 스크롤하면 아래에서 위로
           width: '100%',
@@ -319,8 +319,8 @@ const Home = () => {
         });
       }
   
-      // 0.4 ~ 0.6 구간에서는 3번째 div 애니메이션
-      else if (progress >= 0.4 && progress < 0.6) {
+      
+      else if (progress >= 0.3 && progress < 0.45) {
         gsap.to("#Home #page7 > div > div:nth-of-type(3)", {
           top: direction === 1 ? 0 : '100%', // 스크롤 방향에 따라 위아래로 이동
           width: '100%',
@@ -331,8 +331,8 @@ const Home = () => {
         });
       }
   
-      // 0.6 ~ 0.8 구간에서는 4번째 div 애니메이션
-      else if (progress >= 0.6 && progress < 0.8) {
+      
+      else if (progress >= 0.45 && progress < 0.6) {
         gsap.to("#Home #page7 > div > div:nth-of-type(4)", {
           top: direction === 1 ? 0 : '100%', // 스크롤 방향에 따라 이동
           width: '100%',
@@ -343,8 +343,8 @@ const Home = () => {
         });
       }
   
-      // 0.8 ~ 1 구간에서는 5번째 div 애니메이션
-      else if (progress >= 0.8 && progress <= 1) {
+      
+      else if (progress >= 0.6 && progress <= 0.8) {
         gsap.to("#Home #page7 > div > div:nth-of-type(5)", {
           top: direction === 1 ? 0 : '100%', // 스크롤 방향에 따라 이동
           width: '100%',
@@ -354,9 +354,21 @@ const Home = () => {
           ease: "power2.out"
         });
       }
+
+      
+      else if (progress >= 0.8 && progress <= 1) {
+        gsap.to("#Home #page7 > div > div:nth-of-type(6)", {
+          top: direction === 1 ? 0 : '100%', // 스크롤 방향에 따라 이동
+          width: '100%',
+          height: '100%',
+          zIndex: 14,
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      }
   
       // 스크롤이 역방향으로 올라갈 때의 z-index 및 애니메이션 초기화
-      if (progress < 0.2) {
+      if (progress < 0.15) {
         gsap.set("#Home #page7 > div > div:nth-of-type(2)", {
           zIndex: 1, // 초기화
           top: '100%', // 다시 아래로 이동
@@ -365,7 +377,7 @@ const Home = () => {
         });
       }
   
-      if (progress < 0.4) {
+      if (progress < 0.3) {
         gsap.set("#Home #page7 > div > div:nth-of-type(3)", {
           zIndex: 2, // 초기화
           top: '100%', // 다시 아래로 이동
@@ -374,7 +386,7 @@ const Home = () => {
         });
       }
   
-      if (progress < 0.6) {
+      if (progress < 0.45) {
         gsap.set("#Home #page7 > div > div:nth-of-type(4)", {
           zIndex: 3, // 초기화
           top: '100%', // 다시 아래로 이동
@@ -383,9 +395,17 @@ const Home = () => {
         });
       }
   
-      if (progress < 0.8) {
+      if (progress < 0.6) {
         gsap.set("#Home #page7 > div > div:nth-of-type(5)", {
           zIndex: 4, // 초기화
+          top: '100%', // 다시 아래로 이동
+          width: 0,
+          height: 0
+        });
+      }
+      if (progress < 0.8) {
+        gsap.set("#Home #page7 > div > div:nth-of-type(6)", {
+          zIndex: 5, // 초기화
           top: '100%', // 다시 아래로 이동
           width: 0,
           height: 0
@@ -1036,6 +1056,7 @@ page11BoxRefs.current.forEach((box, index) => {
                 </div>
             </Link>
           </div>
+          
           <div className="page7 procject_sum">
             <Link to="/project/sandbox" state={{ ProjectDetail_bg: sandbox_sum }}>
               <img src={sandbox_sum} alt="sandbox_sum" />
@@ -1054,6 +1075,7 @@ page11BoxRefs.current.forEach((box, index) => {
               </div>
             </Link>
           </div>
+          
           <div className="page7 procject_sum">
             <Link to="/project/move" state={{ ProjectDetail_bg: move_sum }}>
               <img src={move_sum} alt="move_sum" />
@@ -1090,6 +1112,25 @@ page11BoxRefs.current.forEach((box, index) => {
                 </span>
                 <article>이미지를 선택해 프로젝트를 살펴보세요.</article>
               </div>
+            </Link>
+          </div>
+
+          <div className="page7 procject_sum">
+            <Link to="/project/innogrid" state={{ ProjectDetail_bg: inno_sum }}>
+              <img src={inno_sum} alt="inno_sum" />
+              <div className="page7_procjec_sum_inner">
+                <img src={inno_logo_white} alt="inno_logo_white" />
+                  <h3>
+                    Platform.
+                  </h3>
+                  <p>
+                    Web, mobile web
+                  </p>
+                  <span onClick={camfineGit}>
+                    <img className='project_github' src={github_white_ic} alt="github_white_ic" />
+                  </span>
+                  <article>이미지를 선택해 프로젝트를 살펴보세요.</article>
+                </div>
             </Link>
           </div>
         </div>
